@@ -48,6 +48,8 @@ class phpbb_ext_blog_includes_blog
 
 	/**
 	* Constructor method for blog post class
+	*
+	* @param int $id (optional) Unique identifier for this Blog Post
 	*/
 	public function __construct($id = 0)
 	{
@@ -71,7 +73,7 @@ class phpbb_ext_blog_includes_blog
 	/**
 	* Set the Blog ID
 	*
-	* @param int $id Unique identifier
+	* @param int $id Unique identifier for this Blog Post
 	* @return current object instance
 	*/
 	public function setId($id = 0)
