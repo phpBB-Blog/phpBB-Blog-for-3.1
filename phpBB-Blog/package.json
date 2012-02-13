@@ -1,0 +1,37 @@
+{
+    "name": "phpbb-blog/phpbb-blog",
+    "type": "phpbb3-extension",
+    "description": "This adds integrated blog functionality to your forum.",
+    "homepage": "http://www.github.com/phpBB-Blog/phpBB-Blog-for-3.1/",
+    "version": "1.0.0",
+    "time": "2012-02-15",
+    "licence": "GPLv2",
+    "authors": [
+        {
+            "name": "Unknown Bliss",
+            "email": "m@michaelcullum.com",
+            "homepage": "http://www.michaelcullum.com",
+            "type": "Current Developer"
+        },
+        {
+            "name": "imkingdavid",
+            "email": "imkingdavid@gmail.com",
+            "homepage": "http://www.thedavidking.com/",
+            "type": "Current Developer"
+        },
+        {
+            "name": "Erik F.",
+            "email": "erikfrerejean@phpbb.com",
+            "homepage": "http://www.phpbb.com",
+            "type": "Current Developer"
+        }
+    },
+    "require": {
+        "php": ">=5.3",
+        "phpbb": ">=3.1.0"
+    },
+    "extra": {
+        "display-name": "phpBB Blog",
+        "author-notes": ""
+    }
+}
