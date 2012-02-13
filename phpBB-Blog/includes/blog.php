@@ -74,7 +74,7 @@ class phpbb_ext_blog_includes_blog
 	* Set the Blog ID
 	*
 	* @param int $id Unique identifier for this Blog Post
-	* @return current object instance
+	* @return phpbb_ext_blog_includes_blog Current object instance
 	*/
 	public function setId($id = 0)
 	{
@@ -85,7 +85,7 @@ class phpbb_ext_blog_includes_blog
 	/**
 	* Retrieve array of data for a blog post
 	*
-	* @return current object instance
+	* @return phpbb_ext_blog_includes_blog Current object instance
 	*/
 	public function pull()
 	{
@@ -110,7 +110,7 @@ class phpbb_ext_blog_includes_blog
 	/**
 	* Push the data to the DB, either insert or update depending on if $id is present
 	*
-	* @return current object instance
+	* @return phpbb_ext_blog_includes_blog Current object instance
 	*/
 	public function push()
 	{
@@ -148,6 +148,8 @@ class phpbb_ext_blog_includes_blog
 
 	/**
 	* Get comments to this Blog Post
+	*
+	* @return phpbb_ext_blog_includes_blog Current object instance
 	*/
 	public function pullComments()
 	{
