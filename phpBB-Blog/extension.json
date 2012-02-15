@@ -9,18 +9,21 @@
     "authors": [
         {
             "name": "Unknown Bliss",
+			"r-name": "Michael Cullum",
             "email": "m@michaelcullum.com",
             "homepage": "http://www.michaelcullum.com",
             "type": "Current Developer"
         },
         {
             "name": "imkingdavid",
+			"r-name": "David King",
             "email": "imkingdavid@gmail.com",
             "homepage": "http://www.thedavidking.com/",
             "type": "Current Developer"
         },
         {
             "name": "Erik Frerejean",
+			"r-name": "Erik Frerejean",
             "email": "erikfrerejean@phpbb.com",
             "homepage": "http://www.phpbb.com",
             "type": "Current Developer"
