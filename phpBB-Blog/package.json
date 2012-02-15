@@ -1,9 +1,9 @@
 {
     "name": "phpbb-blog/phpbb-blog",
     "type": "phpbb3-extension",
-    "description": "This adds integrated blog functionality to your forum.",
+    "description": "This adds a integrated lighweight but powerful blog to your forum.",
     "homepage": "http://www.github.com/phpBB-Blog/phpBB-Blog-for-3.1/",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "time": "2012-02-15",
     "licence": "GPLv2",
     "authors": [
@@ -20,18 +20,17 @@
             "type": "Current Developer"
         },
         {
-            "name": "Erik F.",
+            "name": "Erik Frerejean",
             "email": "erikfrerejean@phpbb.com",
             "homepage": "http://www.phpbb.com",
             "type": "Current Developer"
         }
     },
     "require": {
-        "php": ">=5.3",
-        "phpbb": ">=3.1.0"
+        "phpbb": "3.1.0"
     },
     "extra": {
         "display-name": "phpBB Blog",
-        "author-notes": ""
+        "author-notes": "Feel free to donate, all donations will be split equally between the three co-developers. Link coming soon."
     }
 }
