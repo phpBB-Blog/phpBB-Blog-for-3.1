@@ -43,6 +43,7 @@ class phpbb_ext_blog_includes_blog
 	{
 		global $db, $template, $user, $config, $request;
 		global $phpbb_root_path, $phpEx;
+
 		$this->db = $db;
 		$this->template = $template;
 		$this->user = $user;
@@ -69,7 +70,7 @@ class phpbb_ext_blog_includes_blog
 		$sql = 'SELECT * FROM ' . BLOGS_TABLE . " WHERE blog_id = {$this->id}";
 		$result = $this->db->sql_query($sql);
 		$data = $this->db->sql_fetchrow($result);
-		$db->sql_freeresult($result);
+		$this->db->sql_freeresult($result);
 
 		$this->setData($data);
 
@@ -84,17 +85,17 @@ class phpbb_ext_blog_includes_blog
 		switch ($mode)
 		{
 			case 'UPDATE':
-				$sql = 'UPDATE ' . BLOGS_TABLE . ' SET ' . $this->db->sql_build_array($mode, $data) . " WHERE blog_id = {$this->id}";
+				$sql = 'UPDATE ' . BLOGS_TABLE . ' SET ' . $this->db->sql_build_array($mode, $sql_ary) . " WHERE blog_id = {$this->id}";
 			break;
 
 			case 'INSERT':
-				$sql = 'INSERT INTO ' . BLOGS_TABLE . ' ' $this->db->sql_build_array($mode, $data);
+				$sql = 'INSERT INTO ' . BLOGS_TABLE . ' ' . $this->db->sql_build_array($mode, $sql_ary);
 			break;
 
 			default:
 			break;
 		}
-		$db->sql_query($sql);
+		$this->db->sql_query($sql);
 
 		if ($mode == 'INSERT')
 		{
