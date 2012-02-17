@@ -28,7 +28,7 @@
             "homepage": "http://www.phpbb.com",
             "type": "Current Developer"
         }
-    },
+	],
     "require": {
         "phpbb": "3.1.0"
     },

@@ -12,32 +12,46 @@ class phpbb_ext_blog_controller implements phpbb_extension_controller_interface
 	/**
 	* @var phpBB User object
 	*/
-	private $user = null;
+	private $user;
 
 	/**
 	* @var phpBB DBAL object
 	*/
-	private $db = null;
+	private $db;
 
 	/**
 	* @var phpBB Template object
 	*/
-	private $template = null;
+	private $template;
 
 	/**
 	* @var phpBB Request object
 	*/
-	private $request = null;
+	private $request;
 
 	/**
 	* @var phpBB Root path
 	*/
-	private $phpbb_root_path = './';
+	private $phpbb_root_path;
 
 	/**
 	* @var PHP Extension
 	*/
-	private $phpEx = 'php';
+	private $phpEx;
+
+	public function __construct()
+	{
+		global $db, $template, $user, $config, $request;
+		global $phpbb_root_path, $phpEx;
+
+		$this->db				=& $db;
+		$this->template			=& $template;
+		$this->user				=& $user;
+		$this->config			=& $config;
+		$this->request			=& $request;
+		$this->phpbb_root_path	=& $phpbb_root_path;
+		$this->phpEx			=& $phpEx;
+	}
 
 	/**
 	* Extension front controller handler method
@@ -46,16 +60,6 @@ class phpbb_ext_blog_controller implements phpbb_extension_controller_interface
 	*/
 	public function handle()
 	{
-		global $db, $template, $user, $config, $request;
-		global $phpbb_root_path, $phpEx;
-		$this->db = $db;
-		$this->template = $template;
-		$this->user = $user;
-		$this->config = $config;
-		$this->request = $request;
-		$this->phpbb_root_path = $phpbb_root_path;
-		$this->phpEx = $phpEx;
-
 		// blog front page stuff
 		// @todo add language file
 		$this->user->add_lang_ext('blog', 'blog');
@@ -63,7 +67,7 @@ class phpbb_ext_blog_controller implements phpbb_extension_controller_interface
 		$this->template->assign_var('MESSAGE', $this->get_message());
 
 		// And the rest of this this goes at the end... basically just outputting the page.
-		$this->template->set_ext_dir_prefix($phpbb_root_path . 'ext/blog/');
+		$this->template->set_ext_dir_prefix($this->phpbb_root_path . 'ext/blog/');
 
 		// @todo make template files
 		$this->template->set_filenames(array(
