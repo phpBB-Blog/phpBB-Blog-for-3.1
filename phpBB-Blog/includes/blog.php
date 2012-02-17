@@ -6,12 +6,34 @@
 
 class phpbb_ext_blog_includes_blog
 {
-	private $db;
-	private $template;
+	/**
+	* @var phpBB User object
+	*/
 	private $user;
+
+	/**
+	* @var phpBB DBAL object
+	*/
+	private $db;
+
+	/**
+	* @var phpBB Template object
+	*/
+	private $template;
+
+	/**
+	* @var phpBB Request object
+	*/
 	private $request;
-	private $config;
+
+	/**
+	* @var phpBB Root path
+	*/
 	private $phpbb_root_path;
+
+	/**
+	* @var PHP Extension
+	*/
 	private $phpEx;
 	
 	private $id;
