@@ -44,13 +44,13 @@ class phpbb_ext_blog_includes_blog
 		global $db, $template, $user, $config, $request;
 		global $phpbb_root_path, $phpEx;
 
-		$this->db = $db;
-		$this->template = $template;
-		$this->user = $user;
-		$this->config = $config;
-		$this->request = $request;
-		$this->phpbb_root_path = $phpbb_root_path;
-		$this->phpEx = $phpEx;
+		$this->db				=& $db;
+		$this->template			=& $template;
+		$this->user				=& $user;
+		$this->config			=& $config;
+		$this->request			=& $request;
+		$this->phpbb_root_path	=& $phpbb_root_path;
+		$this->phpEx			=& $phpEx;
 
 		if ($id)
 		{
