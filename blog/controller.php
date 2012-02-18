@@ -64,7 +64,7 @@ class phpbb_ext_blog_controller implements phpbb_extension_controller_interface
 		// @todo add language file
 		$this->user->add_lang_ext('blog', 'blog');
 
-		$this->template->assign_var('MESSAGE', $this->get_message());
+		//$this->template->assign_var('MESSAGE', $this->get_message());
 
 		// And the rest of this this goes at the end... basically just outputting the page.
 		$this->template->set_ext_dir_prefix($this->phpbb_root_path . 'ext/blog/');
