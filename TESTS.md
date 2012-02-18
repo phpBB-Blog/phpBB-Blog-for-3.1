@@ -8,7 +8,7 @@ Copy `tests/_config.php` to `tests/config.php` and edit the options to match you
 
 ## Running
 Once the prerequisites are installed, run the tests from the project root directory (above `blog/`):
-	$ phpunit
+`	$ phpunit`
 
 ## More Information
 Further information is available on phpBB wiki:
