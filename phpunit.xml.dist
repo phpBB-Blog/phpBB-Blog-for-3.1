@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="true"
+		 backupStaticAttributes="true"
+		 colors="true"
+		 convertErrorsToExceptions="true"
+		 convertNoticesToExceptions="true"
+		 convertWarningsToExceptions="true"
+		 processIsolation="false"
+		 stopOnFailure="false"
+		 bootstrap="tests/bootstrap.php">
+	<testsuites>
+		<testsuite name="phpBB-Blog test suite">
+			<directory suffix="_test.php">tests</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist addUncoveredFilesFromWhitelist="true">
+			<directory>./blog/</directory>
+		</whitelist>
+	</filter>
+	<logging>
+		<log type="coverage-clover" target="logs/clover.xml" />
+		<log type="coverage-html"
+			title="phpBB-Blog code coverage"
+			target="logs/coverage"
+			charset="UTF-8"
+			yui="true"
+			highlight="false"
+			lowUpperBound="35"
+			highLowerBound="70" />
+	</logging>
+</phpunit>
