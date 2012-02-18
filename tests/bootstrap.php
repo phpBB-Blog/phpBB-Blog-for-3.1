@@ -18,3 +18,8 @@ define('IN_PHPBB', true);
 require $phpbb_root_path . 'includes/class_loader.php';
 $phpbb_class_loader = new phpbb_class_loader('phpbb_', $phpbb_root_path . 'includes/', ".$phpEx");
 $phpbb_class_loader->register();
+
+require($phpbb_root_path . 'includes/db/' . $dbms . '.' . $phpEx);
+$db = new $sql_db();
+$db->sql_connect($dbhost, $dbuser, $dbpasswd, $dbname, $dbport, false, defined('PHPBB_DB_NEW_LINK') ? PHPBB_DB_NEW_LINK : false);
+unset($dbpasswd);
