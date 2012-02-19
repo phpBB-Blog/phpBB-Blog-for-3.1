@@ -16,10 +16,13 @@ define('IN_PHPBB', true);
 
 // Load some phpBB dependencies we need for these tests
 require $phpbb_root_path . 'includes/class_loader.php';
-$phpbb_class_loader = new phpbb_class_loader('phpbb_', $phpbb_root_path . 'includes/', ".$phpEx");
+$phpbb_ext_class_loader = new phpbb_class_loader('phpbb_ext_', './', ".{$phpEx}");
+$phpbb_ext_class_loader->register();
+$phpbb_class_loader = new phpbb_class_loader('phpbb_', $phpbb_root_path . 'includes/', ".{$phpEx}");
 $phpbb_class_loader->register();
 
+require dirname(__FILE__) . './../blog/includes/constants.' . $phpEx;
+
+require 'DBTestCase.php';
+
 require($phpbb_root_path . 'includes/db/' . $dbms . '.' . $phpEx);
-$db = new $sql_db();
-$db->sql_connect($dbhost, $dbuser, $dbpasswd, $dbname, $dbport, false, defined('PHPBB_DB_NEW_LINK') ? PHPBB_DB_NEW_LINK : false);
-unset($dbpasswd);

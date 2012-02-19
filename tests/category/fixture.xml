@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<dataset>
+	<table name="phpbb_blog_categories">
+		<column>id</column>
+		<column>title</column>
+		<column>description</column>
+		<column>description_options</column>
+		<column>description_bitfield</column>
+		<column>description_uid</column>
+		<column>total_posts</column>
+		<column>last_post_id</column>
+		<row>
+			<value>1</value>
+			<value>Test category</value>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+		</row>
+	</table>
+</dataset>

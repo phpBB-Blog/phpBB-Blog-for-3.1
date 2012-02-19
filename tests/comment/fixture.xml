@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<dataset>
+	<table name="phpbb_blog_posts">
+		<column>id</column>
+		<column>category</column>
+		<column>title</column>
+		<column>post</column>
+		<column>poster_id</column>
+		<column>bbcode_options</column>
+		<column>bbcode_bitfield</column>
+		<column>bbcode_uid</column>
+		<column>ptime</column>
+		<column>post_read_count</column>
+		<column>post_last_edit_time</column>
+		<column>post_edit_count</column>
+		<column>post_comment_count</column>
+		<column>post_comment_lock</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>Test Post w Comments</value>
+			<value>An other test post with some comments attached to it</value>
+			<value>2</value>
+			<value>7</value>
+			<value></value>
+			<value></value>
+			<value>1329586000</value>
+			<value>6</value>
+			<value></value>
+			<value></value>
+			<value>2</value>
+			<value>0</value>
+		</row>
+	</table>
+	<table name="phpbb_blog_post_comments">
+		<column>id</column>
+		<column>post_id</column>
+		<column>comment</column>
+		<column>commenter_id</column>
+		<column>comment_options</column>
+		<column>comment_bitfield</column>
+		<column>comment_uid</column>
+		<column>ctime</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>First comment</value>
+			<value>2</value>
+			<value>7</value>
+			<value></value>
+			<value></value>
+			<value>1329586100</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1</value>
+			<value>Second comment</value>
+			<value>2</value>
+			<value>7</value>
+			<value></value>
+			<value></value>
+			<value>1329587108</value>
+		</row>
+	</table>
+</dataset>
