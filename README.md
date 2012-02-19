@@ -17,3 +17,8 @@ You can get involved by reporting bugs in the bug tracker (See Below) or provide
 ## Bug Tracker
 
 If you find a bug, please submit it to the [bug tracker](https://github.com/phpBB-Blog/phpBB-Blog-for-3.1/issues).
+
+## Tests and Continuous Intergration
+[![Build Status](https://secure.travis-ci.org/phpBB-Blog/phpBB-Blog-for-3.1.png?branch=master)](http://travis-ci.org/phpBB-Blog/phpBB-Blog-for-3.1)
+
+We use Travis-CI as a continous intergtation server and phpunit for our unit testing. See more information on the wiki.
