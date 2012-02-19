@@ -51,6 +51,10 @@ class phpbb_ext_blog_controller implements phpbb_extension_controller_interface
 		$this->request			=& $request;
 		$this->phpbb_root_path	=& $phpbb_root_path;
 		$this->phpEx			=& $phpEx;
+
+		// Include some files that *can not* be autoloaded
+		global $table_prefix; // *MUST* be here, for the include!
+		require dirname(__FILE__) . '/includes/constants.' . $phpEx;
 	}
 
 	/**
