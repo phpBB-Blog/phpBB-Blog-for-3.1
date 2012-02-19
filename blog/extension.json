@@ -12,28 +12,27 @@
             "username": "Unknown Bliss",
             "email": "m@michaelcullum.com",
             "homepage": "http://www.michaelcullum.com",
-            "type": "Current Developer"
+            "type": "Developer"
         },
         {
             "name": "David King",
             "username": "imkingdavid",
             "email": "imkingdavid@gmail.com",
             "homepage": "http://www.thedavidking.com/",
-            "type": "Current Developer"
+            "type": "Developer"
         },
         {
             "name": "Erik Frèrejean",
             "username": "Erik Frèrejean",
             "email": "erikfrerejean@phpbb.com",
             "homepage": "http://www.phpbb.com",
-            "type": "Current Developer"
+            "type": "Developer"
         }
     ],
     "require": {
         "phpbb": "3.1.0"
     },
     "extra": {
-        "display-name": "phpBB Blog",
-        "author-notes": "Feel free to donate, all donations will be split equally between the three co-developers. Link coming soon."
-    }
+        "display-name": "phpBB Blog"
+ }
 }
