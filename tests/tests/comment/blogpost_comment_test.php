@@ -1,15 +1,15 @@
 <?php
 
-class blogpost_comment_test extends DBTestCase
+class blogpost_comment_test extends blog_database_test_case
 {
 	protected function getDataSet()
 	{
-		return $this->createXMLDataSet(__DIR__ . '/fixture.xml');
+		return $this->createXMLDataSet(dirname(__FILE__) . '/fixture.xml');
 	}
 
 	public function test_initialise_with_data()
 	{
-		$db = $this->getDBAL();
+		$db = $this->new_dbal();
 
 		$comment = new phpbb_ext_blog_core_comment($db, 1);
 
@@ -21,7 +21,7 @@ class blogpost_comment_test extends DBTestCase
 	 */
 	public function test_get_comments()
 	{
-		$db = $this->getDBAL();
+		$db = $this->new_dbal();
 
 		// Grep the comments
 		$bp = new phpbb_ext_blog_core_post($db, 1);

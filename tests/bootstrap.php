@@ -1,28 +1,45 @@
 <?php
 /**
- *
- * @package phpBB-Blog-Tests
- * @copyright (c) 2012 phpBB-Blog
- * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
- *
- */
+*
+* @package testing
+* @copyright (c) 2008 phpBB Group
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+*
+*/
 
-// Fetch the tests config
-require 'config.php';
-
-// Assure nothing breaks
-$phpEx = 'php';
 define('IN_PHPBB', true);
+$phpbb_root_path = dirname(__FILE__) . '/vendor/phpBB/phpBB/';
+$phpbb_tests_path = dirname(__FILE__) . '/vendor/phpBB/tests/';
+$phpEx = 'php';
 
-// Load some phpBB dependencies we need for these tests
-require $phpbb_root_path . 'includes/class_loader.php';
-$phpbb_ext_class_loader = new phpbb_class_loader('phpbb_ext_', './', ".{$phpEx}");
-$phpbb_ext_class_loader->register();
-$phpbb_class_loader = new phpbb_class_loader('phpbb_', $phpbb_root_path . 'includes/', ".{$phpEx}");
+$table_prefix = (!defined('table_prefix')) ? 'phpbb_' : table_prefix;
+
+if (!defined('dbms'))
+{
+	define('dbms', 'sqlite');
+	define('dbhost', dirname(__FILE__) . '/unit_tests.sqlite2'); // filename
+	define('dbuser', '');
+	define('dbpasswd', '');
+	define('dbname', '');
+	define('dbport', '');
+	define('table_prefix', '');
+}
+$dbms = dbms;
+
+require_once $phpbb_root_path . 'includes/class_loader.' . $phpEx;
+
+$phpbb_class_loader = new phpbb_class_loader('phpbb_ext_', dirname(__FILE__) . '/../', ".php");
+$phpbb_class_loader->register();
+$phpbb_class_loader = new phpbb_class_loader('phpbb_', $phpbb_root_path . 'includes/', ".php");
 $phpbb_class_loader->register();
 
-require dirname(__FILE__) . './../blog/includes/constants.' . $phpEx;
+require_once $phpbb_tests_path . 'test_framework/phpbb_test_case_helpers.php';
+require_once $phpbb_tests_path . 'test_framework/phpbb_test_case.php';
+require_once $phpbb_tests_path . 'test_framework/phpbb_database_test_case.php';
+require_once $phpbb_tests_path . 'test_framework/phpbb_database_test_connection_manager.php';
 
-require 'DBTestCase.php';
+require_once dirname(__FILE__) . '/test_framework/blog_database_test_case.php';
+require_once dirname(__FILE__) . '/test_framework/blog_database_test_connection_manager.php';
 
-require($phpbb_root_path . 'includes/db/' . $dbms . '.' . $phpEx);
+// Include some files that aren't autoloaded
+require_once dirname(__FILE__) . '/../blog/includes/constants.php';

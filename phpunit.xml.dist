@@ -10,7 +10,7 @@
 		 bootstrap="tests/bootstrap.php">
 	<testsuites>
 		<testsuite name="phpBB-Blog test suite">
-			<directory suffix="_test.php">tests</directory>
+			<directory suffix="_test.php">tests/tests/</directory>
 		</testsuite>
 	</testsuites>
 	<filter>

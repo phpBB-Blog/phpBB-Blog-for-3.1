@@ -1,15 +1,15 @@
 <?php
 
-class tag_test extends DBTestCase
+class tag_test extends blog_database_test_case
 {
 	protected function getDataSet()
 	{
-		return $this->createXMLDataSet(__DIR__ . '/fixture.xml');
+		return $this->createXMLDataSet(dirname(__FILE__) . '/fixture.xml');
 	}
 
 	public function test_load_tag()
 	{
-		$db = $this->getDBAL();
+		$db = $this->new_dbal();
 
 		$tag = new phpbb_ext_blog_core_tag($db, 1);
 
