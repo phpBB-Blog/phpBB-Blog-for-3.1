@@ -11,5 +11,8 @@ class blog_database_test_connection_manager extends phpbb_database_test_connecti
 
 		$directory = dirname(__FILE__) . '/../../docs/schemas/';
 		$this->load_schema_from_file($directory);
+
+		// Also load the phpBB schema's
+		parent::load_schema();
 	}
 }
