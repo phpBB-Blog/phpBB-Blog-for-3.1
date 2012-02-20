@@ -4,11 +4,11 @@
 		<column>id</column>
 		<column>category</column>
 		<column>title</column>
-		<column>post</column>
 		<column>poster_id</column>
-		<column>bbcode_options</column>
-		<column>bbcode_bitfield</column>
-		<column>bbcode_uid</column>
+		<column>post</column>
+		<column>post_options</column>
+		<column>post_bitfield</column>
+		<column>post_uid</column>
 		<column>ptime</column>
 		<column>post_read_count</column>
 		<column>post_last_edit_time</column>

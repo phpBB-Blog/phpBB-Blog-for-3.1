@@ -1,10 +1,10 @@
 <?php
 
-class blogpost_test extends DBTestCase
+class blogpost_test extends blog_database_test_case
 {
 	protected function getDataSet()
 	{
-		return $this->createXMLDataSet(__DIR__ . '/fixture.xml');
+		return $this->createXMLDataSet(dirname(__FILE__) . '/fixture.xml');
 	}
 
 	/**
@@ -12,7 +12,7 @@ class blogpost_test extends DBTestCase
 	 */
 	public function test_load_blog()
 	{
-		$db = $this->getDBAL();
+		$db = $this->new_dbal();
 
 		$bp = new phpbb_ext_blog_core_post($db, 1);
 
