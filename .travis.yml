@@ -3,3 +3,21 @@ php:
   - 5.2
   - 5.3
   - 5.4
+
+notifications:
+  email:
+    recipients:
+      - m@michaelcullum.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
+  
+  irc:
+    channels:
+      - "irc.freenode.org#unknownbliss"
+    on_success: [always|never|change] # default: always
+    on_failure: [always|never|change] # default: always
+
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgres
