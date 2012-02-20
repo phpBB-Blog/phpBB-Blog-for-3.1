@@ -24,12 +24,12 @@ notifications:
   email:
     recipients:
       - m@michaelcullum.com
-    on_success: [always|never|change] # default: change
-    on_failure: [always|never|change] # default: always
+    on_success: always
+    on_failure: always
   
   irc:
     channels:
       - "irc.freenode.org#unknownbliss"
-    on_success: [always|never|change] # default: always
-    on_failure: [always|never|change] # default: always
+    on_success: always
+    on_failure: always
 
