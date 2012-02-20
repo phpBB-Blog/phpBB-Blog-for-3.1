@@ -2,4 +2,34 @@ language: php
 php:
   - 5.2
   - 5.3
-  - 5.4
+
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgres
+
+before_script:
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS phpbbblog_tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database phpbbblog_tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS phpbbblog_tests;'; fi"
+  - sh -c "if [ '$TRAVIS_PHP_VERSION' = '5.2' ]; then pear install --force phpunit/DbUnit; fi"
+  - sh -c "if [ '$TRAVIS_PHP_VERSION' = '5.3' ]; then pyrus install --force phpunit/DbUnit; fi"
+  - phpenv rehash
+  - git submodule update --init
+
+script:
+  - phpunit --configuration tests/travis/$DB.travis.xml
+
+notifications:
+  email:
+    recipients:
+      - m@michaelcullum.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
+  
+  irc:
+    channels:
+      - "irc.freenode.org#unknownbliss"
+    on_success: [always|never|change] # default: always
+    on_failure: [always|never|change] # default: always
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="true"
+		 backupStaticAttributes="true"
+		 colors="true"
+		 convertErrorsToExceptions="true"
+		 convertNoticesToExceptions="true"
+		 convertWarningsToExceptions="true"
+		 processIsolation="false"
+		 stopOnFailure="false"
+		 bootstrap="../bootstrap.php">
+	<testsuites>
+		<testsuite name="phpBB-Blog test suite">
+			<directory suffix="_test.php">./../tests/</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>

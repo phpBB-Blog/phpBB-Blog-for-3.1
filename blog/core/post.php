@@ -39,6 +39,7 @@ class phpbb_ext_blog_core_post
 	private $poster_id = 0;
 	private $bbcode_options = 0;
 	private $bbcode_bitfield = '';
+	private $bbcode_uid = '';
 	private $ptime = 0;
 	private $post_read_count = 0;
 	private $post_last_edit_time = 0;
@@ -80,11 +81,11 @@ class phpbb_ext_blog_core_post
 			'SELECT'	=> 'bp.id,
 							bp.category,
 							bp.title,
-							bp.post,
 							bp.poster_id,
-							bp.bbcode_options,
-							bp.bbcode_bitfield,
-							bp.bbcode_uid,
+							bp.post,
+							bp.post_options,
+							bp.post_bitfield,
+							bp.post_uid,
 							bp.ptime,
 							bp.post_read_count,
 							bp.post_last_edit_time,
@@ -104,10 +105,11 @@ class phpbb_ext_blog_core_post
 
 		$this->category				= $post['category'];
 		$this->title				= $post['title'];
-		$this->post					= $post['post'];
 		$this->poster_id			= $post['poster_id'];
-		$this->bbcode_options		= $post['bbcode_options'];
-		$this->bbcode_bitfield		= $post['bbcode_bitfield'];
+		$this->post					= $post['post'];
+		$this->bbcode_options		= $post['post_options'];
+		$this->bbcode_bitfield		= $post['post_bitfield'];
+		$this->bbcode_uid			= $post['post_uid'];
 		$this->ptime				= $post['ptime'];
 		$this->post_read_count		= $post['post_read_count'];
 		$this->post_last_edit_time	= $post['post_last_edit_time'];
