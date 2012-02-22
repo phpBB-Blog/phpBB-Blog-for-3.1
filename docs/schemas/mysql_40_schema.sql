@@ -27,6 +27,7 @@ CREATE TABLE phpbb_blog_post_comments (
 	comment_bitfield varbinary(255) DEFAULT '' NOT NULL,
 	comment_uid varbinary(8) DEFAULT '' NOT NULL,
 	ctime int(11) UNSIGNED DEFAULT '0' NOT NULL,
+	PRIMARY KEY (id),
 	KEY post (post_id),
 	KEY ctime (ctime)
 );
@@ -48,6 +49,7 @@ CREATE TABLE phpbb_blog_posts (
 	post_edit_count mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
 	post_comment_count mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
 	post_comment_lock tinyint(1) UNSIGNED DEFAULT '0' NOT NULL,
+	PRIMARY KEY (id),
 	KEY category (category),
 	KEY poster (poster_id),
 	KEY ptime (ptime)
@@ -58,7 +60,8 @@ CREATE TABLE phpbb_blog_posts (
 CREATE TABLE phpbb_blog_tags (
 	id mediumint(8) UNSIGNED NOT NULL auto_increment,
 	tag varbinary(255) DEFAULT '' NOT NULL,
-	tag_count mediumint(8) UNSIGNED DEFAULT '0' NOT NULL
+	tag_count mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
+	PRIMARY KEY (id)
 );
 
 

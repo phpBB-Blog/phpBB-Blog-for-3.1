@@ -6,7 +6,7 @@ abstract class blog_database_test_case extends phpbb_database_test_case
 	{
 		$config = array();
 
-		if (!defined(dbms))
+		if (!defined('dbms'))
 		{
 			$config = array_merge($config, array(
 				'dbms'		=> 'sqlite',
