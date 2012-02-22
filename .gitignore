@@ -1,2 +1,4 @@
 logs/*
+tests/blog_unit_tests.sqlite2
 *.zip
+
