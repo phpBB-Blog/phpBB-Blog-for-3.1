@@ -114,7 +114,8 @@ CREATE TABLE phpbb_blog_post_comments (
 	comment_options INT4 DEFAULT '0' NOT NULL CHECK (comment_options >= 0),
 	comment_bitfield varchar(255) DEFAULT '' NOT NULL,
 	comment_uid varchar(8) DEFAULT '' NOT NULL,
-	ctime INT4 DEFAULT '0' NOT NULL CHECK (ctime >= 0)
+	ctime INT4 DEFAULT '0' NOT NULL CHECK (ctime >= 0),
+	PRIMARY KEY (id)
 );
 
 CREATE INDEX phpbb_blog_post_comments_post ON phpbb_blog_post_comments (post_id);
@@ -139,7 +140,8 @@ CREATE TABLE phpbb_blog_posts (
 	post_last_edit_time INT4 DEFAULT '0' NOT NULL CHECK (post_last_edit_time >= 0),
 	post_edit_count INT4 DEFAULT '0' NOT NULL CHECK (post_edit_count >= 0),
 	post_comment_count INT4 DEFAULT '0' NOT NULL CHECK (post_comment_count >= 0),
-	post_comment_lock INT2 DEFAULT '0' NOT NULL CHECK (post_comment_lock >= 0)
+	post_comment_lock INT2 DEFAULT '0' NOT NULL CHECK (post_comment_lock >= 0),
+	PRIMARY KEY (id)
 );
 
 CREATE INDEX phpbb_blog_posts_category ON phpbb_blog_posts (category);
@@ -154,7 +156,8 @@ CREATE SEQUENCE phpbb_blog_tags_seq;
 CREATE TABLE phpbb_blog_tags (
 	id INT4 DEFAULT nextval('phpbb_blog_tags_seq'),
 	tag varchar(255) DEFAULT '' NOT NULL,
-	tag_count INT4 DEFAULT '0' NOT NULL CHECK (tag_count >= 0)
+	tag_count INT4 DEFAULT '0' NOT NULL CHECK (tag_count >= 0),
+	PRIMARY KEY (id)
 );
 
 
