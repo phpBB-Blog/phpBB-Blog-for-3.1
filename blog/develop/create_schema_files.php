@@ -850,7 +850,7 @@ function get_schema_struct()
 			'comment_uid'		=> array('VCHAR:8', ''),
 			'ctime'				=> array('UINT:11', 0),
 		),
-		'PRIMAIRY_KEY'	=> 'id',
+		'PRIMARY_KEY'	=> 'id',
 		'KEYS'			=> array(
 			'post'		=> array('INDEX', 'post_id'),
 			'ctime'		=> array('INDEX', 'ctime'),
@@ -874,7 +874,7 @@ function get_schema_struct()
 			'post_comment_count'	=> array('UINT', 0),
 			'post_comment_lock'		=> array('BOOL', 0),
 		),
-		'PRIMAIRY_KEY'	=> 'id',
+		'PRIMARY_KEY'	=> 'id',
 		'KEYS'			=> array(
 			'category'	=> array('INDEX', 'category'),
 			'poster'	=> array('INDEX', 'poster_id'),
@@ -888,7 +888,7 @@ function get_schema_struct()
 			'tag'		=> array('VCHAR:255', ''),
 			'tag_count'	=> array('UINT', 0),
 		),
-		'PRIMAIRY_KEY'	=> 'id',
+		'PRIMARY_KEY'	=> 'id',
 	);
 
 	return $schema_data;
