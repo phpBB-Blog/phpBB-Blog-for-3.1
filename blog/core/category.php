@@ -34,7 +34,7 @@ class phpbb_ext_blog_core_category
 
 		if ($this->id > 0)
 		{
-			$this->loadCategory()->loadPosts();
+			$this->loadCategory()->getPosts();
 		}
 	}
 

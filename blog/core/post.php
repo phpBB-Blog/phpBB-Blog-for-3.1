@@ -63,7 +63,7 @@ class phpbb_ext_blog_core_post
 		// Fetch the blog data if needed
 		if ($this->id > 0)
 		{
-			$this->loadPost()->fetchComments();
+			$this->loadPost()->getComments();
 		}
 	}
 
