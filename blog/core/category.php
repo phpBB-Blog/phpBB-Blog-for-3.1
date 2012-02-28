@@ -94,10 +94,29 @@ class phpbb_ext_blog_core_category
 
 		$sql		= $this->db->sql_build_query('SELECT', $sql_ary);
 		$result		= $this->db->sql_query($sql);
-		$this->posts = $this->db->sql_fetchrowset($result);
+		$posts		= $this->db->sql_fetchrowset($result);
+
+		foreach ($posts as $p)
+		{
+			$post = new phpbb_ext_blog_core_post($this->db);
+			$post->setPostID($p['id']);
+			$post->setPostData($p);
+			$this->posts[] = $post;
+		}
+
 		$this->db->sql_freeresult($result);
 
 		return $this;
+	}
+
+	public function getPosts()
+	{
+		if ($this->totalPosts > 0)
+		{
+			$this->loadPosts();
+		}
+
+		return $this->posts;
 	}
 
 	public function setID($id)

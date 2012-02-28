@@ -157,6 +157,16 @@ class phpbb_ext_blog_core_post
 		}
 	}
 
+	public function setPostData(array $data)
+	{
+		$this->post				= $data['post'];
+		$this->poster_id		= $data['poster_id'];
+		$this->post_options		= $data['post_options'];
+		$this->post_bitfield	= $data['post_bitfield'];
+		$this->post_uid			= $data['post_uid'];
+		$this->ptime			= $data['post_ptime'];
+	}
+
 	/**
 	 * Get post comments
 	 *
