@@ -63,7 +63,7 @@ class phpbb_ext_blog_core_post
 		// Fetch the blog data if needed
 		if ($this->id > 0)
 		{
-			$this->loadPost();
+			$this->loadPost()->fetchComments();
 		}
 	}
 
@@ -116,6 +116,8 @@ class phpbb_ext_blog_core_post
 		$this->post_edit_count		= $post['post_edit_count'];
 		$this->post_comment_count	= $post['post_comment_count'];
 		$this->post_comment_lock	= $post['post_comment_lock'];
+
+		return $this;
 	}
 
 	/**
@@ -155,6 +157,8 @@ class phpbb_ext_blog_core_post
 			$comment->setCommentData($c);
 			$this->comments[] = $comment;
 		}
+
+		return $this;
 	}
 
 	public function setPostData(array $data)
