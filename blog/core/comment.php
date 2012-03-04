@@ -55,6 +55,11 @@ class phpbb_ext_blog_core_comment
 		$comment	= $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 
+		if (empty($result))
+		{
+			return;
+		}
+
 		$this->setCommentData($comment);
 	}
 
