@@ -66,7 +66,7 @@ class phpbb_ext_blog_controller implements phpbb_extension_controller_interface
 	{
 		// blog front page stuff
 		// @todo add language file
-		$this->user->add_lang_ext('blog', 'common');
+		$this->user->add_lang_ext('blog', 'blog');
 
 		//$this->template->assign_var('MESSAGE', $this->get_message());
 
