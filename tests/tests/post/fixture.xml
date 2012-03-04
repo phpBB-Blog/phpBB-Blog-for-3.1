@@ -18,18 +18,18 @@
 		<row>
 			<value>1</value>
 			<value>1</value>
-			<value>Test Post</value>
-			<value>First test post</value>
+			<value>Test Post w Comments</value>
 			<value>2</value>
+			<value>An other test post with some comments attached to it</value>
 			<value>7</value>
 			<value></value>
 			<value></value>
-			<value>1329585891</value>
+			<value>1329586000</value>
 			<value>6</value>
-			<value></value>
-			<value></value>
 			<value>0</value>
-			<value>1</value>
+			<value>0</value>
+			<value>2</value>
+			<value>0</value>
 		</row>
 	</table>
 </dataset>

@@ -32,4 +32,14 @@
 			lowUpperBound="35"
 			highLowerBound="70" />
 	</logging>
+
+	<php>
+		<const name="dbms" value=""/>
+		<const name="dbhost" value="" />
+		<const name="dbport" value="" />
+		<const name="dbname" value="" />
+		<const name="dbuser" value="" />
+		<const name="dbpasswd" value="" />
+		<const name="table_prefix" value="" />
+	</php>
 </phpunit>
