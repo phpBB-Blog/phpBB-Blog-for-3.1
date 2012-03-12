@@ -10,7 +10,7 @@ env:
   - DB=pgsql
 
 matrix:
-  exlude:
+  exclude:
     - php: 5.4
       env: DB=sqlite
 
