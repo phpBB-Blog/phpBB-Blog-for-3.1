@@ -103,19 +103,7 @@ class phpbb_ext_blog_core_post
 		$post	= $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 
-		$this->category				= $post['category'];
-		$this->title				= $post['title'];
-		$this->poster_id			= $post['poster_id'];
-		$this->post					= $post['post'];
-		$this->bbcode_options		= $post['post_options'];
-		$this->bbcode_bitfield		= $post['post_bitfield'];
-		$this->bbcode_uid			= $post['post_uid'];
-		$this->ptime				= $post['ptime'];
-		$this->post_read_count		= $post['post_read_count'];
-		$this->post_last_edit_time	= $post['post_last_edit_time'];
-		$this->post_edit_count		= $post['post_edit_count'];
-		$this->post_comment_count	= $post['post_comment_count'];
-		$this->post_comment_lock	= $post['post_comment_lock'];
+		$this->setPostData($post);
 
 		return $this;
 	}

@@ -85,7 +85,7 @@ class phpbb_ext_blog_core_category
 							p.post_last_edit_time,
 							p.post_edit_count,
 							p.post_comment_count,
-							p.post_comment_lock'
+							p.post_comment_lock',
 			'FROM'		=> array(
 				BLOG_POSTS_TABLE	=> 'p',
 			),
@@ -105,8 +105,6 @@ class phpbb_ext_blog_core_category
 		}
 
 		$this->db->sql_freeresult($result);
-
-		return $this;
 	}
 
 	public function getPosts()
