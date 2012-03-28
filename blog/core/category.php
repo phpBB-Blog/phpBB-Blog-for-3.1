@@ -34,7 +34,8 @@ class phpbb_ext_blog_core_category
 
 		if ($this->id > 0)
 		{
-			$this->loadCategory()->getPosts();
+			$this->loadCategory();
+			$this->getPosts();
 		}
 	}
 
@@ -66,8 +67,6 @@ class phpbb_ext_blog_core_category
 		$this->description_uid		= $category['description_uid'];
 		$this->total_posts			= $category['total_posts'];
 		$this->last_post_id			= $category['last_post_id'];
-
-		return $this;
 	}
 
 	public function loadPosts()
