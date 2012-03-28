@@ -64,6 +64,7 @@ class phpbb_ext_blog_core_post
 		if ($this->id > 0)
 		{
 			$this->loadPost();
+			$this->getComments();
 		}
 	}
 
@@ -103,19 +104,7 @@ class phpbb_ext_blog_core_post
 		$post	= $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 
-		$this->category				= $post['category'];
-		$this->title				= $post['title'];
-		$this->poster_id			= $post['poster_id'];
-		$this->post					= $post['post'];
-		$this->bbcode_options		= $post['post_options'];
-		$this->bbcode_bitfield		= $post['post_bitfield'];
-		$this->bbcode_uid			= $post['post_uid'];
-		$this->ptime				= $post['ptime'];
-		$this->post_read_count		= $post['post_read_count'];
-		$this->post_last_edit_time	= $post['post_last_edit_time'];
-		$this->post_edit_count		= $post['post_edit_count'];
-		$this->post_comment_count	= $post['post_comment_count'];
-		$this->post_comment_lock	= $post['post_comment_lock'];
+		$this->setPostData($post);
 	}
 
 	/**
@@ -155,6 +144,23 @@ class phpbb_ext_blog_core_post
 			$comment->setCommentData($c);
 			$this->comments[] = $comment;
 		}
+	}
+
+	public function setPostData(array $data)
+	{
+		$this->post					= $data['post'];
+		$this->category				= $data['category'];
+		$this->title				= $data['title'];
+		$this->poster_id			= $data['poster_id'];
+		$this->post_options			= $data['post_options'];
+		$this->post_bitfield		= $data['post_bitfield'];
+		$this->post_uid				= $data['post_uid'];
+		$this->ptime				= $data['post_ptime'];
+		$this->post_read_count		= $data['post_read_count'];
+		$this->post_last_edit_time	= $data['post_last_edit_time'];
+		$this->post_edit_count		= $data['post_edit_count'];
+		$this->post_comment_count	= $data['post_comment_count'];
+		$this->post_comment_lock	= $data['post_comment_lock'];
 	}
 
 	/**

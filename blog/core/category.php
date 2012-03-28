@@ -25,6 +25,8 @@ class phpbb_ext_blog_core_category
 	private $total_posts;
 	private $last_post_id;
 
+	private $posts = array();
+
 	public function __construct(dbal $db, $id = 0)
 	{
 		$this->db = $db;
@@ -33,6 +35,7 @@ class phpbb_ext_blog_core_category
 		if ($this->id > 0)
 		{
 			$this->loadCategory();
+			$this->getPosts();
 		}
 	}
 
@@ -64,6 +67,53 @@ class phpbb_ext_blog_core_category
 		$this->description_uid		= $category['description_uid'];
 		$this->total_posts			= $category['total_posts'];
 		$this->last_post_id			= $category['last_post_id'];
+	}
+
+	public function loadPosts()
+	{
+		$sql_ary = array(
+			'SELECT'	=> 'p.id,
+							p.title,
+							p.poster_id,
+							p.post,
+							p.options,
+							p.bitfield,
+							p.uid
+							p.ptime,
+							p.post_read_count,
+							p.post_last_edit_time,
+							p.post_edit_count,
+							p.post_comment_count,
+							p.post_comment_lock',
+			'FROM'		=> array(
+				BLOG_POSTS_TABLE	=> 'p',
+			),
+			'WHERE'		=> 'p.category = ' . $this->id,
+		);
+
+		$sql		= $this->db->sql_build_query('SELECT', $sql_ary);
+		$result		= $this->db->sql_query($sql);
+		$posts		= $this->db->sql_fetchrowset($result);
+
+		foreach ($posts as $p)
+		{
+			$post = new phpbb_ext_blog_core_post($this->db);
+			$post->setPostID($p['id']);
+			$post->setPostData($p);
+			$this->posts[] = $post;
+		}
+
+		$this->db->sql_freeresult($result);
+	}
+
+	public function getPosts()
+	{
+		if ($this->totalPosts > 0)
+		{
+			$this->loadPosts();
+		}
+
+		return $this->posts;
 	}
 
 	public function setID($id)
