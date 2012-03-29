@@ -70,9 +70,6 @@ class phpbb_ext_blog_controller implements phpbb_extension_controller_interface
 
 		//$this->template->assign_var('MESSAGE', $this->get_message());
 
-		// And the rest of this this goes at the end... basically just outputting the page.
-		$this->template->set_ext_dir_prefix($this->phpbb_root_path . 'ext/blog/');
-
 		// @todo make template files
 		$this->template->set_filenames(array(
 			'body' => 'blog_body.html'
