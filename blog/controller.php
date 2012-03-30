@@ -7,50 +7,11 @@
 *
 */
 
-class phpbb_ext_blog_controller implements phpbb_extension_controller_interface
+class phpbb_ext_blog_controller extends phpbb_extension_controller
 {
-	/**
-	* @var phpBB User object
-	*/
-	private $user;
-
-	/**
-	* @var phpBB DBAL object
-	*/
-	private $db;
-
-	/**
-	* @var phpBB Template object
-	*/
-	private $template;
-
-	/**
-	* @var phpBB Request object
-	*/
-	private $request;
-
-	/**
-	* @var phpBB Root path
-	*/
-	private $phpbb_root_path;
-
-	/**
-	* @var PHP Extension
-	*/
-	private $phpEx;
-
 	public function __construct()
 	{
-		global $db, $template, $user, $config, $request;
-		global $phpbb_root_path, $phpEx;
-
-		$this->db				=& $db;
-		$this->template			=& $template;
-		$this->user				=& $user;
-		$this->config			=& $config;
-		$this->request			=& $request;
-		$this->phpbb_root_path	=& $phpbb_root_path;
-		$this->phpEx			=& $phpEx;
+		parent::__construct();
 
 		// Include some files that *can not* be autoloaded
 		global $table_prefix; // *MUST* be here, for the include!
