@@ -13,7 +13,7 @@
  * Represents a blog post comment, is resposible for parsing/storing/editing/etc
  * of a blog post
  */
-class phpbb_ext_blog_core_comment
+class phpbb_ext_blog_blog_core_comment
 {
 	private $db;
 	private $id;

@@ -13,7 +13,7 @@
  * Represents a blog category, is resposible for parsing/storing/editing/etc
  * of a category
  */
-class phpbb_ext_blog_core_category
+class phpbb_ext_blog_blog_core_category
 {
 	private $db;
 	private $id;

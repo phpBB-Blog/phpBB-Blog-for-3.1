@@ -13,7 +13,7 @@
  * Represents a blog tag, is resposible for parsing/storing/editing/etc
  * of a tag
  */
-class phpbb_ext_blog_core_tag
+class phpbb_ext_blog_blog_core_tag
 {
 	private $db;
 	private $id;

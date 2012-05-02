@@ -13,7 +13,7 @@
  * Represents a blog post, is resposible for parsing/storing/editing/etc
  * of a blog post
  */
-class phpbb_ext_blog_core_post
+class phpbb_ext_blog_blog_core_post
 {
 	/**
 	 * The phpBB DB object
