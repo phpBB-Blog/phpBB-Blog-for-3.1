@@ -1,6 +1,6 @@
 <?php
 
-class phpbb_ext_blog_ext extends phpbb_extension_base
+class phpbb_ext_blog_blog_ext extends phpbb_extension_base
 {
 	// extension stuff
 	// not entirely sure what all actually goes here

@@ -7,7 +7,7 @@
 *
 */
 
-class phpbb_ext_blog_controller extends phpbb_extension_controller
+class phpbb_ext_blog_blog_controller extends phpbb_extension_controller
 {
 	public function __construct()
 	{
