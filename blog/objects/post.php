@@ -113,18 +113,16 @@ class phpbb_ext_blog_blog_objects_post extends phpbb_ext_blog_blog_objects_base
 			'comment_lock'		=> $this->comment_lock,
 		);
 
-		if ($this->id > 0)
-		{
-			$data['id'] = $this->id;
-		}
-
-		if ($this->id == 0)
+		if (!$this->id)
 		{
 			$mode	= 'INSERT';
 			$sql	= 'INSERT INTO ' . BLOG_POSTS_TABLE . '%s';
 		}
 		else
 		{
+			// Set post ID
+			$data['id'] = $this->id;
+
 			$mode = 'UPDATE';
 			$sql	= 'UPDATE ' . BLOG_POSTS_TABLE . '
 					SET %s
