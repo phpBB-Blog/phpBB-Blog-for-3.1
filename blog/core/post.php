@@ -108,6 +108,69 @@ class phpbb_ext_blog_blog_core_post
 		{
 			$this->set_data($post);
 		}
+		else
+		{
+			// Blog doesn't exist, so re-set the ID to `0`
+			$this->id = 0;
+		}
+	}
+
+	/**
+	 * Submit blog post
+	 *
+	 * This method takes the current blog information as hold by
+	 * the post object and submits it into the database. If no
+	 * post ID is set, a new blog post will be created. Otherwise
+	 * the blogpost will be updated.
+	 */
+	public function submit()
+	{
+		// @todo add some validation/sanitisation
+
+
+		// Prepare the data
+		$data = array(
+			'category'			=> $this->category,
+			'title'				=> $this->title,
+			'poster_id'			=> $this->poster_id,
+			'post'				=> $this->post,
+			'options'			=> $this->options,
+			'bitfield'			=> $this->bitfield,
+			'uid'				=> $this->uid,
+			'ptime'				=> $this->ptime,
+			'read_count'		=> $this->read_count,
+			'last_edit_time'	=> $this->last_edit_time,
+			'edit_count'		=> $this->edit_count,
+			'comment_count'		=> $this->comment_count,
+			'comment_lock'		=> $this->comment_lock,
+		);
+
+		if ($this->id > 0)
+		{
+			$data['id'] = $this->id;
+		}
+
+		if ($this->id == 0)
+		{
+			$mode	= 'INSERT';
+			$sql	= 'INSERT INTO ' . BLOG_POSTS_TABLE . '%s';
+		}
+		else
+		{
+			$mode = 'UPDATE';
+			$sql	= 'UPDATE ' . BLOG_POSTS_TABLE . '
+					SET %s
+					WHERE id = ' . $this->id;
+		}
+
+		$sql = sprintf($sql, $this->db->sql_build_array($mode, $data));
+		$this->db->sql_query($sql);
+
+		// Set the new ID
+		if (!$this->id > 0)
+		{
+			$this->id = $this->db->sql_nextid();
+		}
 	}
 
 	/**
@@ -152,6 +215,9 @@ class phpbb_ext_blog_blog_core_post
 		}
 	}
 
+	/**
+	 * @todo a way to not need to set all data at once
+	 */
 	public function set_data(array $data)
 	{
 		$this->post				= $data['post'];
@@ -193,8 +259,21 @@ class phpbb_ext_blog_blog_core_post
 		$this->id = (int) $id;
 	}
 
+	/**
+	 * Get the id
+	 */
+	public function get_id()
+	{
+		return $this->id;
+	}
+
 	public function get_title()
 	{
 		return $this->title;
+	}
+
+	public function get_post()
+	{
+		return $this->post;
 	}
 }
