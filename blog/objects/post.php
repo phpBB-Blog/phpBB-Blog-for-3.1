@@ -13,60 +13,27 @@
  * Represents a blog post, is resposible for parsing/storing/editing/etc
  * of a blog post
  */
-class phpbb_ext_blog_blog_core_post
+class phpbb_ext_blog_blog_objects_post extends phpbb_ext_blog_blog_objects_base
 {
-	/**
-	 * The phpBB DB object
-	 * @var DBAL
-	 */
-	private $db;
-
-	/**
-	 * ID of the represented blog post
-	 * @var integer
-	 */
-	private $id;
-
 	/**
 	 * Array containing all comment objects linked to this blog post
 	 * @var array
 	 */
-	private $comments = array();
+	protected $comments = array();
 
-	private $category = 0;
-	private $title = '';
-	private $post = '';
-	private $poster_id = 0;
-	private $options = 0;
-	private $bitfield = '';
-	private $uid = '';
-	private $ptime = 0;
-	private $read_count = 0;
-	private $last_edit_time = 0;
-	private $edit_count = 0;
-	private $comment_count = 0;
-	private $comment_lock = 0;
-
-	/**
-	 * Initialise the object
-	 *
-	 * @param dbal    $db The phpBB database object
-	 * @param integer $id The blog ID. If set > 0 the object represents an existing
-	 *                    post that will be fetched from the database. Otherwise
-	 *                    this is a "new" entry.
-	 */
-	public function __construct(dbal $db, $id = 0)
-	{
-		$this->db = $db;
-		$this->set_id($id);
-
-		// Fetch the blog data if needed
-		if ($this->id > 0)
-		{
-			$this->load();
-			$this->get_comments();
-		}
-	}
+	protected $category = 0;
+	protected $title = '';
+	protected $post = '';
+	protected $poster_id = 0;
+	protected $options = 0;
+	protected $bitfield = '';
+	protected $uid = '';
+	protected $ptime = 0;
+	protected $read_count = 0;
+	protected $last_edit_time = 0;
+	protected $edit_count = 0;
+	protected $comment_count = 0;
+	protected $comment_lock = 0;
 
 	/**
 	 * Get the post data
@@ -107,6 +74,7 @@ class phpbb_ext_blog_blog_core_post
 		if (!empty($post))
 		{
 			$this->set_data($post);
+			$this->get_comments();
 		}
 		else
 		{
@@ -207,32 +175,11 @@ class phpbb_ext_blog_blog_core_post
 		{
 			foreach ($comments as $c)
 			{
-				$comment = new phpbb_ext_blog_blog_core_comment($this->db);
-				$comment->set_id($c['id']);
+				$comment = new phpbb_ext_blog_blog_objects_comments($this->db);
 				$comment->set_data($c);
 				$this->comments[] = $comment;
 			}
 		}
-	}
-
-	/**
-	 * @todo a way to not need to set all data at once
-	 */
-	public function set_data(array $data)
-	{
-		$this->post				= $data['post'];
-		$this->category			= $data['category'];
-		$this->title			= $data['title'];
-		$this->poster_id		= $data['poster_id'];
-		$this->options			= $data['options'];
-		$this->bitfield			= $data['bitfield'];
-		$this->uid				= $data['uid'];
-		$this->ptime			= $data['ptime'];
-		$this->read_count		= $data['read_count'];
-		$this->last_edit_time	= $data['last_edit_time'];
-		$this->edit_count		= $data['edit_count'];
-		$this->comment_count	= $data['comment_count'];
-		$this->comment_lock		= $data['comment_lock'];
 	}
 
 	/**
@@ -249,31 +196,5 @@ class phpbb_ext_blog_blog_core_post
 		}
 
 		return $this->comments;
-	}
-
-	/**
-	 * Set the blog post ID
-	 */
-	public function set_id($id)
-	{
-		$this->id = (int) $id;
-	}
-
-	/**
-	 * Get the id
-	 */
-	public function get_id()
-	{
-		return $this->id;
-	}
-
-	public function get_title()
-	{
-		return $this->title;
-	}
-
-	public function get_post()
-	{
-		return $this->post;
 	}
 }

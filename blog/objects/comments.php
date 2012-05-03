@@ -13,27 +13,14 @@
  * Represents a blog post comment, is resposible for parsing/storing/editing/etc
  * of a blog post
  */
-class phpbb_ext_blog_blog_core_comment
+class phpbb_ext_blog_blog_objects_comments extends phpbb_ext_blog_blog_objects_base
 {
-	private $db;
-	private $id = 0;
-	private $comment = '';
-	private $commenter_id = 0;
-	private $options = 0;
-	private $bitfield = '';
-	private $uid = '';
-	private $ctime = 0;
-
-	public function __construct(dbal $db, $id = 0)
-	{
-		$this->db = $db;
-		$this->set_id($id);
-
-		if ($this->id > 0)
-		{
-			$this->load();
-		}
-	}
+	protected $comment = '';
+	protected $commenter_id = 0;
+	protected $options = 0;
+	protected $bitfield = '';
+	protected $uid = '';
+	protected $ctime = 0;
 
 	public function load()
 	{
@@ -59,25 +46,5 @@ class phpbb_ext_blog_blog_core_comment
 		{
 			$this->set_data($comment);
 		}
-	}
-
-	public function set_data(array $data)
-	{
-		$this->comment		= $data['comment'];
-		$this->commenter_id	= $data['commenter_id'];
-		$this->options		= $data['options'];
-		$this->bitfield		= $data['bitfield'];
-		$this->uid			= $data['uid'];
-		$this->ctime		= $data['ctime'];
-	}
-
-	public function parse()
-	{
-		return $this->comment;
-	}
-
-	public function set_id($id)
-	{
-		$this->id = (int) $id;
 	}
 }

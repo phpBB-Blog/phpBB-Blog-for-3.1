@@ -10,10 +10,9 @@ class blogpost_comment_test extends blog_database_test_case
 	public function test_initialise_with_data()
 	{
 		$db = $this->new_dbal();
+		$comment = new phpbb_ext_blog_blog_objects_comments($db, 1);
 
-		$comment = new phpbb_ext_blog_blog_core_comment($db, 1);
-
-		$this->assertSame('First comment', $comment->parse());
+		$this->assertSame('First comment', $comment->comment);
 	}
 
 	/**
@@ -24,7 +23,7 @@ class blogpost_comment_test extends blog_database_test_case
 		$db = $this->new_dbal();
 
 		// Grep the comments
-		$bp = new phpbb_ext_blog_blog_core_post($db, 1);
+		$bp = new phpbb_ext_blog_blog_objects_post($db, 1);
 		$this->assertSame(2, sizeof($bp->get_comments()));
 	}
 }

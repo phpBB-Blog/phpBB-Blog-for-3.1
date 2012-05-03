@@ -14,7 +14,7 @@
  * this object wraps around the phpBB caching object and gracefully falls
  * back to that if a given method isn't found.
  */
-class phpbb_ext_blog_blog_core_category
+class phpbb_ext_blog_blog_objects_category
 {
 	private $db;
 	private $phpbb_cache_service;

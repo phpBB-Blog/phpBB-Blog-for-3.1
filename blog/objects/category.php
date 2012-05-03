@@ -13,33 +13,19 @@
  * Represents a blog category, is resposible for parsing/storing/editing/etc
  * of a category
  */
-class phpbb_ext_blog_blog_core_category
+class phpbb_ext_blog_blog_objects_category extends phpbb_ext_blog_blog_objects_base
 {
-	private $db;
-	private $id = 0;
-	private $title = '';
-	private $description = '';
-	private $options = 0;
-	private $bitfield = '';
-	private $uid = '';
-	private $total_posts = 0;
-	private $last_post_id = 0;
+	protected $title = '';
+	protected $description = '';
+	protected $options = 0;
+	protected $bitfield = '';
+	protected $uid = '';
+	protected $total_posts = 0;
+	protected $last_post_id = 0;
 
-	private $posts = array();
+	protected $posts = array();
 
-	public function __construct(dbal $db, $id = 0)
-	{
-		$this->db = $db;
-		$this->set_id($id);
-
-		if ($this->id > 0)
-		{
-			$this->load_category();
-			$this->get_posts();
-		}
-	}
-
-	public function load_category()
+	public function load()
 	{
 		$sql_ary = array(
 			'SELECT'	=> 'bc.title,
@@ -62,13 +48,8 @@ class phpbb_ext_blog_blog_core_category
 
 		if (!empty($category))
 		{
-			$this->title		= $category['title'];
-			$this->description	= $category['description'];
-			$this->options		= $category['options'];
-			$this->bitfield		= $category['bitfield'];
-			$this->uid			= $category['uid'];
-			$this->total_posts	= $category['total_posts'];
-			$this->last_post_id	= $category['last_post_id'];
+			$this->set_data($category);
+			$this->get_posts();
 		}
 	}
 
@@ -102,8 +83,7 @@ class phpbb_ext_blog_blog_core_category
 		{
 			foreach ($posts as $p)
 			{
-				$post = new phpbb_ext_blog_blog_core_post($this->db);
-				$post->set_id($p['id']);
+				$post = new phpbb_ext_blog_blog_objects_post($this->db);
 				$post->set_data($p);
 				$this->posts[] = $post;
 			}
@@ -114,21 +94,11 @@ class phpbb_ext_blog_blog_core_category
 
 	public function get_posts()
 	{
-		if ($this->total_posts > 0)
+		if (empty($this->posts) && $this->total_posts > 0)
 		{
 			$this->load_posts();
 		}
 
 		return $this->posts;
-	}
-
-	public function set_id($id)
-	{
-		$this->id = (int) $id;
-	}
-
-	public function get_title()
-	{
-		return $this->title;
 	}
 }

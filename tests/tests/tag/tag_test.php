@@ -10,9 +10,8 @@ class tag_test extends blog_database_test_case
 	public function test_load_tag()
 	{
 		$db = $this->new_dbal();
+		$tag = new phpbb_ext_blog_blog_objects_tag($db, 1);
 
-		$tag = new phpbb_ext_blog_blog_core_tag($db, 1);
-
-		$this->assertSame('Test', $tag->loadget_tag());
+		$this->assertSame('Test', $tag->tag);
 	}
 }

@@ -10,8 +10,8 @@ class category_test extends blog_database_test_case
 	public function test_load_category()
 	{
 		$db = $this->new_dbal();
+		$category = new phpbb_ext_blog_blog_objects_category($db, 1);
 
-		$category = new phpbb_ext_blog_blog_core_category($db, 1);
-		$this->assertSame('Test category', $category->get_title());
+		$this->assertSame('Test category', $category->title);
 	}
 }

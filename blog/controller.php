@@ -20,7 +20,7 @@ class phpbb_ext_blog_blog_controller extends phpbb_extension_controller
 		require dirname(__FILE__) . '/includes/constants.' . $this->phpEx;
 
 		// Initialise blog cache
-		$this->blog_cache = new phpbb_ext_blog_blog_core_category($this->cache, $this->db);
+		$this->blog_cache = new phpbb_ext_blog_blog_objects_category($this->cache, $this->db);
 	}
 
 	/**
