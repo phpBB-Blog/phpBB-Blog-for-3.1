@@ -72,6 +72,7 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	}
 
 	//-- Some wrappers that are *only* used during development to not break things
+	// @codeCoverageIgnoreStart
 	public function load()
 	{
 		throw new Exception("Not implemented!");
@@ -84,4 +85,5 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	{
 		throw new Exception("Not implemented!");
 	}
+	// @codeCoverageIgnoreEnd
 }

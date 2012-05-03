@@ -13,7 +13,17 @@
 			<directory suffix="_test.php">./../tests/</directory>
 		</testsuite>
 	</testsuites>
-
+	<filter>
+		<whitelist addUncoveredFilesFromWhitelist="true">
+			<directory>./blog/</directory>
+			<exclude>
+				<file>./blog/controller.php</file>
+				<file>./blog/ext.php</file>
+				<directory>./blog/develop/</directory>
+				<directory>./blog/language/</directory>
+			</exclude>
+		</whitelist>
+	</filter>
 	<php>
 		<server name="PHPBB_TEST_DBMS" value="mysqli" />
 		<server name="PHPBB_TEST_DBHOST" value="0.0.0.0" />
