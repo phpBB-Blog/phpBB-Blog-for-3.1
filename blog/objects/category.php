@@ -62,7 +62,7 @@ class phpbb_ext_blog_blog_objects_category extends phpbb_ext_blog_blog_objects_b
 							p.post,
 							p.options,
 							p.bitfield,
-							p.uid
+							p.uid,
 							p.ptime,
 							p.read_count,
 							p.last_edit_time,

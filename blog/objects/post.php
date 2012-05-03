@@ -135,10 +135,7 @@ class phpbb_ext_blog_blog_objects_post extends phpbb_ext_blog_blog_objects_base
 		$this->db->sql_query($sql);
 
 		// Set the new ID
-		if (!$this->id > 0)
-		{
-			$this->id = $this->db->sql_nextid();
-		}
+		$this->id = $this->db->sql_nextid();
 	}
 
 	/**
