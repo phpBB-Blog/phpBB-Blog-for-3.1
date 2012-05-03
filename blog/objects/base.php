@@ -26,7 +26,7 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	public function __construct(dbal $db, $id = 0)
 	{
 		$this->db = $db;
-		$this->set_data(array('id' => $id));
+		$this->set_data('id', $id);
 
 		if ($this->id > 0)
 		{
@@ -38,9 +38,18 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	 * Set object data
 	 *
 	 * Set object variable if accessable
+	 *
+	 * @param array|string $data  An array containing the data that
+	 *                            must be set, or the property name
+	 * @param string       $value The value for the given property
 	 */
-	public function set_data(array $data)
+	public function set_data($data, $value = '')
 	{
+		if (!is_array($data))
+		{
+			$data = array($data => $value);
+		}
+
 		foreach ($data as $var => $value)
 		{
 			if (property_exists($this, $var))
