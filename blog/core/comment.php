@@ -16,13 +16,13 @@
 class phpbb_ext_blog_blog_core_comment
 {
 	private $db;
-	private $id;
-	private $comment;
-	private $commenter_id;
-	private $comment_options;
-	private $comment_bitfield;
-	private $comment_uid;
-	private $ctime;
+	private $id = 0;
+	private $comment = '';
+	private $commenter_id = 0;
+	private $comment_options = 0;
+	private $comment_bitfield = '';
+	private $comment_uid = '';
+	private $ctime = 0;
 
 	public function __construct(dbal $db, $id = 0)
 	{
@@ -55,12 +55,10 @@ class phpbb_ext_blog_blog_core_comment
 		$comment	= $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 
-		if (empty($result))
+		if (!empty($result))
 		{
-			return;
+			$this->setCommentData($comment);
 		}
-
-		$this->setCommentData($comment);
 	}
 
 	public function setCommentData(array $data)

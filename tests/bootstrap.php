@@ -16,7 +16,7 @@ $table_prefix = (!defined('table_prefix')) ? 'phpbb_' : table_prefix;
 
 require_once $phpbb_root_path . 'includes/class_loader.' . $phpEx;
 
-$phpbb_class_loader = new phpbb_class_loader('phpbb_ext_', dirname(__FILE__) . '/../', ".php");
+$phpbb_class_loader = new phpbb_class_loader('phpbb_ext_blog_', dirname(__FILE__) . '/../', ".php");
 $phpbb_class_loader->register();
 $phpbb_class_loader = new phpbb_class_loader('phpbb_', $phpbb_root_path . 'includes/', ".php");
 $phpbb_class_loader->register();

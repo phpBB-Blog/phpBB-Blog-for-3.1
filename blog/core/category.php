@@ -16,14 +16,14 @@
 class phpbb_ext_blog_blog_core_category
 {
 	private $db;
-	private $id;
-	private $title;
-	private $description;
-	private $description_options;
-	private $description_bitfield;
-	private $description_uid;
-	private $total_posts;
-	private $last_post_id;
+	private $id = 0;
+	private $title = '';
+	private $description = '';
+	private $description_options = 0;
+	private $description_bitfield = '';
+	private $description_uid = '';
+	private $total_posts = 0;
+	private $last_post_id = 0;
 
 	private $posts = array();
 
@@ -60,13 +60,16 @@ class phpbb_ext_blog_blog_core_category
 		$category	= $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 
-		$this->title				= $category['title'];
-		$this->description			= $category['description'];
-		$this->description_options	= $category['description_options'];
-		$this->description_bitfield	= $category['description_bitfield'];
-		$this->description_uid		= $category['description_uid'];
-		$this->total_posts			= $category['total_posts'];
-		$this->last_post_id			= $category['last_post_id'];
+		if (!empty($category))
+		{
+			$this->title				= $category['title'];
+			$this->description			= $category['description'];
+			$this->description_options	= $category['description_options'];
+			$this->description_bitfield	= $category['description_bitfield'];
+			$this->description_uid		= $category['description_uid'];
+			$this->total_posts			= $category['total_posts'];
+			$this->last_post_id			= $category['last_post_id'];
+		}
 	}
 
 	public function loadPosts()
@@ -95,12 +98,15 @@ class phpbb_ext_blog_blog_core_category
 		$result		= $this->db->sql_query($sql);
 		$posts		= $this->db->sql_fetchrowset($result);
 
-		foreach ($posts as $p)
+		if (!empty($posts))
 		{
-			$post = new phpbb_ext_blog_blog_core_post($this->db);
-			$post->setPostID($p['id']);
-			$post->setPostData($p);
-			$this->posts[] = $post;
+			foreach ($posts as $p)
+			{
+				$post = new phpbb_ext_blog_blog_core_post($this->db);
+				$post->setPostID($p['id']);
+				$post->setPostData($p);
+				$this->posts[] = $post;
+			}
 		}
 
 		$this->db->sql_freeresult($result);
@@ -108,7 +114,7 @@ class phpbb_ext_blog_blog_core_category
 
 	public function getPosts()
 	{
-		if ($this->totalPosts > 0)
+		if ($this->total_posts > 0)
 		{
 			$this->loadPosts();
 		}

@@ -104,7 +104,10 @@ class phpbb_ext_blog_blog_core_post
 		$post	= $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 
-		$this->setPostData($post);
+		if (!empty($post))
+		{
+			$this->setPostData($post);
+		}
 	}
 
 	/**
@@ -137,12 +140,15 @@ class phpbb_ext_blog_blog_core_post
 		$comments	= $this->db->sql_fetchrowset($result);
 		$this->db->sql_freeresult($result);
 
-		foreach ($comments as $c)
+		if (!empty($comments))
 		{
-			$comment = new phpbb_ext_blog_blog_core_comment($this->db);
-			$comment->setCommentID($c['id']);
-			$comment->setCommentData($c);
-			$this->comments[] = $comment;
+			foreach ($comments as $c)
+			{
+				$comment = new phpbb_ext_blog_blog_core_comment($this->db);
+				$comment->setCommentID($c['id']);
+				$comment->setCommentData($c);
+				$this->comments[] = $comment;
+			}
 		}
 	}
 
@@ -155,7 +161,7 @@ class phpbb_ext_blog_blog_core_post
 		$this->post_options			= $data['post_options'];
 		$this->post_bitfield		= $data['post_bitfield'];
 		$this->post_uid				= $data['post_uid'];
-		$this->ptime				= $data['post_ptime'];
+		$this->ptime				= $data['ptime'];
 		$this->post_read_count		= $data['post_read_count'];
 		$this->post_last_edit_time	= $data['post_last_edit_time'];
 		$this->post_edit_count		= $data['post_edit_count'];
@@ -171,7 +177,7 @@ class phpbb_ext_blog_blog_core_post
 	public function getComments()
 	{
 		// Only if needed
-		if ($this->post_comment_count > 0)
+		if (empty($this->comments) && $this->post_comment_count > 0)
 		{
 			$this->fetchComments();
 		}

@@ -16,9 +16,9 @@
 class phpbb_ext_blog_blog_core_tag
 {
 	private $db;
-	private $id;
-	private $tag;
-	private $tag_count;
+	private $id = 0;
+	private $tag = '';
+	private $tag_count = 0;
 
 	public function __construct(dbal $db, $id = 0)
 	{
@@ -47,8 +47,11 @@ class phpbb_ext_blog_blog_core_tag
 		$tag	= $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 
-		$this->tag			= $tag['tag'];
-		$this->tag_count	= $tag['tag_count'];
+		if (!empty($tag))
+		{
+			$this->tag			= $tag['tag'];
+			$this->tag_count	= $tag['tag_count'];
+		}
 	}
 
 	public function setID($id)
