@@ -17,7 +17,7 @@ class phpbb_ext_blog_blog_controller extends phpbb_extension_controller
 
 		// Include some files that *can not* be autoloaded
 		global $table_prefix; // *MUST* be here, for the include!
-		require dirname(__FILE__) . '/includes/constants.' . $phpEx;
+		require dirname(__FILE__) . '/includes/constants.' . $this->phpEx;
 
 		// Initialise blog cache
 		$this->blog_cache = new phpbb_ext_blog_blog_core_category($this->cache, $this->db);
