@@ -49,7 +49,7 @@ class phpbb_ext_blog_blog_objects_category extends phpbb_ext_blog_blog_objects_b
 		if (!empty($category))
 		{
 			$this->set_data($category);
-			$this->get_posts();
+			$this->load_posts();
 		}
 	}
 

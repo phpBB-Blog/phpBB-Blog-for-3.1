@@ -74,7 +74,7 @@ class phpbb_ext_blog_blog_objects_post extends phpbb_ext_blog_blog_objects_base
 		if (!empty($post))
 		{
 			$this->set_data($post);
-			$this->get_comments();
+			$this->load_comments();
 		}
 		else
 		{
