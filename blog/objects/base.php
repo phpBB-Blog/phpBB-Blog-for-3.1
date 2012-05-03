@@ -65,7 +65,7 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	 */
 	public function __get($name)
 	{
-		if (isset($this->$name))
+		if (property_exists($this, $name))
 		{
 			return $this->$name;
 		}
