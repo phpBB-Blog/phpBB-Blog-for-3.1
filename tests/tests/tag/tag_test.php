@@ -13,6 +13,6 @@ class tag_test extends blog_database_test_case
 
 		$tag = new phpbb_ext_blog_blog_core_tag($db, 1);
 
-		$this->assertSame('Test', $tag->getTag());
+		$this->assertSame('Test', $tag->loadget_tag());
 	}
 }

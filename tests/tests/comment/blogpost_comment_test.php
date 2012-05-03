@@ -13,7 +13,7 @@ class blogpost_comment_test extends blog_database_test_case
 
 		$comment = new phpbb_ext_blog_blog_core_comment($db, 1);
 
-		$this->assertSame('First comment', $comment->parseComment());
+		$this->assertSame('First comment', $comment->parse());
 	}
 
 	/**
@@ -25,6 +25,6 @@ class blogpost_comment_test extends blog_database_test_case
 
 		// Grep the comments
 		$bp = new phpbb_ext_blog_blog_core_post($db, 1);
-		$this->assertSame(2, sizeof($bp->getComments()));
+		$this->assertSame(2, sizeof($bp->get_comments()));
 	}
 }

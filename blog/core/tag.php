@@ -23,15 +23,15 @@ class phpbb_ext_blog_blog_core_tag
 	public function __construct(dbal $db, $id = 0)
 	{
 		$this->db = $db;
-		$this->setID($id);
+		$this->set_id($id);
 
 		if ($this->id > 0)
 		{
-			$this->loadTag();
+			$this->load();
 		}
 	}
 
-	public function loadTag()
+	public function load()
 	{
 		$sql_ary = array(
 			'SELECT'	=> 't.tag,
@@ -54,12 +54,12 @@ class phpbb_ext_blog_blog_core_tag
 		}
 	}
 
-	public function setID($id)
+	public function set_id($id)
 	{
 		$this->id = (int) $id;
 	}
 
-	public function getTag()
+	public function loadget_tag()
 	{
 		return $this->tag;
 	}

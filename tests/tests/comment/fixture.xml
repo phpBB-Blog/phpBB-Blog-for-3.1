@@ -6,15 +6,15 @@
 		<column>title</column>
 		<column>poster_id</column>
 		<column>post</column>
-		<column>post_options</column>
-		<column>post_bitfield</column>
-		<column>post_uid</column>
+		<column>options</column>
+		<column>bitfield</column>
+		<column>uid</column>
 		<column>ptime</column>
-		<column>post_read_count</column>
-		<column>post_last_edit_time</column>
-		<column>post_edit_count</column>
-		<column>post_comment_count</column>
-		<column>post_comment_lock</column>
+		<column>read_count</column>
+		<column>last_edit_time</column>
+		<column>edit_count</column>
+		<column>comment_count</column>
+		<column>comment_lock</column>
 		<row>
 			<value>1</value>
 			<value>1</value>
@@ -37,9 +37,9 @@
 		<column>post_id</column>
 		<column>comment</column>
 		<column>commenter_id</column>
-		<column>comment_options</column>
-		<column>comment_bitfield</column>
-		<column>comment_uid</column>
+		<column>options</column>
+		<column>bitfield</column>
+		<column>uid</column>
 		<column>ctime</column>
 		<row>
 			<value>1</value>

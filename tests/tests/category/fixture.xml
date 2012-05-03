@@ -4,9 +4,9 @@
 		<column>id</column>
 		<column>title</column>
 		<column>description</column>
-		<column>description_options</column>
-		<column>description_bitfield</column>
-		<column>description_uid</column>
+		<column>options</column>
+		<column>bitfield</column>
+		<column>uid</column>
 		<column>total_posts</column>
 		<column>last_post_id</column>
 		<row>

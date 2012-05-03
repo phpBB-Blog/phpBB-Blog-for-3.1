@@ -19,9 +19,9 @@ class phpbb_ext_blog_blog_core_category
 	private $id = 0;
 	private $title = '';
 	private $description = '';
-	private $description_options = 0;
-	private $description_bitfield = '';
-	private $description_uid = '';
+	private $options = 0;
+	private $bitfield = '';
+	private $uid = '';
 	private $total_posts = 0;
 	private $last_post_id = 0;
 
@@ -30,23 +30,23 @@ class phpbb_ext_blog_blog_core_category
 	public function __construct(dbal $db, $id = 0)
 	{
 		$this->db = $db;
-		$this->setID($id);
+		$this->set_id($id);
 
 		if ($this->id > 0)
 		{
-			$this->loadCategory();
-			$this->getPosts();
+			$this->load_category();
+			$this->get_posts();
 		}
 	}
 
-	public function loadCategory()
+	public function load_category()
 	{
 		$sql_ary = array(
 			'SELECT'	=> 'bc.title,
 							bc.description,
-							bc.description_options,
-							bc.description_bitfield,
-							bc.description_uid,
+							bc.options,
+							bc.bitfield,
+							bc.uid,
 							bc.total_posts,
 							bc.last_post_id',
 			'FROM'		=> array(
@@ -62,17 +62,17 @@ class phpbb_ext_blog_blog_core_category
 
 		if (!empty($category))
 		{
-			$this->title				= $category['title'];
-			$this->description			= $category['description'];
-			$this->description_options	= $category['description_options'];
-			$this->description_bitfield	= $category['description_bitfield'];
-			$this->description_uid		= $category['description_uid'];
-			$this->total_posts			= $category['total_posts'];
-			$this->last_post_id			= $category['last_post_id'];
+			$this->title		= $category['title'];
+			$this->description	= $category['description'];
+			$this->options		= $category['options'];
+			$this->bitfield		= $category['bitfield'];
+			$this->uid			= $category['uid'];
+			$this->total_posts	= $category['total_posts'];
+			$this->last_post_id	= $category['last_post_id'];
 		}
 	}
 
-	public function loadPosts()
+	public function load_posts()
 	{
 		$sql_ary = array(
 			'SELECT'	=> 'p.id,
@@ -83,11 +83,11 @@ class phpbb_ext_blog_blog_core_category
 							p.bitfield,
 							p.uid
 							p.ptime,
-							p.post_read_count,
-							p.post_last_edit_time,
-							p.post_edit_count,
-							p.post_comment_count,
-							p.post_comment_lock',
+							p.read_count,
+							p.last_edit_time,
+							p.edit_count,
+							p.comment_count,
+							p.comment_lock',
 			'FROM'		=> array(
 				BLOG_POSTS_TABLE	=> 'p',
 			),
@@ -103,8 +103,8 @@ class phpbb_ext_blog_blog_core_category
 			foreach ($posts as $p)
 			{
 				$post = new phpbb_ext_blog_blog_core_post($this->db);
-				$post->setPostID($p['id']);
-				$post->setPostData($p);
+				$post->set_id($p['id']);
+				$post->set_data($p);
 				$this->posts[] = $post;
 			}
 		}
@@ -112,22 +112,22 @@ class phpbb_ext_blog_blog_core_category
 		$this->db->sql_freeresult($result);
 	}
 
-	public function getPosts()
+	public function get_posts()
 	{
 		if ($this->total_posts > 0)
 		{
-			$this->loadPosts();
+			$this->load_posts();
 		}
 
 		return $this->posts;
 	}
 
-	public function setID($id)
+	public function set_id($id)
 	{
 		$this->id = (int) $id;
 	}
 
-	public function getTitle()
+	public function get_title()
 	{
 		return $this->title;
 	}

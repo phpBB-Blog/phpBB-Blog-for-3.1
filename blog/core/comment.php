@@ -19,30 +19,30 @@ class phpbb_ext_blog_blog_core_comment
 	private $id = 0;
 	private $comment = '';
 	private $commenter_id = 0;
-	private $comment_options = 0;
-	private $comment_bitfield = '';
-	private $comment_uid = '';
+	private $options = 0;
+	private $bitfield = '';
+	private $uid = '';
 	private $ctime = 0;
 
 	public function __construct(dbal $db, $id = 0)
 	{
 		$this->db = $db;
-		$this->setCommentID($id);
+		$this->set_id($id);
 
 		if ($this->id > 0)
 		{
-			$this->loadComment();
+			$this->load();
 		}
 	}
 
-	public function loadComment()
+	public function load()
 	{
 		$sql_ary = array(
 			'SELECT'	=> 'pc.comment,
 							pc.commenter_id,
-							pc.comment_options,
-							pc.comment_bitfield,
-							pc.comment_uid,
+							pc.options,
+							pc.bitfield,
+							pc.uid,
 							pc.ctime',
 			'FROM'		=> array(
 				BLOG_POST_COMMENTS_TABLE => 'pc',
@@ -57,26 +57,26 @@ class phpbb_ext_blog_blog_core_comment
 
 		if (!empty($result))
 		{
-			$this->setCommentData($comment);
+			$this->set_data($comment);
 		}
 	}
 
-	public function setCommentData(array $data)
+	public function set_data(array $data)
 	{
-		$this->comment			= $data['comment'];
-		$this->commenter_id		= $data['commenter_id'];
-		$this->comment_options	= $data['comment_options'];
-		$this->comment_bitfield	= $data['comment_bitfield'];
-		$this->comment_uid		= $data['comment_uid'];
-		$this->ctime			= $data['ctime'];
+		$this->comment		= $data['comment'];
+		$this->commenter_id	= $data['commenter_id'];
+		$this->options		= $data['options'];
+		$this->bitfield		= $data['bitfield'];
+		$this->uid			= $data['uid'];
+		$this->ctime		= $data['ctime'];
 	}
 
-	public function parseComment()
+	public function parse()
 	{
 		return $this->comment;
 	}
 
-	public function setCommentID($id)
+	public function set_id($id)
 	{
 		$this->id = (int) $id;
 	}

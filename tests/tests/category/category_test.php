@@ -12,6 +12,6 @@ class category_test extends blog_database_test_case
 		$db = $this->new_dbal();
 
 		$category = new phpbb_ext_blog_blog_core_category($db, 1);
-		$this->assertSame('Test category', $category->getTitle());
+		$this->assertSame('Test category', $category->get_title());
 	}
 }

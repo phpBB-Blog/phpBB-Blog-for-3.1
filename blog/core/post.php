@@ -37,15 +37,15 @@ class phpbb_ext_blog_blog_core_post
 	private $title = '';
 	private $post = '';
 	private $poster_id = 0;
-	private $bbcode_options = 0;
-	private $bbcode_bitfield = '';
-	private $bbcode_uid = '';
+	private $options = 0;
+	private $bitfield = '';
+	private $uid = '';
 	private $ptime = 0;
-	private $post_read_count = 0;
-	private $post_last_edit_time = 0;
-	private $post_edit_count = 0;
-	private $post_comment_count = 0;
-	private $post_comment_lock = 0;
+	private $read_count = 0;
+	private $last_edit_time = 0;
+	private $edit_count = 0;
+	private $comment_count = 0;
+	private $comment_lock = 0;
 
 	/**
 	 * Initialise the object
@@ -58,13 +58,13 @@ class phpbb_ext_blog_blog_core_post
 	public function __construct(dbal $db, $id = 0)
 	{
 		$this->db = $db;
-		$this->setPostID($id);
+		$this->set_id($id);
 
 		// Fetch the blog data if needed
 		if ($this->id > 0)
 		{
-			$this->loadPost();
-			$this->getComments();
+			$this->load();
+			$this->get_comments();
 		}
 	}
 
@@ -76,7 +76,7 @@ class phpbb_ext_blog_blog_core_post
 	 *
 	 * @return void
 	 */
-	public function loadPost()
+	public function load()
 	{
 		$sql_ary = array(
 			'SELECT'	=> 'bp.id,
@@ -84,15 +84,15 @@ class phpbb_ext_blog_blog_core_post
 							bp.title,
 							bp.poster_id,
 							bp.post,
-							bp.post_options,
-							bp.post_bitfield,
-							bp.post_uid,
+							bp.options,
+							bp.bitfield,
+							bp.uid,
 							bp.ptime,
-							bp.post_read_count,
-							bp.post_last_edit_time,
-							bp.post_edit_count,
-							bp.post_comment_count,
-							bp.post_comment_lock',
+							bp.read_count,
+							bp.last_edit_time,
+							bp.edit_count,
+							bp.comment_count,
+							bp.comment_lock',
 			'FROM'		=> array(
 				BLOG_POSTS_TABLE => 'bp',
 			),
@@ -106,7 +106,7 @@ class phpbb_ext_blog_blog_core_post
 
 		if (!empty($post))
 		{
-			$this->setPostData($post);
+			$this->set_data($post);
 		}
 	}
 
@@ -118,15 +118,15 @@ class phpbb_ext_blog_blog_core_post
 	 *
 	 * @return void
 	 */
-	private function fetchComments()
+	private function load_comments()
 	{
 		$sql_ary = array(
 			'SELECT'	=> 'pc.id,
 							pc.comment,
 							pc.commenter_id,
-							pc.comment_options,
-							pc.comment_bitfield,
-							pc.comment_uid,
+							pc.options,
+							pc.bitfield,
+							pc.uid,
 							pc.ctime',
 			'FROM'		=> array(
 				BLOG_POST_COMMENTS_TABLE => 'pc',
@@ -145,28 +145,28 @@ class phpbb_ext_blog_blog_core_post
 			foreach ($comments as $c)
 			{
 				$comment = new phpbb_ext_blog_blog_core_comment($this->db);
-				$comment->setCommentID($c['id']);
-				$comment->setCommentData($c);
+				$comment->set_id($c['id']);
+				$comment->set_data($c);
 				$this->comments[] = $comment;
 			}
 		}
 	}
 
-	public function setPostData(array $data)
+	public function set_data(array $data)
 	{
-		$this->post					= $data['post'];
-		$this->category				= $data['category'];
-		$this->title				= $data['title'];
-		$this->poster_id			= $data['poster_id'];
-		$this->post_options			= $data['post_options'];
-		$this->post_bitfield		= $data['post_bitfield'];
-		$this->post_uid				= $data['post_uid'];
-		$this->ptime				= $data['ptime'];
-		$this->post_read_count		= $data['post_read_count'];
-		$this->post_last_edit_time	= $data['post_last_edit_time'];
-		$this->post_edit_count		= $data['post_edit_count'];
-		$this->post_comment_count	= $data['post_comment_count'];
-		$this->post_comment_lock	= $data['post_comment_lock'];
+		$this->post				= $data['post'];
+		$this->category			= $data['category'];
+		$this->title			= $data['title'];
+		$this->poster_id		= $data['poster_id'];
+		$this->options			= $data['options'];
+		$this->bitfield			= $data['bitfield'];
+		$this->uid				= $data['uid'];
+		$this->ptime			= $data['ptime'];
+		$this->read_count		= $data['read_count'];
+		$this->last_edit_time	= $data['last_edit_time'];
+		$this->edit_count		= $data['edit_count'];
+		$this->comment_count	= $data['comment_count'];
+		$this->comment_lock		= $data['comment_lock'];
 	}
 
 	/**
@@ -174,12 +174,12 @@ class phpbb_ext_blog_blog_core_post
 	 *
 	 * Get all the posts comments
 	 */
-	public function getComments()
+	public function get_comments()
 	{
 		// Only if needed
-		if (empty($this->comments) && $this->post_comment_count > 0)
+		if (empty($this->comments) && $this->comment_count > 0)
 		{
-			$this->fetchComments();
+			$this->load_comments();
 		}
 
 		return $this->comments;
@@ -188,12 +188,12 @@ class phpbb_ext_blog_blog_core_post
 	/**
 	 * Set the blog post ID
 	 */
-	public function setPostID($id)
+	public function set_id($id)
 	{
 		$this->id = (int) $id;
 	}
 
-	public function getTitle()
+	public function get_title()
 	{
 		return $this->title;
 	}
