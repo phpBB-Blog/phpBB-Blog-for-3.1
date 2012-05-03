@@ -23,7 +23,7 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	 * @param dbal $db The phpBB DBAL object
 	 * @param integer $id
 	 */
-	public function __construct(dbal $db, $id = 0)
+	public function __construct(dbal $db = null, $id = 0)
 	{
 		$this->db = $db;
 		$this->set_data('id', $id);
@@ -52,7 +52,11 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 
 		foreach ($data as $var => $value)
 		{
-			if (property_exists($this, $var))
+			if (method_exists($this, "set_{$var}"))
+			{
+				call_user_func(array($this, "set_{$var}"), $value);
+			}
+			else if (property_exists($this, $var))
 			{
 				$type = gettype($value);
 				set_var($this->$var, $value, $type, true);
@@ -67,7 +71,11 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	{
 		if (property_exists($this, $name))
 		{
-			return $this->$name;
+			// Don't try to return if private
+			if (isset($this->$name))
+			{
+				return $this->$name;
+			}
 		}
 	}
 
