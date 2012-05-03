@@ -45,7 +45,8 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 		{
 			if (property_exists($this, $var))
 			{
-				$this->$var = $value;
+				$type = gettype($value);
+				set_var($this->$var, $value, $type, true);
 			}
 		}
 	}
