@@ -14,18 +14,6 @@ $phpEx = 'php';
 
 $table_prefix = (!defined('table_prefix')) ? 'phpbb_' : table_prefix;
 
-if (!defined('dbms'))
-{
-	define('dbms', 'sqlite');
-	define('dbhost', dirname(__FILE__) . '/unit_tests.sqlite2'); // filename
-	define('dbuser', '');
-	define('dbpasswd', '');
-	define('dbname', '');
-	define('dbport', '');
-	define('table_prefix', '');
-}
-$dbms = dbms;
-
 require_once $phpbb_root_path . 'includes/class_loader.' . $phpEx;
 
 $phpbb_class_loader = new phpbb_class_loader('phpbb_ext_', dirname(__FILE__) . '/../', ".php");
