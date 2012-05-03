@@ -139,7 +139,7 @@ class phpbb_ext_blog_blog_core_post
 
 		foreach ($comments as $c)
 		{
-			$comment = new phpbb_ext_blog_core_comment($this->db);
+			$comment = new phpbb_ext_blog_blog_core_comment($this->db);
 			$comment->setCommentID($c['id']);
 			$comment->setCommentData($c);
 			$this->comments[] = $comment;

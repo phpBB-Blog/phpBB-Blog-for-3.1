@@ -14,7 +14,7 @@ class blogpost_test extends blog_database_test_case
 	{
 		$db = $this->new_dbal();
 
-		$bp = new phpbb_ext_blog_core_post($db, 1);
+		$bp = new phpbb_ext_blog_blog_core_post($db, 1);
 
 		// Tests
 		$this->assertSame('Test Post w Comments', $bp->getTitle());

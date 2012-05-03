@@ -97,7 +97,7 @@ class phpbb_ext_blog_blog_core_category
 
 		foreach ($posts as $p)
 		{
-			$post = new phpbb_ext_blog_core_post($this->db);
+			$post = new phpbb_ext_blog_blog_core_post($this->db);
 			$post->setPostID($p['id']);
 			$post->setPostData($p);
 			$this->posts[] = $post;
