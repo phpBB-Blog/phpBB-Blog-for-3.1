@@ -98,6 +98,7 @@ class phpbb_ext_blog_blog_objects_post extends phpbb_ext_blog_blog_objects_base
 
 		// Prepare the data
 		$data = array(
+			BLOG_POSTS_TABLE,
 			'category'			=> $this->category,
 			'title'				=> $this->title,
 			'poster_id'			=> $this->poster_id,
@@ -113,27 +114,7 @@ class phpbb_ext_blog_blog_objects_post extends phpbb_ext_blog_blog_objects_base
 			'comment_lock'		=> $this->comment_lock,
 		);
 
-		if (!$this->id)
-		{
-			$mode	= 'INSERT';
-			$sql	= 'INSERT INTO ' . BLOG_POSTS_TABLE . '%s';
-		}
-		else
-		{
-			// Set post ID
-			$data['id'] = $this->id;
-
-			$mode = 'UPDATE';
-			$sql	= 'UPDATE ' . BLOG_POSTS_TABLE . '
-					SET %s
-					WHERE id = ' . $this->id;
-		}
-
-		$sql = sprintf($sql, $this->db->sql_build_array($mode, $data));
-		$this->db->sql_query($sql);
-
-		// Set the new ID
-		$this->id = $this->db->sql_nextid();
+		$this->_submit($data);
 	}
 
 	/**

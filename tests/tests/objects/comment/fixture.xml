@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <dataset>
 	<table name="phpbb_blog_posts">
-		<column>id</column>
 		<column>category</column>
 		<column>title</column>
 		<column>poster_id</column>
@@ -16,7 +15,6 @@
 		<column>comment_count</column>
 		<column>comment_lock</column>
 		<row>
-			<value>1</value>
 			<value>1</value>
 			<value>Test Post w Comments</value>
 			<value>2</value>
@@ -33,7 +31,6 @@
 		</row>
 	</table>
 	<table name="phpbb_blog_post_comments">
-		<column>id</column>
 		<column>post_id</column>
 		<column>comment</column>
 		<column>commenter_id</column>
@@ -43,7 +40,6 @@
 		<column>ctime</column>
 		<row>
 			<value>1</value>
-			<value>1</value>
 			<value>First comment</value>
 			<value>2</value>
 			<value>7</value>
@@ -52,7 +48,6 @@
 			<value>1329586100</value>
 		</row>
 		<row>
-			<value>2</value>
 			<value>1</value>
 			<value>Second comment</value>
 			<value>2</value>

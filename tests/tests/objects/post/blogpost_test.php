@@ -22,7 +22,7 @@ class blogpost_test extends blog_database_test_case
 	/**
 	 * Test submitting new post
 	 */
-	public function test_submit_post()
+	public function test_create_post()
 	{
 		$db = $this->new_dbal();
 
@@ -35,10 +35,7 @@ class blogpost_test extends blog_database_test_case
 
 		// Fill the new blog with information
 		$data = array(
-			'post'				=> 'Test submit post',
-			'category'			=> 1,
-			'title'				=> 'Submit',
-			'poster_id'			=> 2,
+			'post' => 'Test submit post',
 		);
 		$bp->set_data($data);
 

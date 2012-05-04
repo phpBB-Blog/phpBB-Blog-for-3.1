@@ -65,6 +65,33 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 		}
 	}
 
+	protected function _submit(array $data)
+	{
+		if (!$this->id)
+		{
+			$mode	= 'INSERT';
+			$sql	= 'INSERT INTO %s %s';
+		}
+		else
+		{
+			// Set post ID
+			$data += array(
+				'id' => $this->id,
+			);
+
+			$mode	= 'UPDATE';
+			$sql	= 'UPDATE %s
+					SET %s
+					WHERE id = ' . $this->id;
+		}
+
+		$sql = sprintf($sql, array_shift($data), $this->db->sql_build_array($mode, $data));
+		$this->db->sql_query($sql);
+
+		// Set the new ID
+		$this->id = $this->db->sql_nextid();
+	}
+
 	/**
 	 * __get
 	 */
@@ -87,6 +114,7 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	}
 
 	//-- Some wrappers that are *only* used during development to not break things
+	// @todo remove
 	// @codeCoverageIgnoreStart
 	public function load()
 	{

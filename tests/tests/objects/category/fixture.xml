@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <dataset>
 	<table name="phpbb_blog_categories">
-		<column>id</column>
 		<column>title</column>
 		<column>description</column>
 		<column>options</column>
@@ -10,7 +9,6 @@
 		<column>total_posts</column>
 		<column>last_post_id</column>
 		<row>
-			<value>1</value>
 			<value>Test category</value>
 			<value></value>
 			<value>0</value>
@@ -20,7 +18,6 @@
 			<value>0</value>
 		</row>
 		<row>
-			<value>2</value>
 			<value>Test category with posts</value>
 			<value></value>
 			<value>0</value>
@@ -31,7 +28,6 @@
 		</row>
 	</table>
 	<table name="phpbb_blog_posts">
-		<column>id</column>
 		<column>category</column>
 		<column>title</column>
 		<column>poster_id</column>
@@ -46,7 +42,6 @@
 		<column>comment_count</column>
 		<column>comment_lock</column>
 		<row>
-			<value>1</value>
 			<value>2</value>
 			<value>Post 1</value>
 			<value>2</value>
@@ -62,7 +57,6 @@
 			<value>0</value>
 		</row>
 		<row>
-			<value>2</value>
 			<value>2</value>
 			<value>Post 2</value>
 			<value>2</value>
