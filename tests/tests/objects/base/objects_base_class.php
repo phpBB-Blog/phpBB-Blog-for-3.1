@@ -12,6 +12,11 @@ class objects_base_class extends phpbb_ext_blog_blog_objects_base
 		$this->var2 = 'foobar';
 	}
 
+	public function get_get2()
+	{
+		return "Custom";
+	}
+
 	public function load() {}
 	public function parse() {}
 	public function submit() {}

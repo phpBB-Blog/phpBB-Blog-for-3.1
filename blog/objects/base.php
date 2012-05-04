@@ -52,6 +52,7 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 
 		foreach ($data as $var => $value)
 		{
+			// Use a custom setter
 			if (method_exists($this, "set_{$var}"))
 			{
 				call_user_func(array($this, "set_{$var}"), $value);
@@ -69,7 +70,13 @@ abstract class phpbb_ext_blog_blog_objects_base implements phpbb_ext_blog_blog_o
 	 */
 	public function __get($name)
 	{
-		if (property_exists($this, $name))
+		// Use a custom getter
+		if (method_exists($this, "get_{$name}"))
+		{
+			return call_user_func(array($this, "get_{$name}"));
+		}
+		// Get the property
+		else if (property_exists($this, $name))
 		{
 			// Don't try to return if private
 			if (isset($this->$name))

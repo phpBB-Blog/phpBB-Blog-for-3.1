@@ -22,7 +22,12 @@ class objects_base_test extends blog_test_case
 
 	public function test_get_private()
 	{
-		$this->class->_private;
+		$this->assertNull($this->class->_private);
+	}
+
+	public function test_get_method()
+	{
+		$this->assertSame("Custom", $this->class->get2);
 	}
 
 	public function test_set_data_magic()
