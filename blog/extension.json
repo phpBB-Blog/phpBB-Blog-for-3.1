@@ -8,25 +8,22 @@
     "licence": "GPLv2",
     "authors": [
         {
-            "name": "Michael Cullum",
-            "username": "Unknown Bliss",
+            "name": "Michael Cullum (Unknown Bliss)",
             "email": "m@michaelcullum.com",
             "homepage": "http://www.michaelcullum.com",
-            "type": "Developer"
+            "role": "Developer"
         },
         {
-            "name": "David King",
-            "username": "imkingdavid",
+            "name": "David King (imkingdavid)",
             "email": "imkingdavid@gmail.com",
             "homepage": "http://www.thedavidking.com/",
-            "type": "Developer"
+            "role": "Developer"
         },
         {
             "name": "Erik Frèrejean",
-            "username": "Erik Frèrejean",
             "email": "erikfrerejean@phpbb.com",
             "homepage": "http://www.phpbb.com",
-            "type": "Developer"
+            "role": "Developer"
         }
     ],
     "require": {
