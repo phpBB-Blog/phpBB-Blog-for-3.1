@@ -10,9 +10,9 @@ CREATE TABLE phpbb_blog_categories (
 	id INTEGER PRIMARY KEY NOT NULL ,
 	title varchar(255) NOT NULL DEFAULT '',
 	description mediumtext(16777215) NOT NULL DEFAULT '',
-	description_options INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	description_bitfield varchar(255) NOT NULL DEFAULT '',
-	description_uid varchar(8) NOT NULL DEFAULT '',
+	options INTEGER UNSIGNED NOT NULL DEFAULT '0',
+	bitfield varchar(255) NOT NULL DEFAULT '',
+	uid varchar(8) NOT NULL DEFAULT '',
 	total_posts INTEGER UNSIGNED NOT NULL DEFAULT '0',
 	last_post_id INTEGER UNSIGNED NOT NULL DEFAULT '0'
 );
@@ -24,9 +24,9 @@ CREATE TABLE phpbb_blog_post_comments (
 	post_id INTEGER UNSIGNED NOT NULL DEFAULT '0',
 	commenter_id INTEGER UNSIGNED NOT NULL DEFAULT '0',
 	comment mediumtext(16777215) NOT NULL DEFAULT '',
-	comment_options INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	comment_bitfield varchar(255) NOT NULL DEFAULT '',
-	comment_uid varchar(8) NOT NULL DEFAULT '',
+	options INTEGER UNSIGNED NOT NULL DEFAULT '0',
+	bitfield varchar(255) NOT NULL DEFAULT '',
+	uid varchar(8) NOT NULL DEFAULT '',
 	ctime INTEGER UNSIGNED NOT NULL DEFAULT '0'
 );
 
@@ -40,15 +40,15 @@ CREATE TABLE phpbb_blog_posts (
 	title varchar(255) NOT NULL DEFAULT '',
 	poster_id INTEGER UNSIGNED NOT NULL DEFAULT '0',
 	post mediumtext(16777215) NOT NULL DEFAULT '',
-	post_options INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	post_bitfield varchar(255) NOT NULL DEFAULT '',
-	post_uid varchar(8) NOT NULL DEFAULT '',
+	options INTEGER UNSIGNED NOT NULL DEFAULT '0',
+	bitfield varchar(255) NOT NULL DEFAULT '',
+	uid varchar(8) NOT NULL DEFAULT '',
 	ptime INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	post_read_count INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	post_last_edit_time INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	post_edit_count INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	post_comment_count INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	post_comment_lock INTEGER UNSIGNED NOT NULL DEFAULT '0'
+	read_count INTEGER UNSIGNED NOT NULL DEFAULT '0',
+	last_edit_time INTEGER UNSIGNED NOT NULL DEFAULT '0',
+	edit_count INTEGER UNSIGNED NOT NULL DEFAULT '0',
+	comment_count INTEGER UNSIGNED NOT NULL DEFAULT '0',
+	comment_lock INTEGER UNSIGNED NOT NULL DEFAULT '0'
 );
 
 CREATE INDEX phpbb_blog_posts_category ON phpbb_blog_posts (category);

@@ -1,11 +1,9 @@
 <?xml version="1.0" ?>
 <dataset>
 	<table name="phpbb_blog_tags">
-		<column>id</column>
 		<column>tag</column>
 		<column>tag_count</column>
 		<row>
-			<value>1</value>
 			<value>Test</value>
 			<value>4</value>
 		</row>

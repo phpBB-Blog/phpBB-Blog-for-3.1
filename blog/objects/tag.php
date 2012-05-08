@@ -13,25 +13,12 @@
  * Represents a blog tag, is resposible for parsing/storing/editing/etc
  * of a tag
  */
-class phpbb_ext_blog_blog_core_tag
+class phpbb_ext_blog_blog_objects_tag extends phpbb_ext_blog_blog_objects_base
 {
-	private $db;
-	private $id;
-	private $tag;
-	private $tag_count;
+	protected $tag = '';
+	protected $tag_count = 0;
 
-	public function __construct(dbal $db, $id = 0)
-	{
-		$this->db = $db;
-		$this->setID($id);
-
-		if ($this->id > 0)
-		{
-			$this->loadTag();
-		}
-	}
-
-	public function loadTag()
+	public function load()
 	{
 		$sql_ary = array(
 			'SELECT'	=> 't.tag,
@@ -47,17 +34,9 @@ class phpbb_ext_blog_blog_core_tag
 		$tag	= $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 
-		$this->tag			= $tag['tag'];
-		$this->tag_count	= $tag['tag_count'];
-	}
-
-	public function setID($id)
-	{
-		$this->id = (int) $id;
-	}
-
-	public function getTag()
-	{
-		return $this->tag;
+		if (!empty($tag))
+		{
+			$this->set_data($tag);
+		}
 	}
 }
