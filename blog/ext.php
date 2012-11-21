@@ -6,3 +6,8 @@
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
+
+class phpbb_ext_phpbbblog_blog_ext extends phpbb_extension_base
+{
+
+}
