@@ -11,6 +11,11 @@ class phpbb_ext_phpbbblog_model_category extends phpbb_ext_phpbbblog_model_objec
 {
 	private $posts = array();
 
+	public function load()
+	{
+		$this->load_object();
+	}
+
 	private function load_posts()
 	{
 

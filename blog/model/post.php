@@ -9,5 +9,8 @@
 
 class phpbb_ext_phpbbblog_model_post extends phpbb_ext_phpbbblog_model_object_base
 {
-
+	public function load()
+	{
+		$this->load_object();
+	}
 }

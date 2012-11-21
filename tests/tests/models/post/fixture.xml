@@ -9,11 +9,6 @@
 		<column>bitfield</column>
 		<column>uid</column>
 		<column>ptime</column>
-		<column>read_count</column>
-		<column>last_edit_time</column>
-		<column>edit_count</column>
-		<column>comment_count</column>
-		<column>comment_lock</column>
 		<row>
 			<value>1</value>
 			<value>Test Post w Comments</value>
@@ -23,11 +18,6 @@
 			<value></value>
 			<value></value>
 			<value>1329586000</value>
-			<value>6</value>
-			<value>0</value>
-			<value>0</value>
-			<value>2</value>
-			<value>0</value>
 		</row>
 	</table>
 </dataset>

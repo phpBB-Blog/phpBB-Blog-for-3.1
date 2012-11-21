@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <dataset>
 	<table name="phpbb_blog_categories">
-		<column>title</column>
+		<column>name</column>
 		<column>description</column>
 		<column>options</column>
 		<column>bitfield</column>
@@ -36,11 +36,6 @@
 		<column>bitfield</column>
 		<column>uid</column>
 		<column>ptime</column>
-		<column>read_count</column>
-		<column>last_edit_time</column>
-		<column>edit_count</column>
-		<column>comment_count</column>
-		<column>comment_lock</column>
 		<row>
 			<value>2</value>
 			<value>Post 1</value>
@@ -50,11 +45,6 @@
 			<value></value>
 			<value></value>
 			<value>1336077222</value>
-			<value>6</value>
-			<value>0</value>
-			<value>0</value>
-			<value>2</value>
-			<value>0</value>
 		</row>
 		<row>
 			<value>2</value>
@@ -65,11 +55,6 @@
 			<value></value>
 			<value></value>
 			<value>1336077251</value>
-			<value>6</value>
-			<value>0</value>
-			<value>0</value>
-			<value>2</value>
-			<value>0</value>
 		</row>
 	</table>
 </dataset>

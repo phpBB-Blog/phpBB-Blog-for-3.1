@@ -4,9 +4,7 @@ php:
   - 5.4
 
 env:
-  - DB=sqlite
   - DB=mysql
-  - DB=pgsql
 
 matrix:
   allow_failures:
@@ -24,7 +22,7 @@ before_script:
   - git submodule update --init
 
 script:
-  - phpunit --configuration tests/travis/$DB.travis.xml --coverage-text
+  - phpunit --configuration tests/travis/$DB.travis.xml
 
 notifications:
   email:
@@ -39,3 +37,4 @@ notifications:
       - "irc.freenode.org#unknownbliss"
     on_success: always
     on_failure: always
+

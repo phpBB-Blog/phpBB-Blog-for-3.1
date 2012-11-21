@@ -12,15 +12,34 @@ abstract class phpbb_ext_phpbbblog_model_object_base implements phpbb_ext_phpbbb
 	protected $data;
 	protected $db;
 	protected $id;
+	protected $table;
 
-	public function __construct($id = 0, array $data = array(), dbal $db)
+	public function __construct($id = 0, array $data = array(), dbal $db, $table)
 	{
 		$this->db = $db;
 		$this->set_id($id);
+		$this->table = $table;
 
-		if (!empty($data))
+		empty($data) ?: $this->set_data($data);
+	}
+
+	protected function load_object()
+	{
+		$sql_ary = array(
+			'SELECT'	=> 't.*',
+			'FROM'		=> array(
+				$this->table => 't',
+			),
+			'WHERE'		=> "t.id = {$this->id}",
+		);
+		$sql	= $this->db->sql_build_query('SELECT', $sql_ary);
+		$result	= $this->db->sql_query($sql);
+		$row	= $this->db->sql_fetchrow($result);
+		$this->db->sql_freeresult($result);
+
+		if ($row)
 		{
-			empty($data) ?: $this->set_data($data);
+			$this->data = $row;
 		}
 	}
 
@@ -43,23 +62,23 @@ abstract class phpbb_ext_phpbbblog_model_object_base implements phpbb_ext_phpbbb
 
 	public function offsetExists($key)
 	{
-		return isset($this->object_data[$key]);
+		return isset($this->data[$key]);
 	}
 
 	public function offsetGet($key)
 	{
-		return (isset($this->object_data[$key])) ? $this->object_data[$key] : '';
+		return (isset($this->data[$key])) ? $this->data[$key] : '';
 	}
 
 	public function offsetSet($key, $value)
 	{
 		$key = $key ?: count($this);
-		$this->object_data[$key] = $value;
+		$this->data[$key] = $value;
 	}
 
 	public function offsetUnset($key)
 	{
-		unset($this->object_data[$key]);
+		unset($this->data[$key]);
 	}
 
 	public function __toString()
