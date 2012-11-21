@@ -7,10 +7,21 @@
  *
  */
 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
+
+/**
+ * Class representing a given category
+ */
 class phpbb_ext_phpbbblog_model_category extends phpbb_ext_phpbbblog_model_object_base
 {
 	private $posts = array();
 
+	/**
+	 * Load the category
+	 */
 	public function load()
 	{
 		$this->load_object();

@@ -7,21 +7,50 @@
  *
  */
 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
+
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Main blog class
+ *
+ * All requests are handled through this class
+ */
 class phpbb_ext_phpbbblog_blog
 {
+	/** @var ContainerBuilder */
+	private $phpbb_container
+
+	/** @var dbal */
 	private $db;
+
+	/** @var phpbb_request */
 	private $request;
 
-	public function __construct(ContainerBuilder $container, phpbb_request $request, dbal $db)
+	/**
+	 * @param ContainerBuilder $phpbb_container
+	 * @param phpbb_request $request
+	 * @param dbal $db
+	 */
+	public function __construct(ContainerBuilder $phpbb_container, phpbb_request $request, dbal $db)
 	{
-		$this->container	= $container;
-		$this->db			= $db;
-		$this->request		= $request;
+		$this->phpbb_container	= $phpbb_container;
+		$this->db				= $db;
+		$this->request			= $request;
 	}
 
+	/**
+	 * Main route
+	 *
+	 * This method is called when the user visits the blog
+	 * homepage.
+	 *
+	 * @return Response
+	 */
 	public function main()
 	{
 		// Fetch the categories
@@ -38,6 +67,14 @@ class phpbb_ext_phpbbblog_blog
 		return new Response($response, 200);
 	}
 
+	/**
+	 * Category view
+	 *
+	 * This method is called when the users visits
+	 * a specific category
+	 *
+	 * @return Response
+	 */
 	public function category($cat)
 	{
 		// Get the category

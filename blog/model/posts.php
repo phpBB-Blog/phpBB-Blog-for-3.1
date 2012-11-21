@@ -7,8 +7,28 @@
  *
  */
 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
+
+/**
+ * Posts container
+ *
+ * Class that holds all the posts that are
+ * available in a category
+ */
 class phpbb_ext_phpbbblog_model_posts extends phpbb_ext_phpbbblog_model_container_base
 {
+	/**
+	 * Load posts
+	 *
+	 * Load the posts, by default all
+	 * posts are fetched, but it is also posible
+	 * to load only specific categories.
+	 *
+	 * @param int|array $ids Specific posts to load
+	 */
 	public function load($ids = array())
 	{
 		$rowset = $this->loadContainer();
@@ -17,23 +37,5 @@ class phpbb_ext_phpbbblog_model_posts extends phpbb_ext_phpbbblog_model_containe
 		{
 			$this[] = new phpbb_ext_phpbbblog_model_post(array_shift($row), $row, $this->db);
 		}
-	}
-
-	public function get_category($id)
-	{
-		foreach ($this as $category)
-		{
-			if ($category->get_id() == $id)
-			{
-				return $category;
-			}
-		}
-
-		return null;
-	}
-
-	public function get_categories()
-	{
-		return parent::get_object_data();
 	}
 }

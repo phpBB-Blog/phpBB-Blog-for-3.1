@@ -7,18 +7,48 @@
  *
  */
 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
+
+/**
+ * Base class for the "container" models.
+ */
 abstract class phpbb_ext_phpbbblog_model_container_base implements phpbb_ext_phpbbblog_model_container, ArrayAccess, IteratorAggregate, Countable
 {
+	/** @var dbal */
 	protected $db;
+
+	/**
+	 * @var array All objects that are part of this collection
+	 */
 	protected $object_data;
+
+	/**
+	 * @var string the table that holds the data for this container
+	 */
 	protected $table;
 
+	/**
+	 * @param string $table
+	 * @param dbal
+	 */
 	public function __construct($table, dbal $db)
 	{
 		$this->db		= $db;
 		$this->table	= $table;
 	}
 
+	/**
+	 * Load the complete container
+	 *
+	 * Load all the data for this container, this can
+	 * be limited to a given set of objects.
+	 *
+	 * @param string|array $ids
+	 * @return array The dataset
+	 */
 	protected function loadContainer($ids = array())
 	{
 		$ids = is_array($ids) ? $ids : array($ids);
@@ -43,6 +73,11 @@ abstract class phpbb_ext_phpbbblog_model_container_base implements phpbb_ext_php
 		return $rowset;
 	}
 
+	/**
+	 * Get all the objects
+	 *
+	 * @return array
+	 */
 	public function get_object_data()
 	{
 		return $this->object_data;

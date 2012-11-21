@@ -7,6 +7,14 @@
  *
  */
 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
+
+/**
+ * Extend the phpBB extension base
+ */
 class phpbb_ext_phpbbblog_blog_ext extends phpbb_extension_base
 {
 

@@ -7,22 +7,51 @@
  *
  */
 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
+
+/**
+ * Base class for model objects
+ */
 abstract class phpbb_ext_phpbbblog_model_object_base implements phpbb_ext_phpbbblog_model_object, ArrayAccess
 {
+	/**
+	 * @var array The data for this object
+	 */
 	protected $data;
+
+	/** @var dbal */
 	protected $db;
+
+	/**
+	 * @var int The id of this object
+	 */
 	protected $id;
+
+	/**
+	 * @var string The database table
+	 */
 	protected $table;
 
+	/**
+	 * @param int $id
+	 * @param array $data
+	 * @param dbal $db
+	 * @param string $table
+	 */
 	public function __construct($id = 0, array $data = array(), dbal $db, $table)
 	{
 		$this->db = $db;
 		$this->set_id($id);
 		$this->table = $table;
-
 		empty($data) ?: $this->set_data($data);
 	}
 
+	/**
+	 * Fetch this object from the database
+	 */
 	protected function load_object()
 	{
 		$sql_ary = array(
@@ -43,16 +72,31 @@ abstract class phpbb_ext_phpbbblog_model_object_base implements phpbb_ext_phpbbb
 		}
 	}
 
+	/**
+	 * Get this objects id
+	 *
+	 * @return int
+	 */
 	public function get_id()
 	{
 		return $this->id;
 	}
 
+	/**
+	 * Set the data array for this object
+	 *
+	 * @param array $data
+	 */
 	public function set_data(array $data)
 	{
 		$this->data = $data;
 	}
 
+	/**
+	 * Set this objects id
+	 *
+	 * @param int $id
+	 */
 	public function set_id($id)
 	{
 		$this->id = (int) $id;
