@@ -31,7 +31,7 @@ class phpbb_ext_phpbbblog_model_categories extends phpbb_ext_phpbbblog_model_con
 	 */
 	public function load($ids = array())
 	{
-		$rowset = $this->loadContainer();
+		$rowset = $this->load_container();
 
 		foreach ($rowset as $row)
 		{

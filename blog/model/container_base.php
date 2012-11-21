@@ -49,7 +49,7 @@ abstract class phpbb_ext_phpbbblog_model_container_base implements phpbb_ext_php
 	 * @param string|array $ids
 	 * @return array The dataset
 	 */
-	protected function loadContainer($ids = array())
+	protected function load_container($ids = array())
 	{
 		$ids = is_array($ids) ? $ids : array($ids);
 		
