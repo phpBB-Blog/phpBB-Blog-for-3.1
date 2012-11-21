@@ -1,5 +1,5 @@
 {
-	"name": "phpBBBlog/blog",
+	"name": "phpbb-blog/phpbb-blog",
 	"type": "phpbb3-extension",
 	"description": "A simple blog extension for phpBB 3.1.",
 	"homepage": "",
