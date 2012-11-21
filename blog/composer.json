@@ -1,8 +1,8 @@
 {
 	"name": "phpBBBlog/blog",
 	"type": "phpbb3-extension",
-	"description": "A simple blog extension for phpBB Ascraeus.",
-	"homepage": "n/a",
+	"description": "A simple blog extension for phpBB 3.1.",
+	"homepage": "",
 	"version": "0.0.1",
 	"time": "2012-11-21 13:47:01",
 	"licence": "GPL-2.0",
@@ -23,17 +23,17 @@
 		},
 		{
 			"name": "Michael Cullum",
-			"username": "Unknown Bliss",
+			"username": "MichaelC",
 			"email": "m@michaelcullum.com",
 			"homepage": "http://michaelcullum.com",
 			"role": "Developer"
 		}
 	],
 	"require": {
-		"php": ">=5.3",
+		"php": ">=5.3.3",
 		"phpbb": "3.1.0-dev"
 	},
 	"extra": {
-		"display-name": "phpBB Blog Extension"
+		"display-name": "phpBB Blog"
 	}
 }
