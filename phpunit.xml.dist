@@ -30,14 +30,4 @@
 			lowUpperBound="35"
 			highLowerBound="70" />
 	</logging>
-
-	<php>
-		<server name="PHPBB_TEST_DBMS" value="mysqli" />
-		<server name="PHPBB_TEST_DBHOST" value="127.0.0.1" />
-		<server name="PHPBB_TEST_DBPORT" value="3306" />
-		<server name="PHPBB_TEST_DBNAME" value="Ascraeus" />
-		<server name="PHPBB_TEST_DBUSER" value="root" />
-		<server name="PHPBB_TEST_DBPASSWD" value="" />
-		<server name="PHPBB_TEST_TABLE_PREFIX" value="phpbb_"/>
-	</php>
 </phpunit>
