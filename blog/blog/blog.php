@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\Response;
 class phpbb_ext_phpbbblog_blog
 {
 	/** @var ContainerBuilder */
-	private $phpbb_container
+	private $phpbb_container;
 
 	/** @var dbal */
 	private $db;

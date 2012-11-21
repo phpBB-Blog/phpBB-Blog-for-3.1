@@ -15,7 +15,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Class representing a given post
  */
-class phpbb_ext_phpbbblog_model_post extends phpbb_ext_phpbbblog_model_object_base
+class phpbb_ext_phpbbblog_model_object_post extends phpbb_ext_phpbbblog_model_object_base
 {
 	/**
 	 * Load the post data

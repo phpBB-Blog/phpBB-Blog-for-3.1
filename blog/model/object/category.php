@@ -15,7 +15,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Class representing a given category
  */
-class phpbb_ext_phpbbblog_model_category extends phpbb_ext_phpbbblog_model_object_base
+class phpbb_ext_phpbbblog_model_object_category extends phpbb_ext_phpbbblog_model_object_base
 {
 	private $posts = array();
 

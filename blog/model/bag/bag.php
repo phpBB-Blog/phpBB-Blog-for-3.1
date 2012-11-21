@@ -7,7 +7,7 @@
  *
  */
 
-interface phpbb_ext_phpbbblog_model_container
+interface phpbb_ext_phpbbblog_model_bag
 {
 
 }

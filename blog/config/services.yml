@@ -10,13 +10,13 @@ services:
             - @dbal.conn
 
     blog.model.categories:
-        class: phpbb_ext_phpbbblog_model_categories
+        class: phpbb_ext_phpbbblog_model_bag_categories
         arguments:
             - %tables.blog.categories%
             - @dbal.conn
 
     blog.model.posts:
-        class: phpbb_ext_phpbbblog_model_posts
+        class: phpbb_ext_phpbbblog_model_bag_posts
         arguments:
             - %tables.blog.posts%
             - @dbal.conn

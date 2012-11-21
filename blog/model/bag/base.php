@@ -15,7 +15,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Base class for the "container" models.
  */
-abstract class phpbb_ext_phpbbblog_model_container_base implements phpbb_ext_phpbbblog_model_container, ArrayAccess, IteratorAggregate, Countable
+abstract class phpbb_ext_phpbbblog_model_bag_base implements phpbb_ext_phpbbblog_model_bag, ArrayAccess, IteratorAggregate, Countable
 {
 	/** @var dbal */
 	protected $db;

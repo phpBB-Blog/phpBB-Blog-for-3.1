@@ -18,7 +18,7 @@ if (!defined('IN_PHPBB'))
  * Class that holds all the categories that are
  * available on the blog
  */
-class phpbb_ext_phpbbblog_model_categories extends phpbb_ext_phpbbblog_model_container_base
+class phpbb_ext_phpbbblog_model_bag_categories extends phpbb_ext_phpbbblog_model_bag_base
 {
 	/**
 	 * Load categories
@@ -35,7 +35,7 @@ class phpbb_ext_phpbbblog_model_categories extends phpbb_ext_phpbbblog_model_con
 
 		foreach ($rowset as $row)
 		{
-			$this[] = new phpbb_ext_phpbbblog_model_category(array_shift($row), $row, $this->db);
+			$this[] = new phpbb_ext_phpbbblog_model_object_category(array_shift($row), $row, $this->db);
 		}
 	}
 
