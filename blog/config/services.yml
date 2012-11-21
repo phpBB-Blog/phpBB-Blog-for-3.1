@@ -1,0 +1,22 @@
+imports:
+    - { resource: tables.yml }
+
+services:
+    blog.core:
+        class: phpbb_ext_phpbbblog_blog
+        arguments:
+            - @service_container
+            - @request
+            - @dbal.conn
+
+    blog.model.categories:
+        class: phpbb_ext_phpbbblog_model_categories
+        arguments:
+            - %tables.blog.categories%
+            - @dbal.conn
+
+    blog.model.posts:
+        class: phpbb_ext_phpbbblog_model_posts
+        arguments:
+            - %tables.blog.posts%
+            - @dbal.conn

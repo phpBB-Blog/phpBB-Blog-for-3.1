@@ -1,35 +1,39 @@
 {
-    "name": "phpbb-blog/phpbb-blog",
-    "type": "phpbb3-extension",
-    "description": "This adds a integrated lighweight but powerful blog to your forum.",
-    "homepage": "http://www.github.com/phpBB-Blog/phpBB-Blog-for-3.1/",
-    "version": "0.0.1",
-    "time": "2012-02-15",
-    "licence": "GPLv2",
-    "authors": [
-        {
-            "name": "Michael Cullum (Unknown Bliss)",
-            "email": "m@michaelcullum.com",
-            "homepage": "http://www.michaelcullum.com",
-            "role": "Developer"
-        },
-        {
-            "name": "David King (imkingdavid)",
-            "email": "imkingdavid@gmail.com",
-            "homepage": "http://www.thedavidking.com/",
-            "role": "Developer"
-        },
-        {
-            "name": "Erik Frèrejean",
-            "email": "erikfrerejean@phpbb.com",
-            "homepage": "http://www.phpbb.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "phpbb": "3.1.0"
-    },
-    "extra": {
-        "display-name": "phpBB Blog"
- }
+	"name": "phpBBBlog/blog",
+	"type": "phpbb3-extension",
+	"description": "A simple blog extension for phpBB Ascraeus.",
+	"homepage": "n/a",
+	"version": "0.0.1",
+	"time": "2012-11-21 13:47:01",
+	"licence": "GPL-2.0",
+	"authors": [
+		{
+			"name": "Erik Frèrejean",
+			"username": "Erik Frèrejean",
+			"email": "erikfrerejean@gmail.com",
+			"homepage": "http://leximosi.github.com",
+			"role": "Developer"
+		},  
+		{
+			"name": "David King",
+			"username": "imkingdavid",
+			"email": "imkingdavid@gmail.com",
+			"homepage": "http://thedavidking.com",
+			"role": "Developer"
+		},
+		{
+			"name": "Michael Cullum",
+			"username": "Unknown Bliss",
+			"email": "m@michaelcullum.com",
+			"homepage": "http://michaelcullum.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3",
+		"phpbb": "3.1.0-dev"
+	},
+	"extra": {
+		"display-name": "phpBB Blog Extension"
+	}
 }

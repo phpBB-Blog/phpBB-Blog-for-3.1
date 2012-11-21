@@ -1,0 +1,3 @@
+parameters:
+    tables.blog.categories: %core.table_prefix%blog_categories
+    tables.blog.posts: %core.table_prefix%blog_posts
