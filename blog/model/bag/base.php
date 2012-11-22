@@ -49,7 +49,7 @@ abstract class phpbb_ext_phpbbblog_model_bag_base implements phpbb_ext_phpbbblog
 	 * @param string|array $ids
 	 * @return array The dataset
 	 */
-	protected function load_container($ids = array())
+	protected function load_bag($ids = array())
 	{
 		$ids = is_array($ids) ? $ids : array($ids);
 		
@@ -81,6 +81,11 @@ abstract class phpbb_ext_phpbbblog_model_bag_base implements phpbb_ext_phpbbblog
 	public function get_object_data()
 	{
 		return $this->object_data;
+	}
+
+	public function set_object_data(array $data)
+	{
+		$this->object_data = $data;
 	}
 
 	//-- ArrayItterator implementation

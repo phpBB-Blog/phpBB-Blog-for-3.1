@@ -31,11 +31,11 @@ class phpbb_ext_phpbbblog_model_bag_categories extends phpbb_ext_phpbbblog_model
 	 */
 	public function load($ids = array())
 	{
-		$rowset = $this->load_container();
+		$rowset = $this->load_bag($ids);
 
 		foreach ($rowset as $row)
 		{
-			$this[] = new phpbb_ext_phpbbblog_model_object_category(array_shift($row), $row, $this->db);
+			$this[] = new phpbb_ext_phpbbblog_model_object_category(array_shift($row), $row, $this->db, $this->table);
 		}
 	}
 

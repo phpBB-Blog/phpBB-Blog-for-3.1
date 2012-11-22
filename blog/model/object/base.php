@@ -73,6 +73,16 @@ abstract class phpbb_ext_phpbbblog_model_object_base implements phpbb_ext_phpbbb
 	}
 
 	/**
+	 * Get all data of this object
+	 *
+	 * @return array
+	 */
+	public function get_data()
+	{
+		return $this->data;
+	}
+
+	/**
 	 * Get this objects id
 	 *
 	 * @return int

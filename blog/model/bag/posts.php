@@ -31,7 +31,7 @@ class phpbb_ext_phpbbblog_model_bag_posts extends phpbb_ext_phpbbblog_model_bag_
 	 */
 	public function load($ids = array())
 	{
-		$rowset = $this->load_container();
+		$rowset = $this->load_bag();
 
 		foreach ($rowset as $row)
 		{
