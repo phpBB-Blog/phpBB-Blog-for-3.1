@@ -13,8 +13,7 @@ class bag_base_test extends blog_test_case
 
 	protected function setUp()
 	{
-		require_once __DIR__ . '/../../../mock/mock_bag.php';
-		$this->bag = new mock_bag();
+		$this->bag = new phpbb_blog_mock_bag();
 		$this->bag->set_object_data(array(
 			'key' => 'value',
 			'foo' => 'bar',
