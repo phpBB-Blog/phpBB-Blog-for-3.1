@@ -17,6 +17,11 @@
 	<filter>
 		<whitelist addUncoveredFilesFromWhitelist="true">
 			<directory>./blog/</directory>
+			<exclude>
+				<directory>./blog/language/</directory>
+				<directory>./blog/blog/</directory>
+				<file>./blog/ext.php</file>
+			</exclude>
 		</whitelist>
 	</filter>
 	<logging>
