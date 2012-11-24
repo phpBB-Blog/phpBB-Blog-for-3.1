@@ -17,11 +17,13 @@
 		<whitelist addUncoveredFilesFromWhitelist="true">
 			<directory>./blog/</directory>
 			<exclude>
-				<file>./blog/controller.php</file>
-				<file>./blog/ext.php</file>
-				<directory>./blog/develop/</directory>
 				<directory>./blog/language/</directory>
+				<directory>./blog/blog/</directory>
+				<file>./blog/ext.php</file>
 			</exclude>
 		</whitelist>
 	</filter>
+	<logging>
+		<log type="coverage-text" target="php://stdout" showUncoveredFiles="true" />
+	</logging>
 </phpunit>
