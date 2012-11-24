@@ -7,7 +7,7 @@
  *
  */
 
-class mock_object extends phpbb_ext_phpbbblog_model_object_base
+class phpbb_blog_mock_bag extends phpbb_ext_phpbbblog_model_bag_base
 {
 	public function __construct()
 	{

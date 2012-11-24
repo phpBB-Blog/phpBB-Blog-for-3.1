@@ -13,8 +13,7 @@ class object_base_test extends blog_test_case
 
 	protected function setUp()
 	{
-		require_once __DIR__ . '/../../../mock/mock_object.php';
-		$this->object = new mock_object();
+		$this->object = new phpbb_blog_mock_object();
 		$this->object->set_data(array(
 			'key' => 'value',
 			'foo' => 'bar',
