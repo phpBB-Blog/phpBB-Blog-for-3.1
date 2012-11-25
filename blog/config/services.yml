@@ -5,9 +5,11 @@ services:
     blog.core:
         class: phpbb_ext_phpbbblog_blog
         arguments:
-            - @service_container
-            - @request
+            - @controller.helper
             - @dbal.conn
+            - @request
+            - @template
+            - @blog.model.categories
 
     blog.model.categories:
         class: phpbb_ext_phpbbblog_model_bag_categories

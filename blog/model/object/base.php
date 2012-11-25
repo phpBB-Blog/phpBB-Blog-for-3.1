@@ -134,9 +134,4 @@ abstract class phpbb_ext_phpbbblog_model_object_base implements phpbb_ext_phpbbb
 	{
 		unset($this->data[$key]);
 	}
-
-	public function __toString()
-	{
-		return var_export($this->data, true);
-	}
 }

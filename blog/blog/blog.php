@@ -22,25 +22,35 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class phpbb_ext_phpbbblog_blog
 {
-	/** @var ContainerBuilder */
-	private $phpbb_container;
-
 	/** @var dbal */
 	private $db;
+
+	/** phpbb_controller_helper */
+	private $helper;
+
+	/** @var phpbb_template */
+	private $template;
 
 	/** @var phpbb_request */
 	private $request;
 
+	/** @var phpbb_ext_phpbbblog_model_bag_categories */
+	private $categories;
+
 	/**
 	 * @param ContainerBuilder $phpbb_container
-	 * @param phpbb_request $request
 	 * @param dbal $db
+	 * @param phpbb_request $request
+	 * @param template $template
 	 */
-	public function __construct(ContainerBuilder $phpbb_container, phpbb_request $request, dbal $db)
+	public function __construct(phpbb_controller_helper $helper, dbal $db, phpbb_request $request, phpbb_template $template, phpbb_ext_phpbbblog_model_bag_categories $categories)
 	{
-		$this->phpbb_container	= $phpbb_container;
-		$this->db				= $db;
-		$this->request			= $request;
+		$this->db			= $db;
+		$this->helper		= $helper;
+		$this->request		= $request;
+		$this->template		= $template;
+
+		$this->categories	= $categories;
 	}
 
 	/**
@@ -54,17 +64,10 @@ class phpbb_ext_phpbbblog_blog
 	public function main()
 	{
 		// Fetch the categories
-		$categories = $this->container->get('blog.model.categories');
-		$categories->load();
+		$this->categories->load();
 
-		// Send the responce
-		$response = '<h1>Categories:</h1>';
-		foreach ($categories as $category)
-		{
-			$response .= "Category: {$category->get_id()}, data: <pre> {$category}</pre><hr />";
-		}
-
-		return new Response($response, 200);
+		// Send the page out
+		return $this->helper->render('blog_main.html');
 	}
 
 	/**
@@ -78,8 +81,7 @@ class phpbb_ext_phpbbblog_blog
 	public function category($cat)
 	{
 		// Get the category
-		$categories = $this->container->get('blog.model.categories');
-		$categories->load($cat);
+		$this->categories->load($cat);
 
 		// Get the posts
 		$posts = $categories->get_category($cat)->get_posts();
