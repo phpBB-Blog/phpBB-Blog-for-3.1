@@ -26,7 +26,7 @@ abstract class phpbb_ext_phpbbblog_model_bag_base implements phpbb_ext_phpbbblog
 	/**
 	 * @var array All objects that are part of this collection
 	 */
-	protected $object_data;
+	protected $object_data = array();
 
 	/**
 	 * @var string the table that holds the data for this container
