@@ -5,6 +5,8 @@ php:
 
 env:
   - DB=mysql
+  - DB=pgsql
+  - DB=sqlite
 
 matrix:
   allow_failures:

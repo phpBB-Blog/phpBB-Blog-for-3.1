@@ -8,7 +8,7 @@
 		<column>options</column>
 		<column>bitfield</column>
 		<column>uid</column>
-		<column>ptime</column>
+		<column>post_time</column>
 		<row>
 			<value>1</value>
 			<value>Test Post w Comments</value>
