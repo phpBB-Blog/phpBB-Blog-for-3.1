@@ -18,8 +18,9 @@
 		<whitelist addUncoveredFilesFromWhitelist="true">
 			<directory>./blog/</directory>
 			<exclude>
-				<directory>./blog/language/</directory>
 				<directory>./blog/blog/</directory>
+				<directory>./blog/event/</directory>
+				<directory>./blog/language/</directory>
 				<file>./blog/ext.php</file>
 			</exclude>
 		</whitelist>
