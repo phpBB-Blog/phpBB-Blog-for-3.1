@@ -1,4 +1,6 @@
 logs/*
+tests/tmp/*
+
 *sqlite2
 *.zip
 

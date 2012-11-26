@@ -8,8 +8,8 @@
 */
 
 define('IN_PHPBB', true);
-$phpbb_root_path = dirname(__FILE__) . '/vendor/phpBB/phpBB/';
-$phpbb_tests_path = dirname(__FILE__) . '/vendor/phpBB/tests/';
+$phpbb_root_path = __DIR__ . '/vendor/phpBB/phpBB/';
+$phpbb_tests_path = __DIR__ . '/vendor/phpBB/tests/';
 $phpEx = 'php';
 
 $table_prefix = (!defined('table_prefix')) ? 'phpbb_' : table_prefix;
@@ -40,4 +40,3 @@ require_once __DIR__ . '/test_framework/blog_database_test_connection_manager.ph
 // Include some files that aren't autoloaded
 require_once $phpbb_root_path . 'includes/functions.php';
 require_once $phpbb_root_path . 'includes/utf/utf_tools.php';
-
