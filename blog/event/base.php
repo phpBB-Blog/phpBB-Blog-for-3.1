@@ -46,16 +46,21 @@ abstract class phpbb_ext_phpbbblog_event_base implements EventSubscriberInterfac
 		$this->user		= $phpbb_container->get('user');
 	}
 
+	/** @var bool */
+	static private $is_blog = null;
+
 	/**
 	 * Only register event listeners when the user is
 	 * actually visiting the blog.
 	 */
 	static public function getBlogSubscribedEvents(array $events)
 	{
-		global $request;
+		if (is_null(self::$is_blog))
+		{
+			global $request;
+			self::$is_blog = strpos($request->variable('controller', ''), 'blog') === 0;
+		}
 
-		$is_blog = strpos($request->variable('controller', ''), 'blog') === 0;
-
-		return ($is_blog) ? $events : array();
+		return (self::$is_blog) ? $events : array();
 	}
 }
