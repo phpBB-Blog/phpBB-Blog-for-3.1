@@ -23,6 +23,9 @@ if (!defined('IN_PHPBB'))
  */
 class phpbb_ext_phpbbblog_event_page_footer_listener extends phpbb_ext_phpbbblog_event_base
 {
+	/**
+	 * {@inheritDoc}
+	 */
 	static public function getSubscribedEvents()
 	{
 		return parent::getBlogSubscribedEvents(array(
@@ -30,6 +33,9 @@ class phpbb_ext_phpbbblog_event_page_footer_listener extends phpbb_ext_phpbbblog
 		));
 	}
 
+	/**
+	 * @param Event $event
+	 */
 	public function page_footer($event)
 	{
 		// Finish the blog copyright line and inject it into the

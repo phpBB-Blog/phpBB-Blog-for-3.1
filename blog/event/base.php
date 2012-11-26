@@ -28,6 +28,9 @@ abstract class phpbb_ext_phpbbblog_event_base implements EventSubscriberInterfac
 	/** @var string */
 	protected $phpEx;
 
+	/** @var ContainerBuilder */
+	protected $phpbb_container;
+
 	/** @var phpbb_template */
 	protected $template;
 
@@ -42,6 +45,7 @@ abstract class phpbb_ext_phpbbblog_event_base implements EventSubscriberInterfac
 		$this->phpbb_root_path	= $phpbb_root_path;
 		$this->phpEx			= $phpEx;
 
+		$this->phpbb_container	= $phpbb_container;
 		$this->template	= $phpbb_container->get('template');
 		$this->user		= $phpbb_container->get('user');
 	}

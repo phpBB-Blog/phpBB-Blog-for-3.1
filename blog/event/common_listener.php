@@ -23,6 +23,9 @@ if (!defined('IN_PHPBB'))
  */
 class phpbb_ext_phpbbblog_event_common_listener extends phpbb_ext_phpbbblog_event_base
 {
+	/**
+	 * {@inheritDoc}
+	 */
 	static public function getSubscribedEvents()
 	{
 		return parent::getBlogSubscribedEvents(array(
@@ -30,6 +33,9 @@ class phpbb_ext_phpbbblog_event_common_listener extends phpbb_ext_phpbbblog_even
 		));
 	}
 
+	/**
+	 * @param Event $event
+	 */
 	public function common($event)
 	{
 		// Include some files that can't be autoloaded
