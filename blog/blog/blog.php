@@ -81,13 +81,13 @@ class phpbb_ext_phpbbblog_blog
 	 *
 	 * @return Response
 	 */
-	public function category($cat)
+	public function category($category)
 	{
 		// Get the category
-		$this->categories->load($cat);
+		$this->categories->load($category);
 
 		// Get the posts
-		$posts = $categories->get_category($cat)->get_posts();
+		$posts = $this->categories->get_category($category)->get_posts();
 
 		$response = '<h1>Posts:</h1>';
 		
