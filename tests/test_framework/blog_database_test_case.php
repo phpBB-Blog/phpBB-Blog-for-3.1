@@ -9,9 +9,11 @@ abstract class blog_database_test_case extends phpbb_database_test_case
 		// Setup the cache object, some tests require this object to be
 		// available in the global scope
 		global $cache;
+		$cache = new phpbb_mock_cache();
 
-		$_driver	= new phpbb_cache_driver_file(__DIR__ . '/tmp');
-		$cache		= new phpbb_cache_service($_driver);
+		// Set a global dbal object
+		global $db;
+		$db = $this->new_dbal();
 	}
 
 	protected function create_connection_manager($config)

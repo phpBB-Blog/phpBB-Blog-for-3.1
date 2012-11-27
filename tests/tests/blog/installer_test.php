@@ -9,20 +9,6 @@
 
 class installer_test extends blog_database_test_case
 {
-	private $db;
-	private $installer;
-
-	protected function setUp()
-	{
-		global $cache, $db, $phpbb_root_path;
-		$db		= $this->new_dbal();
-		$cache	= new phpbb_mock_cache();
-
-		// Installer gets setup with a different table prefix, to assure
-		// that it is properly changed.
-		$this->installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
-	}
-
 	protected function getDataSet()
 	{
 		return $this->createXMLDataSet(__DIR__ . '/installer_fixture.xml');
@@ -30,17 +16,19 @@ class installer_test extends blog_database_test_case
 
 	public function test_install_tables()
 	{
+		global $phpbb_root_path;
 		$db = $this->new_dbal();
 
-		// Install it
-		$this->installer->install_tables();
+		$installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
 
-		// Try to insert the rows from the fixture in the newly created table
-		$sql = 'SELECT *
-			FROM phpbb_blog_categories';
-		$result	= $db->sql_query_limit($sql, 1);
-		$row	= $db->sql_fetchrow($result);
-		$db->sql_freeresult($result);
+		// Install it
+		$installer->install_tables();
+
+		// Try to insert data in the newly created table
+		$row = array(
+			'name'			=> 'Test row',
+			'description'	=> 'Some test row',
+		);
 
 		$sql = 'INSERT INTO blog_test_blog_categories ' . $db->sql_build_array('INSERT', $row);
 		$db->sql_query($sql);
@@ -50,7 +38,10 @@ class installer_test extends blog_database_test_case
 
 	public function test_install_permissions()
 	{
-		$db = $this->new_dbal();
+		global $phpbb_root_path;
+		$db	= $this->new_dbal();
+
+		$installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
 
 		// Control
 		$sql = 'SELECT auth_option_id
@@ -61,7 +52,7 @@ class installer_test extends blog_database_test_case
 		$db->sql_freeresult($result);
 		$this->assertFalse($aui);
 
-		$this->installer->install_permissions();
+		$installer->install_permissions();
 
 		$sql = 'SELECT auth_option
 			FROM ' . ACL_OPTIONS_TABLE . "
@@ -74,7 +65,10 @@ class installer_test extends blog_database_test_case
 
 	public function test_install_modules()
 	{
-		$db = $this->new_dbal();
+		global $phpbb_root_path;
+		$db	= $this->new_dbal();
+
+		$installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
 
 		// Control
 		$sql = 'SELECT module_id
@@ -85,7 +79,7 @@ class installer_test extends blog_database_test_case
 		$db->sql_freeresult($result);
 		$this->assertFalse($aui);
 
-		$this->installer->install_modules();
+		$installer->install_modules();
 
 		$expected = array(
 			'module_enabled'	=> '1',
@@ -108,8 +102,11 @@ class installer_test extends blog_database_test_case
 
 	public function test_disable_modules()
 	{
-		$db = $this->new_dbal();
-		$this->installer->install_modules();
+		global $phpbb_root_path;
+		$db	= $this->new_dbal();
+
+		$installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
+		$installer->install_modules();
 
 		$sql = 'SELECT module_enabled
 			FROM ' . MODULES_TABLE . "
@@ -121,7 +118,7 @@ class installer_test extends blog_database_test_case
 		$this->assertSame(1, (int) $enable);
 
 		// Disable
-		$this->installer->disable_modules();
+		$installer->disable_modules();
 
 		$sql = 'SELECT module_enabled
 			FROM ' . MODULES_TABLE . "
