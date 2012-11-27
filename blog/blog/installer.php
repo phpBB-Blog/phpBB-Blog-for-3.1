@@ -146,7 +146,7 @@ class phpbb_ext_phpbbblog_blog_installer
 					$module['module_id'] = $mid;
 				}
 
-				$module_admin->update_module_data($module, false);
+				$module_admin->update_module_data($module, true);
 				unset($module, $mid);
 			}
 		}
