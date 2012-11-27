@@ -111,7 +111,7 @@ CREATE TABLE phpbb_blog_posts (
 	category INT4 DEFAULT '0' NOT NULL CHECK (category >= 0),
 	title varchar(255) DEFAULT '' NOT NULL,
 	poster_id INT4 DEFAULT '0' NOT NULL CHECK (poster_id >= 0),
-	post TEXT DEFAULT '' NOT NULL,
+	post varchar(4000) DEFAULT '' NOT NULL,
 	options INT4 DEFAULT '7' NOT NULL CHECK (options >= 0),
 	bitfield varchar(255) DEFAULT '' NOT NULL,
 	uid varchar(8) DEFAULT '' NOT NULL,

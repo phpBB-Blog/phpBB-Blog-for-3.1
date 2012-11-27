@@ -23,7 +23,7 @@ CREATE TABLE phpbb_blog_posts (
 	category mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
 	title blob NOT NULL,
 	poster_id mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
-	post mediumblob NOT NULL,
+	post blob NOT NULL,
 	options int(11) UNSIGNED DEFAULT '7' NOT NULL,
 	bitfield varbinary(255) DEFAULT '' NOT NULL,
 	uid varbinary(8) DEFAULT '' NOT NULL,

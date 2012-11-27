@@ -8,7 +8,7 @@ BEGIN TRANSACTION;
 # Table: 'phpbb_blog_categories'
 CREATE TABLE phpbb_blog_categories (
 	id INTEGER PRIMARY KEY NOT NULL ,
-	name varchar(255) NOT NULL DEFAULT '',
+	name text(65535) NOT NULL DEFAULT '',
 	description text(65535) NOT NULL DEFAULT '',
 	options INTEGER UNSIGNED NOT NULL DEFAULT '7',
 	bitfield varchar(255) NOT NULL DEFAULT '',
@@ -22,9 +22,9 @@ CREATE TABLE phpbb_blog_categories (
 CREATE TABLE phpbb_blog_posts (
 	id INTEGER PRIMARY KEY NOT NULL ,
 	category INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	title varchar(255) NOT NULL DEFAULT '',
+	title text(65535) NOT NULL DEFAULT '',
 	poster_id INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	post mediumtext(16777215) NOT NULL DEFAULT '',
+	post text(65535) NOT NULL DEFAULT '',
 	options INTEGER UNSIGNED NOT NULL DEFAULT '7',
 	bitfield varchar(255) NOT NULL DEFAULT '',
 	uid varchar(8) NOT NULL DEFAULT '',

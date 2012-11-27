@@ -37,12 +37,12 @@ CREATE TABLE [phpbb_blog_posts] (
 	[category] [int] DEFAULT (0) NOT NULL ,
 	[title] [varchar] (255) DEFAULT ('') NOT NULL ,
 	[poster_id] [int] DEFAULT (0) NOT NULL ,
-	[post] [text] DEFAULT ('') NOT NULL ,
+	[post] [varchar] (4000) DEFAULT ('') NOT NULL ,
 	[options] [int] DEFAULT (7) NOT NULL ,
 	[bitfield] [varchar] (255) DEFAULT ('') NOT NULL ,
 	[uid] [varchar] (8) DEFAULT ('') NOT NULL ,
 	[post_time] [int] DEFAULT (0) NOT NULL 
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
 ALTER TABLE [phpbb_blog_posts] WITH NOCHECK ADD 

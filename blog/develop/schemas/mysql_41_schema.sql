@@ -6,7 +6,7 @@
 # Table: 'phpbb_blog_categories'
 CREATE TABLE phpbb_blog_categories (
 	id mediumint(8) UNSIGNED NOT NULL auto_increment,
-	name varchar(255) DEFAULT '' NOT NULL,
+	name varchar(255) DEFAULT '' NOT NULL COLLATE utf8_unicode_ci,
 	description text NOT NULL,
 	options int(11) UNSIGNED DEFAULT '7' NOT NULL,
 	bitfield varchar(255) DEFAULT '' NOT NULL,
@@ -21,9 +21,9 @@ CREATE TABLE phpbb_blog_categories (
 CREATE TABLE phpbb_blog_posts (
 	id mediumint(8) UNSIGNED NOT NULL auto_increment,
 	category mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
+	title varchar(255) DEFAULT '' NOT NULL COLLATE utf8_unicode_ci,
 	poster_id mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
-	post mediumtext NOT NULL,
+	post text NOT NULL,
 	options int(11) UNSIGNED DEFAULT '7' NOT NULL,
 	bitfield varchar(255) DEFAULT '' NOT NULL,
 	uid varchar(8) DEFAULT '' NOT NULL,
