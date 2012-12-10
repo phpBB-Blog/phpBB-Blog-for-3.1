@@ -28,11 +28,8 @@ class phpbb_ext_phpbbblog_blog
 	/** @var dbal */
 	private $db;
 
-	/** phpbb_controller_helper */
-	private $helper;
-
-	/** @var phpbb_template */
-	private $template;
+	/** @var phpbb_ext_phpbbblog_blog_display */
+	private $display;
 
 	/** @var phpbb_request */
 	private $request;
@@ -46,13 +43,11 @@ class phpbb_ext_phpbbblog_blog
 	 * @param phpbb_request $request
 	 * @param template $template
 	 */
-	public function __construct(phpbb_controller_helper $helper, dbal $db, phpbb_request $request, phpbb_template $template, phpbb_ext_phpbbblog_model_bag_categories $categories)
+	public function __construct(dbal $db, phpbb_request $request, phpbb_ext_phpbbblog_blog_display $display, phpbb_ext_phpbbblog_model_bag_categories $categories)
 	{
 		$this->db			= $db;
-		$this->helper		= $helper;
+		$this->display		= $display;
 		$this->request		= $request;
-		$this->template		= $template;
-
 		$this->categories	= $categories;
 	}
 
@@ -70,7 +65,7 @@ class phpbb_ext_phpbbblog_blog
 		$this->categories->load();
 
 		// Send the page out
-		return $this->helper->render('blog_main.html');
+		return $this->display->render('blog_main');
 	}
 
 	/**

@@ -39,4 +39,5 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'BLOG_COPYRIGHT'	=> 'Blog &copy; %s',
+	'BLOG_MAIN'			=> 'Blog',
 ));

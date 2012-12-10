@@ -78,32 +78,34 @@ class phpbb_ext_phpbbblog_blog_installer
 
 		// Array holding the class names of the "info" classes
 		$modules = array(
-			'phpbb_ext_phpbbblog_acp_categories_info' => 'phpbb_ext_phpbbblog_acp_categories_module',
+			'phpbb_ext_phpbbblog_acp_blog_info' => 'phpbb_ext_phpbbblog_acp_blog_module',
 		);
 
 		// Get the id of `.MODs`
+		/*
 		$sql = 'SELECT module_id
 			FROM ' . MODULES_TABLE . "
 			WHERE module_langname = 'ACP_CAT_DOT_MODS'";
 		$result	= $this->db->sql_query($sql);
 		$pid	= $this->db->sql_fetchfield('module_id', false, $result);
 		$this->db->sql_freeresult($result);
+		*/
 
-		// Add the blog categories "module category"
+		// Add the blog "module category"
 		$module_category = array(
 			'module_basename'	=> '',
 			'module_enabled'	=> 1,
 			'module_display'	=> 1,
-			'parent_id'			=> $pid,
+			'parent_id'			=> 0,
 			'module_class'		=> 'acp',
-			'module_langname'	=> 'ACP_BLOG_CATEGORIES_MANAGEMENT',
+			'module_langname'	=> 'ACP_BLOG_MANAGEMENT',
 			'module_mode'		=> '',
 			'module_auth'		=> 'acl_a_blog',
 		);
 
 		$sql = 'SELECT module_id
 			FROM ' . MODULES_TABLE . "
-			WHERE module_langname = 'ACP_BLOG_CATEGORIES_MANAGEMENT'";
+			WHERE module_langname = 'ACP_BLOG_MANAGEMENT'";
 		$result	= $this->db->sql_query($sql);
 		$mid	= $this->db->sql_fetchfield('module_id', false, $result);
 		$this->db->sql_freeresult($result);

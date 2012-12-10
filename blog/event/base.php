@@ -23,10 +23,10 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 abstract class phpbb_ext_phpbbblog_event_base implements EventSubscriberInterface
 {
 	/** @var string */
-	protected $phpbb_root_path;
+	protected $root_path;
 
 	/** @var string */
-	protected $phpEx;
+	protected $php_ext;
 
 	/** @var ContainerBuilder */
 	protected $phpbb_container;
@@ -39,15 +39,15 @@ abstract class phpbb_ext_phpbbblog_event_base implements EventSubscriberInterfac
 
 	public function __construct()
 	{
-		global $phpbb_root_path, $phpEx;
 		global $phpbb_container;
 
-		$this->phpbb_root_path	= $phpbb_root_path;
-		$this->phpEx			= $phpEx;
+		$this->root_path		= $phpbb_container->getParameter('core.root_path');
+		$this->php_ext			= $phpbb_container->getParameter('core.php_ext');
+
+		$this->template			= $phpbb_container->get('template');
+		$this->user				= $phpbb_container->get('user');
 
 		$this->phpbb_container	= $phpbb_container;
-		$this->template	= $phpbb_container->get('template');
-		$this->user		= $phpbb_container->get('user');
 	}
 
 	/** @var bool */

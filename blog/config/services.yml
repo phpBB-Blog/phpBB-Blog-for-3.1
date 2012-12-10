@@ -5,11 +5,18 @@ services:
     blog.core:
         class: phpbb_ext_phpbbblog_blog
         arguments:
-            - @controller.helper
             - @dbal.conn
             - @request
-            - @template
+            - @blog.display
             - @blog.model.categories
+
+
+    blog.display:
+        class: phpbb_ext_phpbbblog_blog_display
+        arguments:
+            - @controller.helper
+            - @template
+            - @user
 
     blog.model.categories:
         class: phpbb_ext_phpbbblog_model_bag_categories

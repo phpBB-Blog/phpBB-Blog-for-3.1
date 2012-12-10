@@ -18,18 +18,20 @@ if (!defined('IN_PHPBB'))
 /**
  * @package module_install
  */
-class phpbb_ext_phpbbblog_acp_categories_info
+class phpbb_ext_phpbbblog_acp_blog_info
 {
 	public function module()
 	{
 		return array(
-			'title'		=> 'ACP_BLOG_CATEGORIES_MANAGEMENT',
+			'title'		=> 'ACP_BLOG_MANAGEMENT',
 			'version'	=> '0.0.1',
 			'modes'		=> array(
 				'overview'	=> array(
-					'title'	=> 'ACP_BLOG_CATEGORIES_OVERVIEW',
+					'title'	=> 'ACP_BLOG_MANAGEMENT',
 					'auth'	=> 'acl_a_blog',
-					'cat'	=> array('ACP_BLOG_CATEGORIES_MANAGEMENT')
+					'cat'	=> array(
+						'ACP_BLOG_MANAGEMENT',
+					),
 				),
 			),
 		);

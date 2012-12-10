@@ -21,7 +21,7 @@ if (!defined('IN_PHPBB'))
  * The listener class that is called from the `core.common`
  * event.
  */
-class phpbb_ext_phpbbblog_event_common_listener extends phpbb_ext_phpbbblog_event_base
+class phpbb_ext_phpbbblog_event_append_sid_listener extends phpbb_ext_phpbbblog_event_base
 {
 	/**
 	 * {@inheritDoc}
@@ -29,19 +29,30 @@ class phpbb_ext_phpbbblog_event_common_listener extends phpbb_ext_phpbbblog_even
 	static public function getSubscribedEvents()
 	{
 		return parent::getBlogSubscribedEvents(array(
-			'core.common' => 'common',
+			'core.append_sid' => 'append_sid',
 		));
 	}
 
 	/**
 	 * @param Event $event
 	 */
-	public function common($event)
+	public function append_sid($event)
 	{
-		// Include some files that can't be autoloaded
-		require __DIR__ . "/../includes/constants.{$this->php_ext}";
+		// Build the correct URL
+		if ($event['url'] == 'blog')
+		{
+			$event['url'] = "{$this->root_path}app.{$this->php_ext}";
 
-		// Include the common language file
-		$this->user->add_lang_ext('phpbbblog', 'blog');
+			// Make sure that `params` is an array
+			if (empty($event['params']))
+			{
+				$event['params'] = array();
+			}
+
+
+			$event['params'] = array_merge($event['params'], array(
+				'controller' => 'blog',
+			));
+		}
 	}
 }

@@ -18,7 +18,7 @@ if (!defined('IN_PHPBB'))
 /**
  * @package acp
  */
-class phpbb_ext_phpbbblog_acp_categories_module
+class phpbb_ext_phpbbblog_acp_blog_module
 {
 	/** @var string */
 	public $u_action;
@@ -31,7 +31,18 @@ class phpbb_ext_phpbbblog_acp_categories_module
 
 	public function main($id, $mode)
 	{
-		$this->tpl_name		= 'acp_blog_categories';
+		$this->id	= $id;
+		$this->mode	= $mode;
+
+		if (method_exists($this, $mode))
+		{
+			return call_user_func(array($this, $mode));
+		}
+	}
+
+	private function overview()
+	{
+		$this->tpl_name		= 'acp_blog_overview';
 		$this->page_title	= '';
 	}
 }
