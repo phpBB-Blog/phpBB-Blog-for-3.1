@@ -81,16 +81,6 @@ class phpbb_ext_phpbbblog_blog_installer
 			'phpbb_ext_phpbbblog_acp_blog_info' => 'phpbb_ext_phpbbblog_acp_blog_module',
 		);
 
-		// Get the id of `.MODs`
-		/*
-		$sql = 'SELECT module_id
-			FROM ' . MODULES_TABLE . "
-			WHERE module_langname = 'ACP_CAT_DOT_MODS'";
-		$result	= $this->db->sql_query($sql);
-		$pid	= $this->db->sql_fetchfield('module_id', false, $result);
-		$this->db->sql_freeresult($result);
-		*/
-
 		// Add the blog "module category"
 		$module_category = array(
 			'module_basename'	=> '',
