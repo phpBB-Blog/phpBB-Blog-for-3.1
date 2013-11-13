@@ -7,7 +7,8 @@
 		 convertWarningsToExceptions="true"
 		 processIsolation="false"
 		 stopOnFailure="false"
-		 bootstrap="tests/bootstrap.php">
+		 bootstrap="tests/bootstrap.php"
+>
 	<testsuites>
 		<testsuite name="phpBB-Blog test suite">
 			<directory suffix="_test.php">tests/tests/</directory>
@@ -17,10 +18,10 @@
 		<whitelist addUncoveredFilesFromWhitelist="true">
 			<directory>./blog/</directory>
 			<exclude>
-				<file>./blog/controller.php</file>
-				<file>./blog/ext.php</file>
-				<directory>./blog/develop/</directory>
+				<directory>./blog/event/</directory>
 				<directory>./blog/language/</directory>
+				<file>./blog/blog/blog.php</file>
+				<file>./blog/ext.php</file>
 			</exclude>
 		</whitelist>
 	</filter>
@@ -35,14 +36,4 @@
 			lowUpperBound="35"
 			highLowerBound="70" />
 	</logging>
-
-	<php>
-		<server name="PHPBB_TEST_DBMS" value="" />
-		<server name="PHPBB_TEST_DBHOST" value="" />
-		<server name="PHPBB_TEST_DBPORT" value="" />
-		<server name="PHPBB_TEST_DBNAME" value="" />
-		<server name="PHPBB_TEST_DBUSER" value="" />
-		<server name="PHPBB_TEST_DBPASSWD" value="" />
-		<server name="PHPBB_TEST_TABLE_PREFIX" value=""/>
-	</php>
 </phpunit>

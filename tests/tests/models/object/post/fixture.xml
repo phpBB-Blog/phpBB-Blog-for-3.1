@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<dataset>
+	<table name="phpbb_blog_posts">
+		<column>category</column>
+		<column>title</column>
+		<column>poster_id</column>
+		<column>post</column>
+		<column>options</column>
+		<column>bitfield</column>
+		<column>uid</column>
+		<column>post_time</column>
+		<row>
+			<value>1</value>
+			<value>Test Post w Comments</value>
+			<value>2</value>
+			<value>An other test post with some comments attached to it</value>
+			<value>7</value>
+			<value></value>
+			<value></value>
+			<value>1329586000</value>
+		</row>
+	</table>
+</dataset>

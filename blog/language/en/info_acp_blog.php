@@ -38,6 +38,9 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'BLOG_COPYRIGHT'	=> 'Blog &copy; %s',
-	'BLOG_MAIN'			=> 'Blog',
+	'ACP_BLOG_CATEGORIES_MANAGEMENT'	=> 'Blog category management',
+	'ACP_BLOG_CATEGORIES_OVERVIEW'		=> 'Blog categories',
+
+	'ACP_BLOG_MANAGEMENT'				=> 'Blog control',
+	'ACP_BLOG_MANAGEMENT_EXPLAIN'		=> 'Welcome in the administration area of the phpBB Blog extension.',
 ));

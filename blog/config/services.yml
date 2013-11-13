@@ -1,0 +1,31 @@
+imports:
+    - { resource: tables.yml }
+
+services:
+    blog.core:
+        class: phpbb_ext_phpbbblog_blog
+        arguments:
+            - @dbal.conn
+            - @request
+            - @blog.display
+            - @blog.model.categories
+
+
+    blog.display:
+        class: phpbb_ext_phpbbblog_blog_display
+        arguments:
+            - @controller.helper
+            - @template
+            - @user
+
+    blog.model.categories:
+        class: phpbb_ext_phpbbblog_model_bag_categories
+        arguments:
+            - %tables.blog.categories%
+            - @dbal.conn
+
+    blog.model.posts:
+        class: phpbb_ext_phpbbblog_model_bag_posts
+        arguments:
+            - %tables.blog.posts%
+            - @dbal.conn

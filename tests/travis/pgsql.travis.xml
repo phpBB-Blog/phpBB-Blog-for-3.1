@@ -12,19 +12,22 @@
 		<testsuite name="phpBB-Blog test suite">
 			<directory suffix="_test.php">./../tests/</directory>
 		</testsuite>
-</testsuites>
-<filter>
-	<whitelist addUncoveredFilesFromWhitelist="true">
-		<directory>./blog/</directory>
-		<exclude>
-			<file>./blog/controller.php</file>
-			<file>./blog/ext.php</file>
-			<directory>./blog/develop/</directory>
-			<directory>./blog/language/</directory>
-		</exclude>
-	</whitelist>
-</filter>
-<php>
+	</testsuites>
+	<filter>
+		<whitelist addUncoveredFilesFromWhitelist="true">
+			<directory>./blog/</directory>
+			<exclude>
+				<directory>./blog/event/</directory>
+				<directory>./blog/language/</directory>
+				<file>./blog/blog/blog.php</file>
+				<file>./blog/ext.php</file>
+			</exclude>
+		</whitelist>
+	</filter>
+	<logging>
+		<log type="coverage-text" target="php://stdout" showUncoveredFiles="true" />
+	</logging>
+	<php>
 		<server name="PHPBB_TEST_DBMS" value="postgres" />
 		<server name="PHPBB_TEST_DBHOST" value="localhost" />
 		<server name="PHPBB_TEST_DBPORT" value="5432" />

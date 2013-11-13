@@ -14,3 +14,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
+interface phpbb_ext_phpbbblog_model_object
+{
+}

@@ -1,0 +1,7 @@
+main_controller:
+    pattern: /blog
+    defaults: { _controller: blog.core:main }
+
+category_controller:
+    pattern: /blog/{category}
+    defaults: { _controller: blog.core:category }

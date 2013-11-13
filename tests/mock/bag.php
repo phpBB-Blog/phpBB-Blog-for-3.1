@@ -1,16 +1,15 @@
 <?php
 /**
  *
- * @package phpBBBlog
+ * @package phpBBBlog-tests
  * @copyright (c) 2012 phpBBBlog group
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
 
-/**
- * @ignore
- */
-if (!defined('IN_PHPBB'))
+class phpbb_blog_mock_bag extends phpbb_ext_phpbbblog_model_bag_base
 {
-	exit;
+	public function __construct()
+	{
+	}
 }
