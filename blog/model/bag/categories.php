@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\model\bag;
+
 /**
  * @ignore
  */
@@ -21,7 +23,7 @@ if (!defined('IN_PHPBB'))
  * Class that holds all the categories that are
  * available on the blog
  */
-class phpbb_ext_phpbbblog_model_bag_categories extends phpbb_ext_phpbbblog_model_bag_base
+class categories extends base
 {
 	/**
 	 * Load categories
@@ -38,7 +40,7 @@ class phpbb_ext_phpbbblog_model_bag_categories extends phpbb_ext_phpbbblog_model
 
 		foreach ($rowset as $row)
 		{
-			$this[] = new phpbb_ext_phpbbblog_model_object_category(array_shift($row), $row, $this->db, $this->table);
+			$this[] = new phpbb_blog\blog\model_object_category(array_shift($row), $row, $this->db, $this->table);
 		}
 	}
 
@@ -46,7 +48,7 @@ class phpbb_ext_phpbbblog_model_bag_categories extends phpbb_ext_phpbbblog_model
 	 * Get a specific category
 	 *
 	 * @param int $id The category id
-	 * @return null|phpbb_ext_phpbbblog_model_category
+	 * @return null|phpbb_blog\blog\model_category
 	 */
 	public function get_category($id)
 	{

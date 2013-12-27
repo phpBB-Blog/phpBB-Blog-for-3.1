@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog;
+
 /**
  * @ignore
  */
@@ -18,9 +20,9 @@ if (!defined('IN_PHPBB'))
 /**
  * Extend the phpBB extension base
  */
-class phpbb_ext_phpbbblog_ext implements phpbb_extension_interface
+class ext implements \phpbb\extension\base
 {
-	/** @var phpbb_ext_phpbbblog_blog_installer */
+	/** @var phpbb_blog\blog\blog_installer */
 	private $installer;
 
 	/** @var ServiceContainer */
@@ -30,7 +32,7 @@ class phpbb_ext_phpbbblog_ext implements phpbb_extension_interface
 	{
 		global $phpbb_container;
 
-		$this->installer = new phpbb_ext_phpbbblog_blog_installer(
+		$this->installer = new phpbb_blog\blog\blog\installer(
 			$phpbb_container->get('dbal.conn'),
 			$phpbb_container->getParameter('core.root_path'),
 			".{$phpbb_container->getParameter('core.php_ext')}",

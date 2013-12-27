@@ -3,7 +3,7 @@ imports:
 
 services:
     blog.core:
-        class: phpbb_ext_phpbbblog_blog
+        class: phpbb_blog\blog\blog
         arguments:
             - @dbal.conn
             - @request
@@ -12,20 +12,20 @@ services:
 
 
     blog.display:
-        class: phpbb_ext_phpbbblog_blog_display
+        class: phpbb_blog\blog\display
         arguments:
             - @controller.helper
             - @template
             - @user
 
     blog.model.categories:
-        class: phpbb_ext_phpbbblog_model_bag_categories
+        class: phpbb_blog\blog\model\bag\categories
         arguments:
             - %tables.blog.categories%
             - @dbal.conn
 
     blog.model.posts:
-        class: phpbb_ext_phpbbblog_model_bag_posts
+        class: phpbb_blog\blog\model\bag\posts
         arguments:
             - %tables.blog.posts%
             - @dbal.conn

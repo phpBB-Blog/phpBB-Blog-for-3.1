@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\model\object;
+
 /**
  * @ignore
  */
@@ -18,7 +20,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Class representing a given category
  */
-class phpbb_ext_phpbbblog_model_object_category extends phpbb_ext_phpbbblog_model_object_base
+class category extends base
 {
 	private $posts = array();
 

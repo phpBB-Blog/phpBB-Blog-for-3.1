@@ -7,7 +7,9 @@
  *
  */
 
-class phpbb_blog_mock_object extends phpbb_ext_phpbbblog_model_object_base
+namespace phpbb_blog\mock;
+
+class object extends phpbb_blog\blog\model\object\base
 {
 	public function __construct()
 	{

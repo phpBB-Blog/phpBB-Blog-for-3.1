@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\model\object;
+
 /**
  * @ignore
  */
@@ -15,6 +17,6 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-interface phpbb_ext_phpbbblog_model_object
+interface object
 {
 }

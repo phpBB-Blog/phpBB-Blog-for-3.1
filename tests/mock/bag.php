@@ -7,7 +7,9 @@
  *
  */
 
-class phpbb_blog_mock_bag extends phpbb_ext_phpbbblog_model_bag_base
+namespace phpbb\blog\mock;
+
+class bag extends phpbb_blog\blog\model\bag\base
 {
 	public function __construct()
 	{

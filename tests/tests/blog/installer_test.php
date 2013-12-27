@@ -19,7 +19,7 @@ class installer_test extends blog_database_test_case
 		global $phpbb_root_path;
 		$db = $this->new_dbal();
 
-		$installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
+		$installer = new phpbb_blog\blog\blog\installer($db, $phpbb_root_path, '.php', 'blog_test_');
 
 		// Install it
 		$installer->install_tables();
@@ -41,7 +41,7 @@ class installer_test extends blog_database_test_case
 		global $phpbb_root_path;
 		$db	= $this->new_dbal();
 
-		$installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
+		$installer = new phpbb_blog\blog\blog\installer($db, $phpbb_root_path, '.php', 'blog_test_');
 
 		// Control
 		$sql = 'SELECT auth_option_id
@@ -68,7 +68,7 @@ class installer_test extends blog_database_test_case
 		global $phpbb_root_path;
 		$db	= $this->new_dbal();
 
-		$installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
+		$installer = new phpbb_blog\blog\blog\installer($db, $phpbb_root_path, '.php', 'blog_test_');
 
 		// Control
 		$sql = 'SELECT module_id
@@ -84,11 +84,11 @@ class installer_test extends blog_database_test_case
 		$expected = array(
 			'module_enabled'	=> '1',
 			'module_display'	=> '1',
-			'module_basename'	=> 'phpbb_ext_phpbbblog_acp_categories_module',
+			'module_basename'	=> 'phpbb_blog\blog\acp_categories_module',
 			'module_class'		=> 'acp',
 			'module_langname'	=> 'ACP_BLOG_CATEGORIES_OVERVIEW',
 			'module_mode'		=> 'overview',
-			'module_auth'		=> 'acl_a_blog',	
+			'module_auth'		=> 'acl_a_blog',
 		);
 
 		$sql = 'SELECT module_enabled, module_display, module_basename, module_class, module_langname, module_mode, module_auth
@@ -105,7 +105,7 @@ class installer_test extends blog_database_test_case
 		global $phpbb_root_path;
 		$db	= $this->new_dbal();
 
-		$installer = new phpbb_ext_phpbbblog_blog_installer($db, $phpbb_root_path, '.php', 'blog_test_');
+		$installer = new phpbb_blog\blog\blog\installer($db, $phpbb_root_path, '.php', 'blog_test_');
 		$installer->install_modules();
 
 		$sql = 'SELECT module_enabled

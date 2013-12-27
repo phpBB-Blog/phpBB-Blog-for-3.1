@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\blog;
+
 /**
  * @ignore
  */
@@ -23,27 +25,27 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * All requests are handled through this class
  */
-class phpbb_ext_phpbbblog_blog
+class blog
 {
-	/** @var dbal */
+	/** @var \phpbb\db\driver\driver */
 	private $db;
 
-	/** @var phpbb_ext_phpbbblog_blog_display */
+	/** @var phpbb_blog\blog\display */
 	private $display;
 
-	/** @var phpbb_request */
+	/** @var \phpbb\request\request */
 	private $request;
 
-	/** @var phpbb_ext_phpbbblog_model_bag_categories */
+	/** @var phpbb_blog\model\bag\categories */
 	private $categories;
 
 	/**
 	 * @param ContainerBuilder $phpbb_container
-	 * @param dbal $db
-	 * @param phpbb_request $request
+	 * @param \phpbb\db\driver\driver $db
+	 * @param \phpbb\request\request $request
 	 * @param template $template
 	 */
-	public function __construct(dbal $db, phpbb_request $request, phpbb_ext_phpbbblog_blog_display $display, phpbb_ext_phpbbblog_model_bag_categories $categories)
+	public function __construct(\phpbb\db\driver\driver $db, \phpbb\request\request $request, phpbb_blog\blog\blog\display $display, phpbb_blog\blog\model\bag\categories $categories)
 	{
 		$this->db			= $db;
 		$this->display		= $display;
@@ -85,6 +87,6 @@ class phpbb_ext_phpbbblog_blog
 		$posts = $this->categories->get_category($category)->get_posts();
 
 		$response = '<h1>Posts:</h1>';
-		
+
 	}
 }
