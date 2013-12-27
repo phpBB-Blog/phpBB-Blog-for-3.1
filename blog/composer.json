@@ -1,10 +1,10 @@
 {
-	"name": "phpbb_blog/phpbb_blog",
-	"type": "phpbb3-extension",
+	"name": "phpbb_blog/blog",
+	"type": "phpbb-extension",
 	"description": "A simple blog extension for phpBB 3.1.",
 	"homepage": "",
 	"version": "0.0.1",
-	"time": "2012-11-21 13:47:01",
+	"time": "2013-12-26 22:58:01",
 	"licence": "GPL-2.0",
 	"authors": [
 		{
@@ -13,7 +13,7 @@
 			"email": "erikfrerejean@gmail.com",
 			"homepage": "http://leximosi.github.com",
 			"role": "Developer"
-		},  
+		},
 		{
 			"name": "David King",
 			"username": "imkingdavid",
@@ -31,7 +31,7 @@
 	],
 	"require": {
 		"php": ">=5.3.3",
-		"phpbb": "3.1.0-dev"
+		"phpbb": "3.1.*@dev"
 	},
 	"extra": {
 		"display-name": "phpBB Blog"
