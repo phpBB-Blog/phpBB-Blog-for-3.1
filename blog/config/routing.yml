@@ -1,7 +1,75 @@
-main_controller:
+# Home
+main:
     pattern: /blog
-    defaults: { _controller: blog.core:main }
+    defaults: { _controller: phpbb_blog.blog.controller.core:main }
 
-category_controller:
-    pattern: /blog/{category}
-    defaults: { _controller: blog.core:category }
+# Lists posts in a category
+category:
+    pattern: /blog/category/{category}
+    defaults: { _controller: phpbb_blog.blog.controller.core:categoryPostsView }
+
+# Lists posts with an assosiated tag
+tag:
+    pattern: /blog/tag/{tag}
+    defaults: { _controller: phpbb_blog.blog.controller.core:tagPostsView }
+
+# Page for a blog post. Note: identifier might the the alias or numeric id
+post:
+	pattern: /blog/{identifier}
+	defaults: { _controller: phpbb_blog.blog.controller.core:postView }
+
+# Page for posting new things (blog posts & comments)
+create_view:
+	pattern: /blog/create/{entity}
+	defaults: { _controller: phpbb_blog.blog.controller.update:create }
+	requirements:
+		entity:  post|comment|category
+
+# Page for editing things
+edit_view:
+	pattern: /blog/edit/{entity}/{id}
+	defaults: { _controller: phpbb_blog.blog.controller.update:edit }
+	requirements:
+		entity: post|comment
+		id: \d+
+
+# Page for deleting things
+delete_view:
+	pattern: /blog/delete/{entity}/{id}
+	defaults: { _controller: phpbb_blog.blog.controller.update:delete }
+	requirements:
+		entity: post|comment|tag|category
+		id: \d+
+
+report_submission:
+	pattern: /blog/report/{entity}/{id}
+	defaults: { _controller: phpbb_blog.blog.controller.update:report }
+	requirements:
+		entity: post|comment
+		id: \d+
+
+# Home for moderation for displaying reports and allowing access to other tools
+moderate_main_view:
+	pattern: /blog/moderate/
+	defaults: { _controller: phpbb_blog.blog.controller.moderate:main }
+
+# View all reports
+moderate_reports_view:
+	pattern: /blog/moderate/reports
+	defaults: { _controller: phpbb_blog.blog.controller.moderate:reportsView }
+
+# View and change the status of an individual report
+moderate_report:
+	pattern: /blog/moderate/report/{id}
+	defaults: { _controller: phpbb_blog.blog.controller.moderate:report }
+	requirements:
+		id: \d+
+
+# Page for specific actions against specific entities
+moderate_action_view:
+	pattern: /blog/moderate/{entity}/{id}/{action}
+	defaults: { _controller: phpbb_blog.blog.controller.moderate:action }
+	requirements:
+		entity: post|comment
+		action: lock|approve|disapprove
+		id: \d+

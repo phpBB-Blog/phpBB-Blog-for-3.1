@@ -2,30 +2,27 @@ imports:
     - { resource: tables.yml }
 
 services:
-    blog.core:
-        class: phpbb_blog\blog\blog
+    phpbb_blog.blog.controller.core:
+        class: phpbb_blog\blog\controller\core
         arguments:
-            - @dbal.conn
             - @request
             - @blog.display
-            - @blog.model.categories
 
+    phpbb_blog.blog.controller.update:
+        class: phpbb_blog\blog\controller\update
+        arguments:
+            - @request
+            - @blog.display
 
-    blog.display:
+    phpbb_blog.blog.controller.moderate:
+        class: phpbb_blog\blog\controller\moderate
+        arguments:
+            - @request
+            - @blog.display
+
+    phpbb_blog.blog.display:
         class: phpbb_blog\blog\display
         arguments:
             - @controller.helper
             - @template
             - @user
-
-    blog.model.categories:
-        class: phpbb_blog\blog\model\bag\categories
-        arguments:
-            - %tables.blog.categories%
-            - @dbal.conn
-
-    blog.model.posts:
-        class: phpbb_blog\blog\model\bag\posts
-        arguments:
-            - %tables.blog.posts%
-            - @dbal.conn

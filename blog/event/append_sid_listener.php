@@ -51,7 +51,6 @@ class append_sid_listener extends base
 				$event['params'] = array();
 			}
 
-
 			$event['params'] = array_merge($event['params'], array(
 				'controller' => 'blog',
 			));
