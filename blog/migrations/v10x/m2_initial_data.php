@@ -41,25 +41,6 @@ class m1_initial_data extends \phpbb\db\migration\migration
 					'module_basename'	=> '\phpbb_blog\blog\acp\blog_module',
 					'modes'				=> array('overview'),
 			))),
-
-			array('permission.add', array('a_blog')), // manage blog settings
-
-			array('permission.add', array('m_blog_approve_posts')), // Approve/unapprove posts
-			array('permission.add', array('m_blog_approve_comments')), // Approve/unapprove comments
-			array('permission.add', array('m_blog_lock_posts')), // Lock/unlock posts
-			array('permission.add', array('m_blog_delete_posts')), // delete blog posts
-			array('permission.add', array('m_blog_edit_posts')), // edit blog posts
-			array('permission.add', array('m_blog_delete_comments')), // delete comments
-			array('permission.add', array('m_blog_edit_comments')), // edit comments
-			array('permission.add', array('m_blog_reports')), // can view and manage reported blog posts and comments
-
-			array('permission.add', array('u_blog_view')), // Can view the blog
-			array('permission.add', array('u_blog_post')), // Can post new blog posts
-			array('permission.add', array('u_blog_post_approved')), // Can post without approval
-			array('permission.add', array('u_blog_comment')), // Can comment on blog posts
-			array('permission.add', array('u_blog_comment_approved')), // Can comment without approval
-			array('permission.add', array('u_blog_report')), // Can report blog posts and
-
 		);
 	}
 
@@ -75,23 +56,6 @@ class m1_initial_data extends \phpbb\db\migration\migration
 				'ACP_BLOG_MANAGEMENT',
 			)),
 
-			array('permission.remove', array('a_blog')),
-
-			array('permission.remove', array('m_blog_approve_posts')),
-			array('permission.remove', array('m_blog_approve_comments')),
-			array('permission.remove', array('m_blog_lock_posts')),
-			array('permission.remove', array('m_blog_delete_posts')),
-			array('permission.remove', array('m_blog_edit_posts')),
-			array('permission.remove', array('m_blog_delete_comments')),
-			array('permission.remove', array('m_blog_edit_comments')),
-			array('permission.remove', array('m_blog_reports')),
-
-			array('permission.remove', array('u_blog_view')),
-			array('permission.remove', array('u_blog_post')),
-			array('permission.remove', array('u_blog_post_approved')),
-			array('permission.remove', array('u_blog_comment')),
-			array('permission.remove', array('u_blog_comment_approved')),
-			array('permission.remove', array('u_blog_report')),
 		);
 	}
 }
