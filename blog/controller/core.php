@@ -94,7 +94,7 @@ class core
 		$tags = $this->tags->getTagSimpleList();
 		if (!in_array($tag, $tags))
 		{
-			throw new exception('This is not a valid tag');
+			trigger_error('This is not a valid tag'); // TODO: Use language vars
 		}
 
 		$posts = $this->posts->getPosts(false, $this->config['blog_frontpage_posts'], 'desc',  null, $tag);
