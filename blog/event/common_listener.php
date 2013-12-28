@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\event;
+
 /**
  * @ignore
  */
@@ -21,7 +23,7 @@ if (!defined('IN_PHPBB'))
  * The listener class that is called from the `core.common`
  * event.
  */
-class phpbb_ext_phpbbblog_event_common_listener extends phpbb_ext_phpbbblog_event_base
+class common_listener extends base
 {
 	/**
 	 * {@inheritDoc}

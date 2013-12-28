@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\blog;
+
 /**
  * @ignore
  */
@@ -18,9 +20,9 @@ if (!defined('IN_PHPBB'))
 /**
  * Installer service provider
  */
-class phpbb_ext_phpbbblog_blog_installer
+class installer
 {
-	/** @var dbal */
+	/** @var(\phpbb\db\driver\driver */
 	private $db;
 
 	/** @var string */
@@ -32,7 +34,7 @@ class phpbb_ext_phpbbblog_blog_installer
 	/** @var string */
 	private $table_prefix;
 
-	public function __construct(dbal $db, $root_path, $php_ext, $table_prefix)
+	public function __construct(\phpbb\db\driver\driver $db, $root_path, $php_ext, $table_prefix)
 	{
 		$this->db			= $db;
 		$this->php_ext		= $php_ext;
@@ -78,7 +80,7 @@ class phpbb_ext_phpbbblog_blog_installer
 
 		// Array holding the class names of the "info" classes
 		$modules = array(
-			'phpbb_ext_phpbbblog_acp_blog_info' => 'phpbb_ext_phpbbblog_acp_blog_module',
+			'phpbb_blog\blog\acp\blog_info' => 'phpbb_blog\blog\acp\blog_module',
 		);
 
 		// Add the blog "module category"
@@ -154,7 +156,7 @@ class phpbb_ext_phpbbblog_blog_installer
 			require "{$this->root_path}includes/acp/auth{$this->php_ext}";
 		}
 		$auth_admin = new auth_admin();
-	
+
 		$permissions = array(
 			'local'		=> array(
 			),
@@ -172,11 +174,7 @@ class phpbb_ext_phpbbblog_blog_installer
 	 */
 	public function install_tables()
 	{
-		if (!class_exists('db_tools'))
-		{
-			require "{$this->root_path}includes/db/db_tools{$this->php_ext}";
-		}
-		$db_tools = new phpbb_db_tools($this->db);
+		$db_tools = new \phpbb\db\tools($this->db);
 
 		$this->init_schema_data();
 		$db_tools->perform_schema_changes(array('add_tables' => $this->schema_data));

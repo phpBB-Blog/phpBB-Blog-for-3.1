@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\blog;
+
 /**
  * @ignore
  */
@@ -18,7 +20,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Installer service provider
  */
-class phpbb_ext_phpbbblog_blog_display
+class display
 {
 	/** @var phpbb_controller_helper */
 	private $helper;

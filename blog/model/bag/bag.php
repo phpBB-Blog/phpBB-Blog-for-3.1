@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\model\bag;
+
 /**
  * @ignore
  */
@@ -15,7 +17,7 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-interface phpbb_ext_phpbbblog_model_bag
+interface bag
 {
 
 }

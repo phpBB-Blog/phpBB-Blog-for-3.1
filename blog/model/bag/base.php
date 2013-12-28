@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\model\bag;
+
 /**
  * @ignore
  */
@@ -18,7 +20,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Base class for the "container" models.
  */
-abstract class phpbb_ext_phpbbblog_model_bag_base implements phpbb_ext_phpbbblog_model_bag, ArrayAccess, IteratorAggregate, Countable
+abstract class base implements bag, \ArrayAccess, \IteratorAggregate, \Countable
 {
 	/** @var dbal */
 	protected $db;
@@ -35,9 +37,9 @@ abstract class phpbb_ext_phpbbblog_model_bag_base implements phpbb_ext_phpbbblog
 
 	/**
 	 * @param string $table
-	 * @param dbal
+	 * @param phpbb\db\driver\driver
 	 */
-	public function __construct($table, dbal $db)
+	public function __construct($table, \phpbb\db\driver\driver $db)
 	{
 		$this->db		= $db;
 		$this->table	= $table;
@@ -55,7 +57,7 @@ abstract class phpbb_ext_phpbbblog_model_bag_base implements phpbb_ext_phpbbblog
 	protected function load_bag($ids = array())
 	{
 		$ids = is_array($ids) ? $ids : array($ids);
-		
+
 		$sql_ary = array(
 			'SELECT'	=> 'c.*',
 			'FROM'		=> array(
@@ -118,7 +120,7 @@ abstract class phpbb_ext_phpbbblog_model_bag_base implements phpbb_ext_phpbbblog
 
 	public function getIterator()
 	{
-		return new ArrayIterator($this->object_data);
+		return new \ArrayIterator($this->object_data);
 	}
 
 	//-- Countable implementation

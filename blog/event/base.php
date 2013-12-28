@@ -7,6 +7,10 @@
  *
  */
 
+namespace phpbb_blog\blog\event;
+
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
 /**
  * @ignore
  */
@@ -15,12 +19,10 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
 /**
  * Event listener base class
  */
-abstract class phpbb_ext_phpbbblog_event_base implements EventSubscriberInterface
+abstract class base implements EventSubscriberInterface
 {
 	/** @var string */
 	protected $root_path;

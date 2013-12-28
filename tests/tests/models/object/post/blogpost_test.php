@@ -20,7 +20,7 @@ class blogpost_test extends blog_database_test_case
 	public function test_load_blog()
 	{
 		$db		= $this->new_dbal();
-		$post	= new phpbb_ext_phpbbblog_model_object_post(1, array(), $db, 'phpbb_blog_posts');
+		$post	= new phpbb_blog\blog\model\object\post(1, array(), $db, 'phpbb_blog_posts');
 		$post->load();
 
 		// Tests

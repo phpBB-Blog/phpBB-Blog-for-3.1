@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\model\bag;
+
 /**
  * @ignore
  */
@@ -21,7 +23,7 @@ if (!defined('IN_PHPBB'))
  * Class that holds all the posts that are
  * available in a category
  */
-class phpbb_ext_phpbbblog_model_bag_posts extends phpbb_ext_phpbbblog_model_bag_base
+class posts extends base
 {
 	/**
 	 * Load posts
@@ -38,7 +40,7 @@ class phpbb_ext_phpbbblog_model_bag_posts extends phpbb_ext_phpbbblog_model_bag_
 
 		foreach ($rowset as $row)
 		{
-			$this[] = new phpbb_ext_phpbbblog_model_object_post(array_shift($row), $row, $this->db);
+			$this[] = new phpbb_blog\blog\model\object\post(array_shift($row), $row, $this->db);
 		}
 	}
 }

@@ -17,7 +17,7 @@ class categories_test extends blog_database_test_case
 	public function test_load_bag()
 	{
 		$db = $this->new_dbal();
-		$category_bag = new phpbb_ext_phpbbblog_model_bag_categories('phpbb_blog_categories', $db);
+		$category_bag = new phpbb_blog\blog\model\bag\categories('phpbb_blog_categories', $db);
 		$category_bag->load();
 
 		$expected = array(
@@ -36,7 +36,7 @@ class categories_test extends blog_database_test_case
 	public function test_load_limited_bag()
 	{
 		$db = $this->new_dbal();
-		$category_bag = new phpbb_ext_phpbbblog_model_bag_categories('phpbb_blog_categories', $db);
+		$category_bag = new phpbb_blog\blog\model\bag\categories('phpbb_blog_categories', $db);
 		$category_bag->load(1);
 
 		$expected = array(
@@ -55,7 +55,7 @@ class categories_test extends blog_database_test_case
 	public function test_get_nonexisting_category()
 	{
 		$db = $this->new_dbal();
-		$category_bag = new phpbb_ext_phpbbblog_model_bag_categories('phpbb_blog_categories', $db);
+		$category_bag = new phpbb_blog\blog\model\bag\categories('phpbb_blog_categories', $db);
 		$category_bag->load();
 
 		$this->assertNull($category_bag->get_category(999));
@@ -64,7 +64,7 @@ class categories_test extends blog_database_test_case
 	public function test_get_categories()
 	{
 		$db = $this->new_dbal();
-		$category_bag = new phpbb_ext_phpbbblog_model_bag_categories('phpbb_blog_categories', $db);
+		$category_bag = new phpbb_blog\blog\model\bag\categories('phpbb_blog_categories', $db);
 		$category_bag->load();
 
 		$this->assertCount(2, $category_bag->get_categories());

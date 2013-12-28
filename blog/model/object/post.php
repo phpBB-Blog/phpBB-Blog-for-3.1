@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\model\object;
+
 /**
  * @ignore
  */
@@ -18,7 +20,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Class representing a given post
  */
-class phpbb_ext_phpbbblog_model_object_post extends phpbb_ext_phpbbblog_model_object_base
+class post extends base
 {
 	/**
 	 * Load the post data

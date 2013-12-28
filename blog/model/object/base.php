@@ -7,6 +7,8 @@
  *
  */
 
+namespace phpbb_blog\blog\model\object;
+
 /**
  * @ignore
  */
@@ -18,7 +20,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Base class for model objects
  */
-abstract class phpbb_ext_phpbbblog_model_object_base implements phpbb_ext_phpbbblog_model_object, ArrayAccess
+abstract class base implements object, \ArrayAccess
 {
 	/**
 	 * @var array The data for this object
