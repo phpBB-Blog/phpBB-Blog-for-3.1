@@ -20,7 +20,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Initial data changes needed for Extension installation
  */
-class m1_initial_data extends \phpbb\db\migration\migration
+class m2_initial_data extends \phpbb\db\migration\migration
 {
 	/**
 	 * @inheritdoc
