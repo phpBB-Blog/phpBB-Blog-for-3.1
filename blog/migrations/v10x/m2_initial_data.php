@@ -55,7 +55,6 @@ class m1_initial_data extends \phpbb\db\migration\migration
 				'ACP_CAT_DOT_MODS',
 				'ACP_BLOG_MANAGEMENT',
 			)),
-
 		);
 	}
 }
