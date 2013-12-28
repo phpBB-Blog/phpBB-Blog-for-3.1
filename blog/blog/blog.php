@@ -30,22 +30,24 @@ class blog
 	/** @var \phpbb\db\driver\driver */
 	private $db;
 
-	/** @var phpbb_blog\blog\display */
+	/** @var \phpbb_blog\blog\display */
 	private $display;
 
 	/** @var \phpbb\request\request */
 	private $request;
 
-	/** @var phpbb_blog\model\bag\categories */
+	/** @var \phpbb_blog\blog\model\bag\categories */
 	private $categories;
 
 	/**
-	 * @param ContainerBuilder $phpbb_container
+	 * Constructor method
+	 *
 	 * @param \phpbb\db\driver\driver $db
 	 * @param \phpbb\request\request $request
-	 * @param template $template
+	 * @param \phpbb_blog\blog\blog\display $display
+	 * @param \phpbb_blog\blog\model\bag\categories $categories
 	 */
-	public function __construct(\phpbb\db\driver\driver $db, \phpbb\request\request $request, phpbb_blog\blog\blog\display $display, phpbb_blog\blog\model\bag\categories $categories)
+	public function __construct(\phpbb\db\driver\driver $db, \phpbb\request\request $request, \phpbb_blog\blog\blog\display $display, \phpbb_blog\blog\model\bag\categories $categories)
 	{
 		$this->db			= $db;
 		$this->display		= $display;
