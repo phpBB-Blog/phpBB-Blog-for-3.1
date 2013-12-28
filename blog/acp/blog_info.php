@@ -26,7 +26,7 @@ class blog_info
 	{
 		return array(
 			'title'		=> 'ACP_BLOG_MANAGEMENT',
-			'version'	=> '0.0.1',
+			'version'	=> '1.0.0',
 			'modes'		=> array(
 				'overview'	=> array(
 					'title'	=> 'ACP_BLOG_MANAGEMENT',
