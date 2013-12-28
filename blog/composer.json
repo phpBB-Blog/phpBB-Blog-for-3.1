@@ -3,7 +3,6 @@
 	"type": "phpbb-extension",
 	"description": "A simple blog extension for phpBB 3.1.",
 	"homepage": "",
-	"version": "0.0.1",
 	"time": "2013-12-26 22:58:01",
 	"licence": "GPL-2.0",
 	"authors": [
