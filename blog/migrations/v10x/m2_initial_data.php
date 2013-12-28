@@ -36,8 +36,8 @@ class m1_initial_data extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return array(
-			array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'ACP_BLOG_CATEGORIES_MANAGEMENT')),
-			array('module.add', array('acp', 'ACP_BLOG_CATEGORIES_MANAGEMENT', array(
+			array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'ACP_BLOG_MANAGEMENT')),
+			array('module.add', array('acp', 'ACP_BLOG_MANAGEMENT', array(
 					'module_basename'	=> '\phpbb_blog\blog\acp\blog_module',
 					'modes'				=> array('overview'),
 			))),
@@ -53,7 +53,7 @@ class m1_initial_data extends \phpbb\db\migration\migration
 			array('module.remove', array(
 				'acp',
 				'ACP_CAT_DOT_MODS',
-				'ACP_BLOG_CATEGORIES_MANAGEMENT',
+				'ACP_BLOG_MANAGEMENT',
 			)),
 		);
 	}
