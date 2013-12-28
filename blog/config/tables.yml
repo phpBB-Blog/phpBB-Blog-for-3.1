@@ -1,3 +1,7 @@
 parameters:
     tables.blog.categories: %core.table_prefix%blog_categories
     tables.blog.posts: %core.table_prefix%blog_posts
+    tables.blog.comments: %core.table_prefix%blog_comments
+    tables.blog.tags: %core.table_prefix%blog_tags
+    tables.blog.post_tags: %core.table_prefix%blog_post_tags
+    tables.blog.post_categories: %core.table_prefix%blog_post_categories
