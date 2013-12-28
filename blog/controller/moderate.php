@@ -25,4 +25,24 @@ class moderate
 		$this->request = $request;
 		$this->display = $display;
 	}
+
+	public function main()
+	{
+		return $this->display->render('blog_moderate_main');
+	}
+
+	public function reportsView()
+	{
+		return $this->display->render('blog_moderate_reports');
+	}
+
+	public function report($id)
+	{
+		return $this->display->render('');
+	}
+
+	public function action($entity, $id, $action)
+	{
+		return $this->display->render('');
+	}
 }

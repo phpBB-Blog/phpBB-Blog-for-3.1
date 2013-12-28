@@ -25,4 +25,24 @@ class core
 		$this->request = $request;
 		$this->display = $display;
 	}
+
+	public function main()
+	{
+		return $this->display->render('blog_main');
+	}
+
+	public function categoryPostsView($category)
+	{
+		return $this->display->render('blog_category_view');
+	}
+
+	public function tagPostsView($tag)
+	{
+		return $this->display->render('blog_tag_view');
+	}
+
+	public function postView($identifier)
+	{
+		return $this->display->render('blog_post_view');
+	}
 }

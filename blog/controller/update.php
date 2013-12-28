@@ -25,4 +25,24 @@ class update
 		$this->request = $request;
 		$this->display = $display;
 	}
+
+	public function create($entity)
+	{
+		return $this->display->render('');
+	}
+
+	public function edit($entity, $id)
+	{
+		return $this->display->render('');
+	}
+
+	public function delete($entity, $id)
+	{
+		return $this->display->render('');
+	}
+
+	public function report($entity, $id)
+	{
+		return $this->display->render('');
+	}
 }
