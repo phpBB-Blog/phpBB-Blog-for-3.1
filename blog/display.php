@@ -7,7 +7,7 @@
  *
  */
 
-namespace phpbb_blog\blog\blog;
+namespace phpbb_blog\blog;
 
 /**
  * @ignore
