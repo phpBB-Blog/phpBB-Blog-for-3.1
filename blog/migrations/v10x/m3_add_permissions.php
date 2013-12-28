@@ -20,7 +20,7 @@ if (!defined('IN_PHPBB'))
 /**
  * Add the permissions this extension will use
  */
-class m1_add_permissions extends \phpbb\db\migration\migration
+class m3_add_permissions extends \phpbb\db\migration\migration
 {
 	/**
 	 * @inheritdoc
