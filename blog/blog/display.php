@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package phpBBBlog
- * @copyright (c) 2012 phpBBBlog group
+ * @package phpBB Blog
+ * @copyright (c) 2013 phpBB Blog group
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
@@ -22,16 +22,16 @@ if (!defined('IN_PHPBB'))
  */
 class display
 {
-	/** @var phpbb_controller_helper */
+	/** @var \phpbb\controller\helper */
 	private $helper;
 
-	/** @var phpbb_template */
+	/** @var \phpbb\template */
 	private $template;
 
-	/** @var phpbb_user */
+	/** @var \phpbb\user */
 	private $user;
 
-	public function __construct(phpbb_controller_helper $helper, phpbb_template $template, phpbb_user $user)
+	public function __construct(\phpbb\controller\helper $helper, \phpbb\template $template, \phpbb\user $user)
 	{
 		$this->helper	= $helper;
 		$this->template	= $template;
