@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package phpBBBlog
- * @copyright (c) 2012 phpBBBlog group
+ * @package phpBB Blog
+ * @copyright (c) 2013 phpBB Blog Group
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
@@ -40,7 +40,7 @@ class categories extends base
 
 		foreach ($rowset as $row)
 		{
-			$this[] = new phpbb_blog\blog\model_object_category(array_shift($row), $row, $this->db, $this->table);
+			$this[] = new \phpbb_blog\blog\model_object_category(array_shift($row), $row, $this->db, $this->table);
 		}
 	}
 
