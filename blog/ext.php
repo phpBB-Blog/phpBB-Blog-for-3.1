@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package phpBBBlog
- * @copyright (c) 2012 phpBBBlog group
+ * @package phpBB Blog
+ * @copyright (c) 2013 phpBB Blog Group
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
@@ -32,7 +32,7 @@ class ext implements \phpbb\extension\base
 	{
 		global $phpbb_container;
 
-		$this->installer = new phpbb_blog\blog\blog\installer(
+		$this->installer = new blog\installer(
 			$phpbb_container->get('dbal.conn'),
 			$phpbb_container->getParameter('core.root_path'),
 			".{$phpbb_container->getParameter('core.php_ext')}",

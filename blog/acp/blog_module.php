@@ -2,7 +2,7 @@
 /**
  *
  * @package phpBB Blog
- * @copyright (c) 2012 phpBBBlog group
+ * @copyright (c) 2013 phpBB Blog Group
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
@@ -36,7 +36,8 @@ class blog_module
 		$this->id	= $id;
 		$this->mode	= $mode;
 
-		if (method_exists($this, $mode))
+		// Modes are listed in docs/blog_acp_modes.md. Please ensure this is updated
+		if (method_exists($this, $mode) && $mode != 'main')
 		{
 			return call_user_func(array($this, $mode));
 		}
