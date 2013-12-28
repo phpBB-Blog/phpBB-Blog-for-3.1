@@ -23,7 +23,7 @@ create_view:
 	pattern: /blog/create/{entity}
 	defaults: { _controller: phpbb_blog.blog.controller.update:create }
 	requirements:
-		entity:  post|comment
+		entity:  post|comment|category
 
 # Page for editing things
 edit_view:
@@ -37,7 +37,7 @@ delete_view:
 	pattern: /blog/delete/{entity}
 	defaults: { _controller: phpbb_blog.blog.controller.update:delete }
 	requirements:
-		entity: post|comment|tag
+		entity: post|comment|tag|category
 
 report_submission:
 	pattern: /blog/report/{entity}/{id}
