@@ -33,7 +33,7 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 					'COLUMNS'	=> array(
 						'id'				=> array('UINT', NULL, 'auto_increment'),
 						'title'				=> array('VCHAR_UNI', ''),
-						'alias'				=> array('VCHAR_UNI', ''),
+						'slug'				=> array('VCHAR_UNI', ''),
 						'time'				=> array('UINT', 0),
 						'edit_time'			=> array('UINT', 0),
 						'edit_reason'		=> array('VCHAR_UNI', ''),
@@ -47,7 +47,7 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 					),
 					'PRIMARY_KEY'	=> 'id',
 					'KEYS'		=> array(
-						'alias'			=> array('UNIQUE', 'alias'),
+						'slug'			=> array('UNIQUE', 'slug'),
 						'poster_id'		=> array('INDEX', 'poster_id'),
 					),
 				),
@@ -75,12 +75,12 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 					'COLUMNS'	=> array(
 						'id'			=> array('UINT', NULL),
 						'title'			=> array('VCHAR_UNI', ''),
-						'alias'			=> array('VCHAR_UNI', ''),
+						'slug'			=> array('VCHAR_UNI', ''),
 						'post_count'	=> array('UINT', 0),
 					),
 					'PRIMARY_KEY'	=> 'id',
 					'KEYS'		=> array(
-						'alias'			=> array('UNIQUE', 'alias'),
+						'slug'			=> array('UNIQUE', 'slug'),
 					),
 				),
 
@@ -88,11 +88,11 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 					'COLUMNS'	=> array(
 						'id'			=> array('UINT', NULL),
 						'title'			=> array('VCHAR_UNI', ''),
-						'alias'			=> array('VCHAR_UNI', ''),
+						'slug'			=> array('VCHAR_UNI', ''),
 					),
 					'PRIMARY_KEY'	=> 'id',
 					'KEYS'		=> array(
-						'alias'			=> array('UNIQUE', 'alias'),
+						'slug'			=> array('UNIQUE', 'slug'),
 					),
 				),
 
