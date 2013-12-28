@@ -118,6 +118,10 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 					),
 				),
 			),
+
+			'add_permissions'		=> array(
+				array()
+			),
 		);
 	}
 
@@ -133,6 +137,7 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 				$this->table_prefix . 'blog_categories',
 				$this->table_prefix . 'blog_tags',
 				$this->table_prefix . 'blog_post_tags',
+				$this->table_prefix . 'blog_post_categories',
 			),
 		);
 	}
