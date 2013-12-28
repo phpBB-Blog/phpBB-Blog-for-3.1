@@ -2,8 +2,8 @@
 /**
  * Blog [English]
  *
- * @package phpBBBlog-language
- * @copyright (c) 2012 phpBBBlog group
+ * @package phpBB Blog-language
+ * @copyright (c) 2013 phpBB Blog Group
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
@@ -41,6 +41,6 @@ $lang = array_merge($lang, array(
 	'ACP_BLOG_CATEGORIES_MANAGEMENT'	=> 'Blog category management',
 	'ACP_BLOG_CATEGORIES_OVERVIEW'		=> 'Blog categories',
 
-	'ACP_BLOG_MANAGEMENT'				=> 'Blog control',
+	'ACP_BLOG_MANAGEMENT'				=> 'Blog Management',
 	'ACP_BLOG_MANAGEMENT_EXPLAIN'		=> 'Welcome in the administration area of the phpBB Blog extension.',
 ));

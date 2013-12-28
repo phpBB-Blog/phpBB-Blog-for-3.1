@@ -46,6 +46,6 @@ class blog_module
 	private function overview()
 	{
 		$this->tpl_name		= 'acp_blog_overview';
-		$this->page_title	= '';
+		$this->page_title	= 'ACP_BLOG_MANAGEMENT';
 	}
 }

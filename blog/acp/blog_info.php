@@ -26,6 +26,7 @@ class blog_info
 	{
 		return array(
 			'title'		=> 'ACP_BLOG_MANAGEMENT',
+			'filename'	=> '\phpbb_blog\blog\acp\blog_module',
 			'version'	=> '0.0.1',
 			'modes'		=> array(
 				'overview'	=> array(
