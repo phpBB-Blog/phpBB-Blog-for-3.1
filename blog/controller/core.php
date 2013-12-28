@@ -76,7 +76,7 @@ class core
 		$categories = $this->categories->getCategorySimpleList();
 		if (!in_array($category, $categories))
 		{
-			throw new exception('This is not a valid category'); // TODO: Fix exceptions
+			trigger_error('This is not a valid category'); // TODO: Turn this into a language variable.
 		}
 
 		$posts = $this->posts->getPosts(false, $this->config['blog_frontpage_posts'], 'desc',  $category);
