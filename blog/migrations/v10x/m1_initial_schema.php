@@ -40,14 +40,13 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 						'status'			=> array('UINT', 0),
 						'locked'			=> array('TINT:1', 0),
 						'poster_id'			=> array('UINT', 0),
-						'comment_count'		=> array('VCHAR_UNI', ''),
+						'comment_count'		=> array('UINT', 0),
 						'content'			=> array('TEXT', ''),
 						'bbcode_uid'		=> array('VCHAR_UNI', ''),
 						'bbcode_bitfield'	=> array('VCHAR_UNI', ''),
 					),
 					'PRIMARY_KEY'	=> 'id',
 					'KEYS'		=> array(
-						'time'			=> array('UNIQUE', 'time'),
 						'alias'			=> array('UNIQUE', 'alias'),
 						'poster_id'		=> array('INDEX', 'poster_id'),
 					),
@@ -56,7 +55,7 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 				$this->table_prefix . 'blog_comments'	=> array(
 					'COLUMNS'	=> array(
 						'id'				=> array('UINT', NULL, 'auto_increment'),
-						'post_id'			=> array('VCHAR_UNI', ''),
+						'post_id'			=> array('UINT', 0),
 						'time'				=> array('UINT', 0),
 						'edit_time'			=> array('UINT', 0),
 						'edit_reason'		=> array('VCHAR_UNI', ''),
@@ -68,7 +67,6 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 					),
 					'PRIMARY_KEY'	=> 'id',
 					'KEYS'		=> array(
-						'time'			=> array('UNIQUE', 'time'),
 						'poster_id'		=> array('INDEX', 'poster_id'),
 					),
 				),
