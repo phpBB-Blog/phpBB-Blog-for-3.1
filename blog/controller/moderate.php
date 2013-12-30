@@ -33,6 +33,8 @@ class moderate
 
 	public function reportsView()
 	{
+		$reports = $this->reports->getReports(5, false);
+
 		return $this->display->render('moderate_reports');
 	}
 
