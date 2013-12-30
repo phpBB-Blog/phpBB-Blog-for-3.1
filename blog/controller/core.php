@@ -68,7 +68,7 @@ class core
 			));
 		}
 
-		return $this->display->render('blog_main');
+		return $this->display->render('main');
 	}
 
 	public function categoryPostsView($category)
@@ -86,7 +86,7 @@ class core
 			'CATEGORY' => $category,
 		));
 
-		return $this->display->render('blog_category_view');
+		return $this->display->render('category_view');
 	}
 
 	public function tagPostsView($tag)
@@ -104,7 +104,7 @@ class core
 			'TAG' => $tag,
 		));
 
-		return $this->display->render('blog_tag_view');
+		return $this->display->render('tag_view');
 	}
 
 	public function postView($identifier)
@@ -122,7 +122,7 @@ class core
 
 		// TODO: Output post & comment data to template
 
-		return $this->display->render('blog_post_view');
+		return $this->display->render('post_view');
 	}
 
 	private function assign_block_posts($posts)

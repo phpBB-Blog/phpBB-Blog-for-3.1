@@ -43,7 +43,7 @@ class display
 		// Build the navlinks
 		$this->gen_nav_links();
 
-		$html_file = rtrim($html_file, '.html') . '.html';
+		$html_file = 'blog/' . rtrim($html_file, '.html') . '.html';
 		return $this->helper->render($html_file);
 	}
 
