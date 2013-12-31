@@ -27,7 +27,7 @@ class core
 	* @param \phpbb\request\request 		$request  	Request Object
 	* @param \phpbb_blog\blog\display 	$display 	Display Helper Object
 	*/
-	public function __construct(\phpbb\request\request $request, \phpbb_blog\blog\display $display, \phpbb\config\config $config, \phpbb_blog\blog\operations\posts $posts, \phpbb_blog\blog\operations\tags $tags, \phpbb_blog\blog\operations\categories $categories, \phpbb_blog\blog\operations\comments $comments, \phpbb\template\template $template)
+	public function __construct(\phpbb\request\request $request, \phpbb_blog\blog\display $display, \phpbb\config\config $config, \phpbb_blog\blog\operators\posts $posts, \phpbb_blog\blog\operators\tags $tags, \phpbb_blog\blog\operators\categories $categories, \phpbb_blog\blog\operators\comments $comments, \phpbb\template\template $template)
 	{
 		$this->request = $request;
 		$this->display = $display;
