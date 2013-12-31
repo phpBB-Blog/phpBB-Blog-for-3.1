@@ -57,4 +57,6 @@ interface tag
 	 * @access public
 	 */
 	public function deleteOrphanTags()
+
+	public function recalculatePosts()
 }

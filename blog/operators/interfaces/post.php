@@ -58,4 +58,6 @@ interface post
 	public function approvePost($id)
 
 	public function disapprovePost($id)
+
+	public function recalculateComments($id)
 }
