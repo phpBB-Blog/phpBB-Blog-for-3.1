@@ -46,7 +46,7 @@ class core
 		$posts = $this->posts->getPosts(false, $this->config['blog_frontpage_posts'], 'desc');
 		// Most number of posts first
 		$tags = $this->tags->getTagsArray($this->config['blog_show_unused_tags'], 'size');
-		$categories = $this->categories->getCategoryArray($this->config['blog_show_unused_cats'], 'largest');
+		$categories = $this->categories->getCategoryArray($this->config['blog_show_unused_cats'], 'size');
 
 		$this->assign_block_posts($posts);
 
