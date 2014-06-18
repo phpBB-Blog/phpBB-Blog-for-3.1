@@ -1,19 +1,23 @@
 # Home
+# Complete
 main:
     pattern: /blog
     defaults: { _controller: phpbb_blog.blog.controller.core:main }
 
 # Lists posts in a category
+# Complete
 category:
     pattern: /blog/category/{category}
     defaults: { _controller: phpbb_blog.blog.controller.core:categoryPostsView }
 
 # Lists posts with an assosiated tag
+# Complete
 tag:
     pattern: /blog/tag/{tag}
     defaults: { _controller: phpbb_blog.blog.controller.core:tagPostsView }
 
 # Page for a blog post. Note: identifier might the the alias or numeric id
+# Complete
 post:
 	pattern: /blog/{identifier}
 	defaults: { _controller: phpbb_blog.blog.controller.core:postView }
@@ -23,7 +27,7 @@ create_view:
 	pattern: /blog/create/{entity}
 	defaults: { _controller: phpbb_blog.blog.controller.update:create }
 	requirements:
-		entity:  post|comment|category
+		entity:  post|comment|category # These are the only entities for creating
 
 # Page for editing things
 edit_view:
@@ -31,7 +35,7 @@ edit_view:
 	defaults: { _controller: phpbb_blog.blog.controller.update:edit }
 	requirements:
 		entity: post|comment
-		id: \d+
+		id: \d+ # Must be a number
 
 # Page for deleting things
 delete_view:
@@ -41,6 +45,7 @@ delete_view:
 		entity: post|comment|tag|category
 		id: \d+
 
+# Page for reporting entities
 report_submission:
 	pattern: /blog/report/{entity}/{id}
 	defaults: { _controller: phpbb_blog.blog.controller.update:report }

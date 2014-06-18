@@ -26,12 +26,6 @@ class blog_module
 	/** @var string */
 	public $u_action;
 
-	/** @var string */
-	public $tpl_name;
-
-	/** @var string */
-	public $page_title;
-
 	public function main($id, $mode)
 	{
 		$this->id	= $id;

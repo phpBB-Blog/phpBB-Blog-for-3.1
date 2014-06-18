@@ -7,6 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
+
 namespace phpbb_blog\blog\controller;
 
 class core
@@ -24,14 +25,13 @@ class core
 	/**
 	* Constructor
 	*
-	* @param \phpbb\request\request 		$request  	Request Object
-	* @param \phpbb_blog\blog\display 	$display 	Display Helper Object
 	*/
 	public function __construct(\phpbb\request\request $request, \phpbb_blog\blog\display $display, \phpbb\config\config $config, \phpbb_blog\blog\operators\posts $posts, \phpbb_blog\blog\operators\tags $tags, \phpbb_blog\blog\operators\categories $categories, \phpbb_blog\blog\operators\comments $comments, \phpbb\template\template $template)
 	{
 		$this->request = $request;
 		$this->display = $display;
 
+		// TODO: Re-order all the params to be in alphabetical order
 		$this->config = $config;
 		$this->posts = $posts;
 		$this->tags = $tags;
@@ -40,16 +40,22 @@ class core
 		$this->template = $template;
 	}
 
+	/**
+	 * Frontpage Controller
+	 */
 	public function main()
 	{
-		// load comments, number of posts, order
+		// Load Posts: load comments, number of posts, order
 		$posts = $this->posts->getPosts(false, $this->config['blog_frontpage_posts'], 'desc');
-		// Most number of posts first
+		// Get tags: Should we show unused tags? Most number of posts in cat first
 		$tags = $this->tags->getTagsArray($this->config['blog_show_unused_tags'], 'size');
+		// Get Categoires: Should we show unused categories?  Most number of posts in cat first
 		$categories = $this->categories->getCategoryArray($this->config['blog_show_unused_cats'], 'size');
 
+		// Output blog entries to template
 		$this->assign_block_posts($posts);
 
+		// Output tags to template
 		foreach ($tags as $tag)
 		{
 			$this->template->assign_block_vars('tag', array(
@@ -59,6 +65,7 @@ class core
 			));
 		}
 
+		// Output categories to template
 		foreach ($categories as $cat)
 		{
 			$this->template->assign_block_vars('cat', array(
@@ -120,8 +127,54 @@ class core
 
 		$comments = $this->comments->getCommentsByPost($postData['id']);
 
-		// TODO: Output post & comment data to template
+		// Parse bbcodes used in blog posting
+		$blogMessage = generate_text_for_display(
+			$postdata['message_text'],
+			$postData['message_uid'],
+			$postData['message_bitfield'],
+			$postData['message_options']
+		);
 
+		// Output blog post data
+		$this->template->assign_vars(array(
+			'BLOG_ID'					=> $postData['blog_id'],
+			'BLOG_MESSAGE' 				=> $blogMessage,
+			'BLOG_POSTER'				=> $postData['poster_name'],
+			'BLOG_POSTER_LINK'			=> $postData['poster_link'],
+			'BLOG_POSTER_COLOUR'		=> $postData['poster_colour'],
+			'BLOG_TITLE'				=> $postData['blog_title'],
+			'COMMENT_COUNT'				=> $postData['comment_count'],
+			'BLOG_LAST_EDIT_TIME'		=> $postData['last_edit_time'],
+			'BLOG_EDIT_NUMBER'			=> $postData['edit_number'],
+			'BLOG_LAST_EDITOR'			=> $postData['last_editor'],
+			'BLOG_LAST_EDITOR_COLOUR'	=> $postData['last_editor_colour'],
+		));
+
+		foreach ($comments as $comment)
+		{
+			// Parse comment bbcode
+			$commentMessage = generate_text_for_display(
+				$comment['message_text'],
+				$comment['message_uid'],
+				$comment['message_bitfield'],
+				$comment['message_options']
+			);
+
+			// Output comment data
+			$this->template->assign_block_vars('comment', array(
+				'ID' 			=> $comment['id'],
+				'CONTENT'		=> $commentMessage,
+				'TITLE'			=> $comment['title'],
+				'CONTENT'		=> $comment['content'],
+				'COMMENT_COUNT'	=> $comment['comment_count'],
+				'POSTER_NAME'	=> $comment['poster_name'],
+				'POSTER_COLOUR' => $comment['poster_colour'],
+				'POSTER_LINK'	=> $comment['poster_link'],
+				'STATUS'		=> $comment['status'],
+			));
+		}
+
+		// Todo: Add links template variables
 		return $this->display->render('post_view');
 	}
 
@@ -129,14 +182,25 @@ class core
 	{
 		foreach ($posts as $post)
 		{
+			$blogMessage = generate_text_for_display(
+				$postdata['message_text'],
+				$postData['message_uid'],
+				$postData['message_bitfield'],
+				$postData['message_options']
+			);
+
+			// TODO refactor this so this function outputs the array below and
+			// the assign_block_vars magic is done elsewhere so this can be
+			// used for getting individual posts too
 			$this->template->assign_block_vars('post', array(
 				'ID' 	=> $post['id'],
 				'LINK'	=> $post['link'],
 				'TITLE'	=> $post['title'],
-				'CONTENT'	=> $post['content'],
+				'CONTENT'	=> $blogMessage,
 				'COMMENT_COUNT'	=> $post['comment_count'],
 				'POSTER_NAME'	=> $post['poster_name'],
-				'POSTER_LINK'	=> $post['name'],
+				'POSTER_COLOUR' => $post['poster_colour'],
+				'POSTER_LINK'	=> $post['poster_link'],
 				'CATEGORY'		=> $post['category'], // TODO: Make this plural later
 			));
 		}

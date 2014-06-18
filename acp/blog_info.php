@@ -32,7 +32,7 @@ class blog_info
 			'modes'		=> array(
 				'overview'	=> array(
 					'title'	=> 'ACP_BLOG_MANAGEMENT',
-					'auth'	=> 'acl_a_blog',
+					'auth'	=> 'ext_phpbb-blog/blog && acl_a_blog',
 					'cat'	=> array(
 						'ACP_BLOG_MANAGEMENT',
 					),

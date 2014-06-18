@@ -37,6 +37,6 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'BLOG_COPYRIGHT'	=> 'Blog &copy; %s',
+	'BLOG_COPYRIGHT'	=> 'phpBB Blog Extension by Michael Cullum, David King & Erik Frerejean',
 	'BLOG_MAIN'			=> 'Blog',
 ));

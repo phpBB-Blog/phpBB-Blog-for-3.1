@@ -7,18 +7,12 @@ services:
         arguments:
             - @request
             - @blog.display
-
-    phpbb_blog.blog.controller.update:
-        class: phpbb_blog\blog\controller\update
-        arguments:
-            - @request
-            - @blog.display
-
-    phpbb_blog.blog.controller.moderate:
-        class: phpbb_blog\blog\controller\moderate
-        arguments:
-            - @request
-            - @blog.display
+            - @config
+            - @phpbb_blog.blog.operator.posts
+            - @phpbb_blog.blog.operator.tags
+            - @phpbb_blog.blog.operator.categories
+            - @phpbb_blog.blog.operator.comments
+            - @template
 
     phpbb_blog.blog.display:
         class: phpbb_blog\blog\display
