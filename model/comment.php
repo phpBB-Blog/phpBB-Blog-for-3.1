@@ -1,11 +1,12 @@
 <?php
 /**
- *
- * @package phpBB Blog
- * @copyright (c) 2013 phpBB Blog group
- * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
- *
- */
+*
+* Blog extension for the phpBB Forum Software package.
+*
+* @copyright (c) 2014 phpBB Blog Group
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+*/
 
 namespace phpbb_blog\blog\model;
 
