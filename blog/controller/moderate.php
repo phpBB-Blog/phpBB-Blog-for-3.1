@@ -28,12 +28,14 @@ class moderate
 
 	public function main()
 	{
-		return $this->display->render('blog_moderate_main');
+		return $this->display->render('moderate_main');
 	}
 
 	public function reportsView()
 	{
-		return $this->display->render('blog_moderate_reports');
+		$reports = $this->reports->getReports(5, false);
+
+		return $this->display->render('moderate_reports');
 	}
 
 	public function report($id)
