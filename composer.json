@@ -27,7 +27,7 @@
 			"email": "erikfrerejean@gmail.com",
 			"homepage": "http://leximosi.github.com",
 			"role": "Former Developer"
-		},
+		}
 	],
 	"require": {
 		"php": ">=5.3.3",
